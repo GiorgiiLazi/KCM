@@ -1,19 +1,5 @@
-# kcm
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# KCM
+Construction site
+>>>>>>> b4a88d602a335d12b2515c2bedc669d6d4ba5bc0
