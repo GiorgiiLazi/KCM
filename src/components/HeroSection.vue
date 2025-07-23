@@ -51,19 +51,25 @@
 
 
 .text-block {
-  background: #005689; 
+  background: #005689;
+  padding: 20px; 
   min-height: 300px;
   min-width: 200px;
   max-width: 500px;
   flex-wrap: nowrap;
   border-radius: 12px;
   text-align: left;
+  z-index: 3;
+  
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  
 }
 .img-holder{
   width: 50%;
