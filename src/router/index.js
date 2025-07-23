@@ -1,12 +1,11 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Advantages from '@/views/Advantages.vue'
-import Contacs from '@/views/Contacs.vue'
-import References from '@/views/References.vue'
 import Services from '@/views/Services.vue'
-import Objects from '@/views/Objects.vue'
-import Examples from '@/views/Examples.vue'
 import About from '@/views/About.vue'
+import NotFound from '@/views/notFound.vue'
+import Examples from '@/views/Examples.vue'
+import ContactForm from '@/views/ContactForm.vue'
+
 
 const routes = [
   {
@@ -20,14 +19,9 @@ const routes = [
     component: About
   },
   {
-    path: '/advantages',
-    name: 'advantages',
-    component: Advantages
-  },
-  {
-    path: '/contacts',
-    name: 'contacts',
-    component: Contacs
+    path: '/services',
+    name: 'services',
+    component: Services
   },
   {
     path: '/examples',
@@ -35,24 +29,17 @@ const routes = [
     component: Examples
   },
   {
-    path: '/references',
-    name: 'references',
-    component: References
+    path:'/contact',
+    name: 'contact',
+    component: ContactForm
   },
-  {
-    path: '/services',
-    name: 'services',
-    component: Services
-  },
-  {
-    path: '/objects',
-    name: 'objects',
-    component: Objects
-  },
+  { path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: NotFound },
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

@@ -1,6 +1,11 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    133
-  </div>
+  
+<HeroSection></HeroSection>
 </template>
+
+<script setup>
+import HeroSection from '../components/HeroSection.vue'
+</script>
+
+<style scoped>
+</style>
