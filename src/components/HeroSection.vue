@@ -1,4 +1,5 @@
 <template>
+  <div>
   <section class="section firstSection">
     <div class="container">
         <div class="text-block">
@@ -22,6 +23,7 @@
         <img loading="lazy" src="@/assets/construction2.png" alt="construction picture">
     </div>
   </section>
+  </div>
 
 </template>
 

@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="background">
     <NavRouter/>
     
@@ -7,10 +8,16 @@
     <NavContacts/>
     
   </div>
-  <Transition name="fade">
-     <router-view/>
-  </Transition>
  
+
+<router-view v-slot="{ Component }">
+  <transition name="fade">
+    <component :is="Component" />
+  </transition>
+</router-view>
+</div>
+
+
 </template>
 
 <script setup>
@@ -43,13 +50,15 @@ import NavContacts from './components/NavContacts.vue';
   background-repeat: no-repeat;
   background-position: center;
 }
-.fade-enter-from, .fade-leave-to{
-  opacity: 0
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
-.fade-enter-to, .fade-leave-from{
-  transition: 0.5s all ease
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
 }
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
 
 

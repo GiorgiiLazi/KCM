@@ -1,11 +1,9 @@
 <template>
-  <ClientForm/>
+  <ClientForm />
 </template>
 
 <script setup>
-import ClientForm from '@/components/ClientForm.vue';
+import ClientForm from "@/components/ClientForm.vue";
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

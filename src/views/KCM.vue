@@ -1,5 +1,4 @@
 <template>
-  
 <HeroSection></HeroSection>
 </template>
 
