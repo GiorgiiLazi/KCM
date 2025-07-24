@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import { reactive } from 'vue' 
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

@@ -40,14 +40,14 @@ const routes = [
     name: 'gallery',
     component: Gallery
   },
-  { path: '/:pathMatch(.*)*', 
-    name: 'NotFound', 
-    component: NotFound 
-  },
   {
     path:'/services/:servicedesc',
     name:'servicedesk',
     component: ServiceDetail
+  },
+  { path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: NotFound 
   }
 ]
 
