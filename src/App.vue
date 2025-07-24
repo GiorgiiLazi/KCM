@@ -7,7 +7,10 @@
     <NavContacts/>
     
   </div>
-  <router-view/>
+  <Transition name="fade">
+     <router-view/>
+  </Transition>
+ 
 </template>
 
 <script setup>
@@ -39,6 +42,12 @@ import NavContacts from './components/NavContacts.vue';
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+.fade-enter-from, .fade-leave-to{
+  opacity: 0
+}
+.fade-enter-to, .fade-leave-from{
+  transition: 0.5s all ease
 }
 
 

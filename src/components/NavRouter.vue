@@ -2,9 +2,8 @@
   <nav :class="['nav-2', { sticky: isSticky }]">
     <div class="router-container">
       <router-link to="/">Главная</router-link>
-      <router-link to="/about">КСМ</router-link>
+      <router-link to="/kcm">КСМ</router-link>
 
-      <!-- Выпадающее меню "Услуги" -->
       <div class="dropdown">
         <div class="dropdown-trigger">
           <span class="menu-label">Услуги</span>
@@ -118,14 +117,16 @@ onUnmounted(() => {
 }
 
 .router-container a {
+  text-align: center;
   color: white;
   text-decoration: none;
   padding: 10px 15px;
   font-size: 1.2em;
+  width: 100%;
   transition: background 0.2s;
 }
 
-.router-container a:hover {
+.router-container a:hover  {
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -140,6 +141,11 @@ nav a.router-link-exact-active {
   align-items: center;
   color: white;
   cursor: pointer;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  width: 100%;
+  font-size: 1.2em;
 }
 
 .dropdown-trigger {
@@ -149,6 +155,7 @@ nav a.router-link-exact-active {
 }
 
 .dropdownContent {
+  font-size: 0.8em;
   position: absolute;
   top: 100%;
   left: 0;
@@ -174,7 +181,4 @@ nav a.router-link-exact-active {
   white-space: nowrap;
 }
 
-/* .dropdownItem:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-} */
 </style>

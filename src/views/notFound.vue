@@ -4,6 +4,7 @@
   <div class="image-holder">
     <img src="@/assets/confused.png" alt="страница не существует">
   </div>
+  
   </div>
   
 </template>

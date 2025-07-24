@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ $route.params.servicedesc }}</h1>
+  <h1 style="color:black">{{ $route.params.servicedesc }}</h1>
 </template>
 
 <script setup>

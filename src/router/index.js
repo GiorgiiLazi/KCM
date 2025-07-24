@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Services from '@/views/Services.vue'
-import About from '@/views/About.vue'
+import KCM from '@/views/KCM.vue'
 import NotFound from '@/views/notFound.vue'
 import Examples from '@/views/Examples.vue'
 import ContactForm from '@/views/ContactForm.vue'
@@ -16,9 +16,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About
+    path: '/kcm',
+    name: 'kcm',
+    component: KCM
   },
   {
     path: '/services',
