@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="img-holder">
-        <img src="@/assets/construction1.png" alt="изображение стройки1">
+        <img loading="lazy" src="@/assets/construction1.png" alt="construction picture">
     </div>
   </section>
 
@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="img-holder">
-        <img src="@/assets/construction2.png" alt="изображение стройки2">
+        <img loading="lazy" src="@/assets/construction2.png" alt="construction picture">
     </div>
   </section>
 
@@ -47,15 +47,16 @@
   display: flex;
   justify-content: center; 
   align-items: center;
+  aspect-ratio: 16/9;
+  flex-grow: 1;
 }
 
 
 .text-block {
   background: #005689;
   padding: 20px; 
-  min-height: 300px;
-  min-width: 200px;
-  max-width: 500px;
+  min-height: 40vh;
+  max-width: 70%;
   flex-wrap: nowrap;
   border-radius: 12px;
   text-align: left;

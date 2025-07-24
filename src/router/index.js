@@ -5,6 +5,8 @@ import About from '@/views/About.vue'
 import NotFound from '@/views/notFound.vue'
 import Examples from '@/views/Examples.vue'
 import ContactForm from '@/views/ContactForm.vue'
+import Gallery from '@/views/Gallery.vue'
+import ServiceDetail from '@/views/ServiceDetail.vue'
 
 
 const routes = [
@@ -33,9 +35,20 @@ const routes = [
     name: 'contact',
     component: ContactForm
   },
+  {
+    path:'/gallery',
+    name: 'gallery',
+    component: Gallery
+  },
   { path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
-    component: NotFound },
+    component: NotFound 
+  },
+  {
+    path:'/services/:servicedesc',
+    name:'servicedesk',
+    component: ServiceDetail
+  }
 ]
 
 const router = createRouter({

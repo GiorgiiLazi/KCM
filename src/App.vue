@@ -1,8 +1,11 @@
 <template>
   <div class="background">
-    <NavContacts/>
-    <Title></Title>
     <NavRouter/>
+    
+    <Title></Title>
+
+    <NavContacts/>
+    
   </div>
   <router-view/>
 </template>

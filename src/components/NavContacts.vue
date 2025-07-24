@@ -1,7 +1,7 @@
 <template>
   <nav class="nav-1">
     <div class="icon-container">
-      <img src="@/assets/main-icon.png" alt="КСМ">
+      <img src="@/assets/main-icon2.png" alt="КСМ">
     </div>
 
     <div class="contacts-container">
@@ -15,12 +15,12 @@
   
   <div class="contact-item">
     <a href="mailto:173797m@gmail.com">
-      <a href="mailto:173797m@gmail.com">
+      <span>
         <i class="fa-solid fa-envelope" style="font-size:48px;color:red"></i>
-      </a>
+      </span>
     </a>
     <label>Email</label>
-    <p><a href="mailto:173797m@gmail.com">173797m@gmail.com</a></p>
+    <p><a href="mailto:173797m@gmail.com">info.ck.ksm@gmail.com</a></p>
   </div>
   
   <div class="contact-item">
@@ -43,9 +43,11 @@
 
 <style scoped>
 .nav-1{
+  position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 .icon-container{
   max-width: 10%;

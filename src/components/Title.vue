@@ -13,6 +13,8 @@
 
 <style scoped>
 .title-app{
+  position: relative;
+  bottom: 100px;
   color:#d5eeff; 
   align-self: center;
   justify-self: center;
@@ -23,6 +25,7 @@
   position: absolute;
   font-size: 1.2em;
   font-family: "Oswald", sans-serif;
+  text-shadow: 4px 4px 2px rgba(0,0,0,0.6);
 }
 .title-app a{
   text-decoration: none;

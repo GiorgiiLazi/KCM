@@ -10,12 +10,16 @@
         <input type="text" id="title" name="title" required>
       </div>
       <div>
-        <label for="name">Имя </label>
+        <label for="name">Имя</label>
         <input type="text" id="name" name="name" required>
       </div>
       <div>
         <label for="phone">Телефон</label>
         <input type="tel" id="phone" name="phone" required>
+      </div>
+       <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
       </div>
       <div>
         <label for="message">Сообщение</label>
@@ -33,18 +37,14 @@ import { ref } from 'vue';
 
 const formRef = ref(null)
 const sendEmail = () => {
-      emailjs
-        .sendForm('service_9qca6da', 'template_0pgn3ai', formRef.value,  {
+      emailjs.sendForm('service_9qca6da', 'template_0pgn3ai', formRef.value,  {
           publicKey: 'vmHbJr8v9mlNGgKHM', 
         })
-        .then(
-          () => {
-            alert('Ваше сообщение успешно отправлено');
-          },
-          (error) => {
-            alert('Ваше сообщение не было отправлено', error.text);
-          },
-        );
+        .then(() => {
+          alert('Ваше сообщение успешно отправлено');
+          }
+        )
+        .catch(error => {alert(error.text)})
     }
 
  
