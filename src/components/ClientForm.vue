@@ -6,23 +6,23 @@
     </div>
     <form ref="formRef" @submit.prevent="sendEmail">
       <div>
-        <label for="subject">Тема сообщения</label>
+        <label for="subject">Тема сообщения*</label>
         <input type="text" id="title" name="title" required>
       </div>
       <div>
-        <label for="name">Имя</label>
+        <label for="name">Имя*</label>
         <input type="text" id="name" name="name" required>
       </div>
       <div>
-        <label for="phone">Телефон</label>
+        <label for="phone">Телефон*</label>
         <input type="tel" id="phone" name="phone" required>
       </div>
        <div>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email">
       </div>
       <div>
-        <label for="message">Сообщение</label>
+        <label for="message">Сообщение*</label>
         <textarea id="message" name="message" required></textarea>
       </div>
       <button type="submit">Отправить</button>

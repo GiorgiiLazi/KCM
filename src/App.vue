@@ -1,65 +1,61 @@
 <template>
   <div>
-  <div class="background">
-    <NavRouter/>
-    
-    <Title></Title>
+    <div class="background">
+      <NavRouter />
 
-    <NavContacts/>
-    
+      <Title></Title>
+
+      <NavContacts />
+
+   
+    </div>
+
+    <router-view></router-view>
   </div>
- 
 
-<router-view v-slot="{ Component }">
-  <transition name="fade">
-    <component :is="Component" />
-  </transition>
-</router-view>
-</div>
-
-
+     <HeroSection v-if="$route.path === '/'" />
+     <ClientForm v-if="$route.path === '/'" />
 </template>
 
 <script setup>
-import Title from './components/Title.vue';
-import NavRouter from './components/NavRouter.vue';
-import NavContacts from './components/NavContacts.vue';
-
-
-
-
+import Title from "./components/Title.vue";
+import NavRouter from "./components/NavRouter.vue";
+import NavContacts from "./components/NavContacts.vue";
+import HeroSection from "./components/HeroSection.vue";
+import ClientForm from "./components/ClientForm.vue";
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-#app, body, html {
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+#app,
+body,
+html {
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif;
   padding: 0;
   margin: 0;
   color: white;
-  background: #d5eeff; 
+  background: #d5eeff;
 }
-.background{
-  position:relative;
-  height: 75vh;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-    url('@/assets/photo1.jpg'); 
+.background {
+  position: relative;
+  height: 35vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url("@/assets/photo1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
-.fade-enter-to, .fade-leave-from {
+.fade-enter-to,
+.fade-leave-from {
   opacity: 1;
 }
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s ease;
 }
-
-
-
 </style>

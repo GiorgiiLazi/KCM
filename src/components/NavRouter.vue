@@ -13,7 +13,7 @@
         <div class="dropdownContent">
           <ul class="dropdownList">
             <li v-for="service in servicesList" :key="service.id" class="dropdownItem">
-             <router-link 
+             <router-link class="dropdownRouter"
   :to="{ name: 'servicedesk', params: { servicedesc: toSlug(service.name )} }">
   {{ service.name }}
 </router-link>
@@ -32,6 +32,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, reactive} from 'vue';
 import { useRoute } from 'vue-router';
+import { toSlug } from '@/composables/toSlug';
 
 const servicesList = reactive([
   {name: "🏡 Строительство домов и коттеджей", id: 1 },
@@ -46,23 +47,8 @@ const servicesList = reactive([
   {name: "🌳 Ландшафтный дизайн ", id: 10 }
 ])
 
-function toSlug(text) {
-  const translitMap = {
-    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y',
-    'к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f',
-    'х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'
-  };
-
-  return text
-    .toLowerCase()
-    .replace(/[а-яё]/g, char => translitMap[char] || '') // Транслитерация
-    .replace(/[^a-z0-9]+/g, '-')                         // Заменить не латинские символы на тире
-    .replace(/^-+|-+$/g, '')                             // Убрать начальные/конечные тире
-    .replace(/-{2,}/g, '-');                             // Убрать повторяющиеся тире
-}
 const route = useRoute()
 const slug = route.params.slug
-
 
 const isSticky = ref(false);
 const handleScroll = () => {
@@ -85,6 +71,13 @@ onUnmounted(() => {
   background-color: transparent;
   padding: 20px;
   z-index: 1000;
+}
+.menu-label{
+  color:white;
+  align-self: center;
+}
+.menu-labela:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-2.sticky {
@@ -116,69 +109,100 @@ onUnmounted(() => {
   width: 100%;
 }
 
-.router-container a {
-  text-align: center;
+/* Общий стиль для ссылок */
+.router-container a,
+.dropdownRouter {
   color: white;
+  text-align: left;
   text-decoration: none;
-  padding: 10px 15px;
-  font-size: 1.2em;
-  width: 100%;
-  transition: background 0.2s;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+  display: block;
 }
 
-.router-container a:hover  {
-  background: rgba(255, 255, 255, 0.1);
+/* Hover-эффект */
+.router-container a:hover,
+.dropdownRouter:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-nav a.router-link-exact-active {
-  background: rgba(15, 82, 252, 0.5);
-}
-
+/* Контейнер выпадающего меню */
 .dropdown {
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  color: white;
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  width: 100%;
-  font-size: 1.2em;
 }
 
+/* Триггер (кнопка/текст + стрелка) */
 .dropdown-trigger {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  gap: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  user-select: none;
+  font-size: 14px;
+  color: white;
 }
 
+/* Анимация стрелки при hover */
+.arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+}
+
+/* Контент dropdown */
 .dropdownContent {
-  font-size: 0.8em;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #005689;
-  display: none;
-  flex-direction: column;
-  padding: 10px;
-  border-radius: 0 0 6px 6px;
-  min-width: 250px;
-  z-index: 1000;
+  background-color: #005689;
+  font-family: "Roboto", sans-serif;
+  border-radius: 8px;
+  padding: 6px 0;
+  margin-top: 4px;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  min-width: max-content;
+  max-width: 260px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  z-index: 10000;
 }
 
+/* Показывать dropdown при hover */
 .dropdown:hover .dropdownContent {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-.dropdownItem {
-  width: 100%;
+/* Список внутри dropdown */
+.dropdownList {
   list-style: none;
-  padding: 8px 12px;
-  color: white;
-  cursor: pointer;
-  white-space: nowrap;
+  padding: 0;
+  margin: 0;
 }
 
+/* Отдельный пункт меню */
+.dropdownItem {
+  padding: 2px 0;
+}
+
+/* router-link внутри dropdown */
+.dropdownRouter {
+  display: block;
+}
 </style>
