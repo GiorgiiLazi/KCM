@@ -1,20 +1,23 @@
 <template>
-  <div>
+  <div class="app-container">
     <div class="background">
       <NavRouter />
-
-      <Title></Title>
-
       <NavContacts />
-
-   
     </div>
 
-    <router-view></router-view>
-  </div>
+    <!-- Заголовок отображается поверх background -->
+    <div class="title-wrapper">
+      <Title v-if="titles[$route.path]">
+        <div class="title-app">
+          <h1>{{ titles[$route.path].title }}</h1>
+          <h2>{{ titles[$route.path].subtitle }}</h2>
+        </div>
+      </Title>
+    </div>
 
-     <HeroSection v-if="$route.path === '/'" />
-     <ClientForm v-if="$route.path === '/'" />
+    <router-view />
+    <HeroSection v-if="$route.path === '/'" />
+  </div>
 </template>
 
 <script setup>
@@ -22,7 +25,34 @@ import Title from "./components/Title.vue";
 import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
 import HeroSection from "./components/HeroSection.vue";
-import ClientForm from "./components/ClientForm.vue";
+import { reactive } from "vue";
+
+const titles = reactive({
+  "/": {
+    title: "Строительная компания КСМ",
+    subtitle: "Получить Консультацию",
+  },
+  "/contact": {
+    title: "Обратная связь",
+    subtitle: "Свяжитесь с нами по любому вопросу",
+  },
+  "/kcm": {
+    title: "О нас",
+    subtitle: "Узнайте больше о нашей компании",
+  },
+  "/services": {
+    title: "Наши услуги",
+    subtitle: "Мы выполняем ремонт, строительство и отделку под ключ",
+  },
+  "/examples": {
+    title: "Наши объекты",
+    subtitle: "Посмотрите выполненные нами проекты и объекты",
+  },
+  "/gallery": {
+    title: "Галерея",
+    subtitle: "Вдохновляйтесь фотографиями наших работ",
+  },
+});
 </script>
 
 <style>
@@ -36,6 +66,9 @@ html {
   margin: 0;
   color: white;
   background: #d5eeff;
+}
+.app-container{
+  position: relative;
 }
 .background {
   position: relative;
@@ -57,5 +90,37 @@ html {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
+}
+.title-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+}
+.title-app {
+  text-align: center;
+  color: #d5eeff;
+  font-family: "Oswald", sans-serif;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.title-app h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.title-app h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+}
+.router-link-exact-active{
+  background: #ff895d; 
 }
 </style>
