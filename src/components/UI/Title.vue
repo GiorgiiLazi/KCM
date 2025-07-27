@@ -1,5 +1,4 @@
 
- <!-- components/Title.vue -->
 <template>
   <div class="title-wrapper">
     <slot />

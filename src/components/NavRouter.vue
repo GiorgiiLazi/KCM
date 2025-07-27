@@ -2,7 +2,9 @@
   <nav :class="['nav-2', { sticky: isSticky }]">
     <div class="router-container">
       <router-link to="/">Главная</router-link>
-      <router-link to="/kcm">КСМ</router-link>
+      <router-link to="/kcm">О Нас</router-link>
+      <router-link to="/stroitelstvo-domov-i-kottedzhey">Строительство домов и коттеджей</router-link>
+      <router-link to="/remont-kvartir-i-komnat">Ремонт квартир и комнат</router-link>
 
       <div class="dropdown">
         <div class="dropdown-trigger">
@@ -14,7 +16,7 @@
           <ul class="dropdownList">
             <li v-for="service in servicesList" :key="service.id" class="dropdownItem">
              <router-link class="dropdownRouter"
-  :to="{ name: 'servicedesk', params: { servicedesc: toSlug(service.name )} }">
+  :to="{ name: 'opisanie-uslug', params: { opisanieUslug: toSlug(service.name )} }">
   {{ service.name }}
 </router-link>
 
@@ -23,9 +25,9 @@
         </div>
       </div>
 
-      <router-link to="/examples">Объекты</router-link>
-      <router-link to="/gallery">Галерея</router-link>
-      <router-link to="/contact">Контакты</router-link>
+      <router-link to="/primery">Объекты</router-link>
+      <router-link to="/galereya">Галерея</router-link>
+      <router-link to="/kontakty">Контакты</router-link>
     </div>
   </nav>
 </template>
@@ -35,9 +37,6 @@ import { useRoute } from 'vue-router';
 import { toSlug } from '@/composables/toSlug';
 
 const servicesList = reactive([
-  {name: "🏡 Строительство домов и коттеджей", id: 1 },
-  {name: "🏢 Строительство многоэтажных домов", id: 2 },
-  {name: "🛠️ Ремонт квартир и комнат", id: 3 },
   {name: "🧱 Кладочные работы ", id: 4 },
   {name: "🛢️ Кровельные работы  ", id: 5 },
   {name: "🏗️ Гидроизоляция  ", id: 6 },
@@ -116,7 +115,7 @@ onUnmounted(() => {
   text-align: left;
   text-decoration: none;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+   font-family: "Bebas Neue", sans-serif;
   padding: 6px 12px;
   border-radius: 6px;
   transition: background 0.2s ease;
@@ -167,7 +166,7 @@ onUnmounted(() => {
   top: 100%;
   left: 0;
   background-color: #005689;
-  font-family: "Roboto", sans-serif;
+  font-family: "Orbitron", sans-serif;
   border-radius: 8px;
   padding: 6px 0;
   margin-top: 4px;

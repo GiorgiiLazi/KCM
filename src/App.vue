@@ -1,62 +1,36 @@
 <template>
-  <div class="app-container">
-    <div class="background">
+  <section class="app-container">
+    <nav class="background">
       <NavRouter />
       <NavContacts />
-    </div>
+    </nav>
 
+    
     <!-- Заголовок отображается поверх background -->
-    <div class="title-wrapper">
-      <Title v-if="titles[$route.path]">
-        <div class="title-app">
-          <h1>{{ titles[$route.path].title }}</h1>
-          <h2>{{ titles[$route.path].subtitle }}</h2>
-        </div>
-      </Title>
-    </div>
+    <DynamicTitle/>
 
     <router-view />
     <HeroSection v-if="$route.path === '/'" />
-  </div>
+  </section>
+
+   <footer class="footer second-color">
+      <p>Свяжитесь с нами для бесплатной консультации</p>
+      <p>&copy; 2025 КСМ — Все права защищены</p>
+    </footer>
 </template>
 
 <script setup>
-import Title from "./components/Title.vue";
 import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
 import HeroSection from "./components/HeroSection.vue";
-import { reactive } from "vue";
+import DynamicTitle from "./components/DynamicTitle.vue";
 
-const titles = reactive({
-  "/": {
-    title: "Строительная компания КСМ",
-    subtitle: "Получить Консультацию",
-  },
-  "/contact": {
-    title: "Обратная связь",
-    subtitle: "Свяжитесь с нами по любому вопросу",
-  },
-  "/kcm": {
-    title: "О нас",
-    subtitle: "Узнайте больше о нашей компании",
-  },
-  "/services": {
-    title: "Наши услуги",
-    subtitle: "Мы выполняем ремонт, строительство и отделку под ключ",
-  },
-  "/examples": {
-    title: "Наши объекты",
-    subtitle: "Посмотрите выполненные нами проекты и объекты",
-  },
-  "/gallery": {
-    title: "Галерея",
-    subtitle: "Вдохновляйтесь фотографиями наших работ",
-  },
-});
+
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap');
+
 #app,
 body,
 html {
@@ -66,6 +40,10 @@ html {
   margin: 0;
   color: white;
   background: #d5eeff;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-style: normal;
 }
 .app-container{
   position: relative;
@@ -77,7 +55,7 @@ html {
     url("@/assets/photo1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 25%;
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -122,5 +100,11 @@ html {
 }
 .router-link-exact-active{
   background: #ff895d; 
+}
+.footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: #007cb9;
+  font-weight: bold;
 }
 </style>

@@ -21,9 +21,15 @@
           <span class="icons material-symbols-outlined">phone_in_talk</span>
           <div class="location-text">
             <h1 class="text text-title">Номера</h1>
-            <h3>+7516550237</h3>
-            <h3>+79219239997</h3>
-            <h3>+79219969997</h3>
+            <a href="tel:+79516550237">
+              <h3>+79516550237</h3>
+            </a>
+            <a href="tel:+79219239997">
+              <h3>+79219239997</h3>
+            </a>
+            <a href="tel:+79219969997">
+              <h3>+79219969997</h3>
+            </a>
           </div>
         </div>
     </section>

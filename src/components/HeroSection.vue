@@ -51,22 +51,22 @@ onMounted(()=>{
     duration: 2,
     y:0,
   })
-  gsap.fromTo('.section2', {
-   x:3000,
-   opacity: 0,
-  },
-{
-  x:0,
-  opacity: 1,
-  duration: 2,
-  scrollTrigger: {
-    trigger: '.section2',
-    start: 'top 70%',
-    bottom: 'top +=200px',
-    toggleActions: 'restart pause none none',
-     once: 'true'
-  }
-})
+//   gsap.fromTo('.section2', {
+//    x:3000,
+//    opacity: 0,
+//   },
+// {
+//   x:0,
+//   opacity: 1,
+//   duration: 2,
+//   scrollTrigger: {
+//     trigger: '.section2',
+//     start: 'top 70%',
+//     bottom: 'top +=200px',
+//     toggleActions: 'restart pause none none',
+//      once: 'true'
+//   }
+// })
 })
 </script>
 

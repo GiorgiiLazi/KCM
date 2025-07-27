@@ -1,18 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 import Services from '@/views/Services.vue'
 import KCM from '@/views/KCM.vue'
 import NotFound from '@/views/notFound.vue'
 import Examples from '@/views/Examples.vue'
 import ContactForm from '@/views/ContactForm.vue'
 import Gallery from '@/views/Gallery.vue'
-import ServiceDetail from '@/views/ServiceDetail.vue'
+import ServicesDetail from '@/views/ServicesDetail.vue'
+import Stroitelstvo from '@/views/Stroitelstvo.vue'
+import Remont from '@/views/Remont.vue'
+import Home from '@/views/Home.vue'
 
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'glavnaya',
     component: Home
   },
   {
@@ -21,29 +23,39 @@ const routes = [
     component: KCM
   },
   {
-    path: '/services',
-    name: 'services',
+    path: '/uslugi',
+    name: 'uslugi',
     component: Services
   },
   {
-    path: '/examples',
-    name: 'examples',
+    path: '/primery',
+    name: 'primery',
     component: Examples
   },
   {
-    path:'/contact',
-    name: 'contact',
+    path:'/kontakty',
+    name: 'kontakty',
     component: ContactForm
   },
   {
-    path:'/gallery',
-    name: 'gallery',
+    path:'/galereya',
+    name: 'galereya',
     component: Gallery
   },
   {
-    path:'/services/:servicedesc',
-    name:'servicedesk',
-    component: ServiceDetail
+    path:'/stroitelstvo-domov-i-kottedzhey',
+    name:'stroitelstvo-domov-i-kottedzhey',
+    component: Stroitelstvo
+  },
+  {
+    path: '/remont-kvartir-i-komnat',
+    name: 'remont-kvartir-i-komnat',
+    component: Remont
+  },
+  {
+    path:'/uslugi/:opisanieUslug',
+    name:'opisanie-uslug',
+    component: ServicesDetail
   },
   { path: '/:pathMatch(.*)*', 
     name: 'NotFound', 
