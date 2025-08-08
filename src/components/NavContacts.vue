@@ -6,7 +6,7 @@
     </div>
 
     <!-- Десктопные контакты -->
-    <div class="contacts-container desktop-contacts">
+    <div :class="['contacts-container', 'desktop-contacts']">
       <div class="contact-item">
         <a href="https://wa.me/+79516550237">
           <i class="fa-brands fa-whatsapp" style="font-size:48px;color:lightgreen"></i>
@@ -37,7 +37,7 @@
   </nav>
 
   <!-- Мобильные контакты внизу -->
-  <div class="mobile-contacts">
+  <div :class="['mobile-contacts', {isTransparent: isTransparent}]">
     <a href="https://wa.me/+79516550237" class="mobile-icon">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -51,6 +51,25 @@
 </template>
 
 <script setup>
+import {ref, onMounted, onUnmounted} from 'vue'
+
+const isTransparent = ref(false)
+
+const handleScroll = () =>{
+  const scrollPosition = window.scrollY + window.innerHeight
+  const pageHeight = document.documentElement.scrollHeight
+
+
+  // Make transparent when at (or very near) the bottom
+  isTransparent.value = scrollPosition >= pageHeight - 10
+
+}
+onMounted(()=>{
+  window.addEventListener('scroll', handleScroll)
+})
+onUnmounted(()=>{
+  window.removeEventListener('scroll', handleScroll)
+})
 
 </script>
 
@@ -168,7 +187,9 @@
     z-index: 9999;
     overflow-x: auto;
   }
-
+  .isTransparent{
+    background-color: transparent !important
+  }
   .mobile-icon {
     font-size: 24px;
     color: white;
