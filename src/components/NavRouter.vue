@@ -37,13 +37,13 @@ import { useRoute } from 'vue-router';
 import { toSlug } from '@/composables/toSlug';
 
 const servicesList = reactive([
-  {name: "🧱 Кладочные работы ", id: 4 },
-  {name: "🛢️ Кровельные работы  ", id: 5 },
-  {name: "🏗️ Гидроизоляция  ", id: 6 },
-  {name: "🎨 Отделочные работы ", id: 7 },
-  {name: "🏘️ Фасадные работы  ", id: 8 },
-  {name: "🚧 Благоустройство территории  ", id: 9 },
-  {name: "🌳 Ландшафтный дизайн ", id: 10 }
+  {name: "Кладочные работы ", id: 4 },
+  {name: "Кровельные работы  ", id: 5 },
+  {name: "Гидроизоляция  ", id: 6 },
+  {name: "Отделочные работы ", id: 7 },
+  {name: "Фасадные работы  ", id: 8 },
+  {name: "Благоустройство территории  ", id: 9 },
+  {name: "Ландшафтный дизайн ", id: 10 }
 ])
 
 const route = useRoute()
@@ -51,7 +51,7 @@ const slug = route.params.slug
 
 const isSticky = ref(false);
 const handleScroll = () => {
-  isSticky.value = window.scrollY > 200; // 100px — можно менять по желанию
+  isSticky.value = window.scrollY > 200;
 };
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
@@ -108,14 +108,13 @@ onUnmounted(() => {
   width: 100%;
 }
 
-/* Общий стиль для ссылок */
 .router-container a,
 .dropdownRouter {
   color: white;
   text-align: left;
   text-decoration: none;
   font-size: 14px;
-   font-family: "Bebas Neue", sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   padding: 6px 12px;
   border-radius: 6px;
   transition: background 0.2s ease;
@@ -123,20 +122,17 @@ onUnmounted(() => {
   display: block;
 }
 
-/* Hover-эффект */
 .router-container a:hover,
 .dropdownRouter:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Контейнер выпадающего меню */
 .dropdown {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-/* Триггер (кнопка/текст + стрелка) */
 .dropdown-trigger {
   display: flex;
   align-items: center;
@@ -181,26 +177,22 @@ onUnmounted(() => {
   z-index: 10000;
 }
 
-/* Показывать dropdown при hover */
 .dropdown:hover .dropdownContent {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Список внутри dropdown */
 .dropdownList {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Отдельный пункт меню */
 .dropdownItem {
   padding: 2px 0;
 }
 
-/* router-link внутри dropdown */
 .dropdownRouter {
   display: block;
 }

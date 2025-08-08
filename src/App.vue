@@ -5,18 +5,14 @@
       <NavContacts />
     </nav>
 
-    
     <!-- Заголовок отображается поверх background -->
-    <DynamicTitle/>
+    <DynamicTitle />
 
     <router-view />
     <HeroSection v-if="$route.path === '/'" />
   </section>
 
-   <footer class="footer second-color">
-      <p>Свяжитесь с нами для бесплатной консультации</p>
-      <p>&copy; 2025 КСМ — Все права защищены</p>
-    </footer>
+  <Footer />
 </template>
 
 <script setup>
@@ -24,16 +20,16 @@ import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
 import HeroSection from "./components/HeroSection.vue";
 import DynamicTitle from "./components/DynamicTitle.vue";
-
-
+import Footer from "./components/Footer.vue";
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap");
 
 #app,
 body,
 html {
+  overflow-x: hidden;
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif;
   padding: 0;
@@ -45,7 +41,7 @@ html {
   font-style: normal;
   font-style: normal;
 }
-.app-container{
+.app-container {
   position: relative;
 }
 .background {
@@ -98,13 +94,7 @@ html {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
 }
-.router-link-exact-active{
-  background: #ff895d; 
-}
-.footer {
-  padding: 2rem 1rem;
-  text-align: center;
-  background-color: #007cb9;
-  font-weight: bold;
+.router-link-exact-active {
+  background: #ff895d;
 }
 </style>

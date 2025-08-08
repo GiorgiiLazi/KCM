@@ -1,22 +1,39 @@
 <template>
   <header class="title-wrapper">
-      <Title v-if="titles[$route.path]">
-        <div class="title-app">
-          <h1>{{ titles[$route.path].title }}</h1>
+    <Title v-if="titles[$route.path]">
+      <div class="title-app">
+        <h1>{{ titles[$route.path].title }}</h1>
+
+        <h2 v-if="$route.path !== '/'">{{ titles[$route.path].subtitle }}</h2>
+        <router-link v-else to="/kontakty" class="linkToForm" role="link">
           <h2>{{ titles[$route.path].subtitle }}</h2>
-        </div>
-      </Title>
-    </header>
+        </router-link>
+      </div>
+    </Title>
+  </header>
 </template>
 
 <script setup>
 import Title from "./UI/Title.vue";
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
+import {gsap} from 'gsap'
+
+onMounted(()=>{
+  gsap.to(".linkToForm", {
+  x: 20, // Moves the element 200px to the right
+  duration: 2, // Animation duration of 2 seconds
+  repeat: -1, // Repeats the animation infinitely
+  yoyo: true // Makes the animation play forward and then backward
+});
+})
+
+
+
 
 const titles = reactive({
   "/": {
     title: "Строительная компания КСМ",
-    subtitle: "Получить Консультацию",
+    subtitle: "OOO «СК КАПИТАЛСТРОЙМОНТАЖ»",
   },
   "/uslugi/landshaftnyy-dizayn": {
     title: "Ландшафтный дизайн участка",
@@ -87,7 +104,6 @@ const titles = reactive({
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
   z-index: 1;
 }
 .title-app {
@@ -95,9 +111,11 @@ const titles = reactive({
   color: #d5eeff;
   font-family: "Oswald", sans-serif;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
 }
-
+.title-app a{
+  z-index: 1000000;
+  cursor: pointer;
+}
 .title-app h1 {
   margin: 0;
   font-size: 2rem;
@@ -106,5 +124,12 @@ const titles = reactive({
 .title-app h2 {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
+}
+.linkToForm {
+  pointer-events: auto;
+  z-index: 10000;
+  cursor: pointer;
+  text-decoration: none;
+  color: #d5eeff;
 }
 </style>

@@ -10,7 +10,7 @@
       <i class="fa-brands fa-whatsapp" style="font-size:48px;color:lightgreen"></i>
     </a>
     <label>WhatsApp</label>
-    <p><a href="https://wa.me/+79516550237">+7 951 655 02 37</a></p>
+    <p><a href="https://wa.me/+79516550237">+7 (951) 655-02-37</a></p>
   </div>
   
   <div class="contact-item">
@@ -30,7 +30,7 @@
     <label>Телефон</label>
     <p>
       <a href="tel:+79516550237">
-        Михаил +7 951 655 02 37
+        Михаил +7 (951) 655-02-37
       </a></p>
   </div>
 </div>

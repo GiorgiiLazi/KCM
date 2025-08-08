@@ -13,8 +13,8 @@
           <span class="icons material-symbols-outlined">apartment</span>
           <div class="location-text">
             <h1 class="text text-title">Часы Работы</h1>
-            <h3>Пн-Пт: 08:00 - 20:00</h3>
-            <h3>Cб-Вск: 09:00 - 17:00</h3>
+            <h3>Пн-Пт: 09:00 - 18:00</h3>
+            <h3>Cб-Вск: 10:00 - 17:00</h3>
           </div>
         </div>
         <div class="location">
@@ -22,19 +22,20 @@
           <div class="location-text">
             <h1 class="text text-title">Номера</h1>
             <a href="tel:+79516550237">
-              <h3>+79516550237</h3>
+              <h3>+7 (951) 655-02-37</h3>
             </a>
             <a href="tel:+79219239997">
-              <h3>+79219239997</h3>
+              <h3>+7 (921) 923-99-97</h3>
             </a>
             <a href="tel:+79219969997">
-              <h3>+79219969997</h3>
+              <h3>+7 (921) 996-99-97</h3>
             </a>
           </div>
         </div>
     </section>
     <section class="form-section">
       <form ref="formRef" @submit.prevent="sendEmail">
+        <h3>Свяжитесь с нами по любому вопросу 🙂</h3>
         <div>
           <label for="subject"
             >Тема сообщения <strong class="star">*</strong></label
@@ -173,13 +174,16 @@ button:hover {
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
 .text-title{
-  text-transform: uppercase;
+  text-transform: none;
   font-weight: bold;
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
+}
+.text-title a h3{
+  text-decoration: none;
 }
 .location{
   display: flex;
@@ -191,6 +195,11 @@ button:hover {
   font-family: "Fira Sans", sans-serif;
   font-weight: 200;
   font-style: italic;
+  text-decoration: none;
+}
+.location-text a {
+  text-decoration: none;
+  color: inherit; 
 }
 .contact-links{
   display: flex;
