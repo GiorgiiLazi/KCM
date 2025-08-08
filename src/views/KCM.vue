@@ -1,47 +1,55 @@
 <template>
   <section class="about-company" itemscope itemtype="http://schema.org/Organization">
-    <div class="container">
-      <h1 class="about-title" itemprop="name">Строительная компания КСМ</h1>
+  <div class="about-inner">
+    
+    <!-- Левая часть — описание -->
+    <div class="about-content">
+      <h1 class="about-title" itemprop="name">Строительная компания «КСМ»</h1>
       <h2 class="about-subtitle">ООО «СК КАПИТАЛСТРОЙМОНТАЖ»</h2>
+
       <article class="about-description" itemprop="description">
-        Наша компания специализируется на широком спектре строительных и отделочных работ. Мы выполняем:
+        Наша компания специализируется на широком спектре строительных и отделочных работ. 
+        <h1>Мы выполняем:</h1>
+
         <ul class="about-services">
-            
-          <li v-for="service in services" :key="service.id">
+          <li>
             <span class="material-symbols-outlined">check</span>
-            {{ service.name }}
-        </li>
+            <p>Монолитные и каркасные дома;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Дома из газобетона;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Ремонт квартир и помещений;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Отделочные работы любой сложности;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Фасадные и кровельные работы;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Окраска, шпаклевка и штукатурка ручная и машинным способом;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Кладочные и гидроизоляционные работы;</p>
+          </li>
+          <li>
+            <span class="material-symbols-outlined">check</span>
+            <p>Благоустройство территории и ландшафтный дизайн;</p>
+          </li>
         </ul>
+
         Мы работаем в Санкт-Петербурге и Ленинградской области, соблюдаем сроки и гарантируем качество на всех этапах — от проектирования до сдачи объекта.
-    </article>
-       </div>
+      </article>
 
-        <div class="img-container">
-            <h1><label for="">Генеральный директор КСМ - Михаил</label></h1>
-        <img src="@/assets/architector-01.webp" alt="Генеральный директор КСМ Михаил" loading="lazy"></img>
-        
-    </div>
-      </section>
-
-      <section class="contacts-info">
-      <ul class="about-contacts">
-        <li v-for="contact in contacts" :key="contact.name">
-          <span class="icons material-symbols-outlined">{{ contact.icon }}</span>
-          <strong>{{ contact.name }}:&nbsp;</strong>
-          <template v-if="contact.href === ''">
-            <span :itemprop="contact.itemprop">{{ contact.value }}</span>
-          </template>
-          <template v-else>
-            <a :href="contact.href" :itemprop="contact.itemprop">{{ contact.value }}</a>
-          </template>
-        </li>
-      </ul>
-   
-    </section>
-  
-
-
-  <section class="team-section">
+      <section class="team-section">
     <div class="container">
       <h2 class="team-title">Наша команда</h2>
       <ul class="team-list">
@@ -58,6 +66,18 @@
       </ul>
     </div>
   </section>
+    </div>
+
+    <!-- Правая часть — фото -->
+   <div class="img-wrapper">
+  <div class="img-circle">
+    <img src="@/assets/architector-01.webp" alt="Генеральный директор «КСМ» Михаил" loading="lazy" />
+  </div>
+  <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
+</div>
+
+  </div>
+</section>
 </template>
 
 <script setup>
@@ -97,36 +117,6 @@ const services= [
   }
 ]
 
-const contacts = [
-  {
-    name: "Адрес",
-    value: "192289, Санкт-Петербург, пр. Гаражный, д.1, лит. А, офис 309",
-    href: "",
-    icon: "location_on",
-    itemprop: "address"
-  },
-  {
-    name: "ИНН",
-    value: "7816755087",
-    href: "",
-    icon: "pin",
-    itemprop: "taxID"
-  },
-  {
-    name: "Телефон (Михаил)",
-    value: "+7 (951) 655-02-37",
-    href: "tel:+79516550237",
-    icon: "call",
-    itemprop: "telephone"
-  },
-  {
-    name: "Email",
-    value: "info.ck.ksm@gmail.com",
-    href: "mailto:info.ck.ksm@gmail.com",
-    icon: "mail",
-    itemprop: "email"
-  }
-];
 
 const employees = [
   {
@@ -158,122 +148,130 @@ const employees = [
 </script>
 
 <style scoped>
+/* === Базовая структура === */
 .about-company {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
   padding: 40px 20px;
   background-color: #f9f9f9;
   color: #333;
   font-family: "Bebas Neue", sans-serif;
 }
-.contacts-info{
-  padding: 40px 20px;
-  background: #005689;
-  color: white;
-  font-family: Oswald, serif;
-  font-size: 1.2em;
-}
-.img-container {
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 1 / 1; /* Квадрат */
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  margin: 0 auto;
-  font-family: "Fira Sans", sans-serif;
-}
 
-.img-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  object-position: center 100%;
-}
-
-.img-container label {
-  display: block;
-  padding: 10px 5px;
-  background-color: #f7f7f7;
-  font-size: 14px;
-  color: #333;
-}
-.container {
+.about-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  animation: fadeInUp 1s ease forwards;
 }
+
+/* === Контент компании === */
+.about-content {
+  flex: 1;
+  min-width: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
 .about-title {
   font-size: 2.2em;
   margin-bottom: 10px;
   color: #1a1a1a;
 }
+
 .about-subtitle {
   font-size: 1.4em;
   margin-bottom: 20px;
   color: #555;
 }
+
 .about-description {
   font-size: 1em;
   line-height: 1.6;
   margin-bottom: 20px;
 }
+
 .about-services {
   margin: 15px 0;
   padding-left: 20px;
 }
-.about-services li {
-  list-style: none;
-  margin-bottom: 5px;
-}
-.about-services li span{
-    font-size: 1.5em;
-    font-weight: bold;
-    color: green
-}
-.about-contacts li {
-    list-style: none;
-  margin: 8px 0;
-  font-size: 0.95em;
-}
-.about-contacts a {
-  color: white;
-  text-decoration: none;
-}
-.about-contacts a:hover {
-  text-decoration: underline;
-}
 
-.icons {
-  font-size: 20px;
-  vertical-align: middle;
-  margin-right: 8px;
-  color: white
-}
-.about-contacts li {
+.about-services li {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  font-size: 0.95em;
+  justify-items: flex-start;
+  list-style: none;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
+.about-services li span {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: green;
+  margin-right: 8px;
+}
+
+/* === Фото гендиректора === */
+.img-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 300px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.img-circle {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ccc;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.img-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.img-caption {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+  font-family: "Fira Sans", sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* === Команда === */
 .team-section {
   padding: 40px 20px;
   background-color: #ffffff;
   color: #333;
   font-family: "Arial", sans-serif;
+  animation: fadeInUp 1s ease forwards;
 }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
 .team-title {
   font-size: 2em;
   margin-bottom: 20px;
   color: #1a1a1a;
 }
+
 .team-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -282,19 +280,95 @@ const employees = [
   padding: 0;
   margin: 0;
 }
+
 .team-member {
   background-color: #f9f9f9;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease forwards;
 }
+
 .employee-name {
   font-size: 1.2em;
   margin: 0 0 10px 0;
   color: #1a1a1a;
 }
+
 .employee-position {
   font-size: 1em;
   color: #666;
+}
+
+/* === Мобильная версия === */
+@media (max-width: 768px) {
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .about-title {
+    font-size: 1.6em;
+  }
+
+  .about-subtitle {
+    font-size: 1.2em;
+  }
+
+  .about-description {
+    font-size: 0.95em;
+  }
+
+  .about-services li {
+    font-size: 0.95em;
+    justify-content: flex-start;
+  }
+
+  .img-container {
+    width: 200px;
+    height: auto;
+  }
+
+  .img-container img {
+    height: 200px;
+    width: 200px;
+  }
+
+  .team-section {
+    padding: 20px 10px;
+  }
+
+  .team-title {
+    font-size: 1.6em;
+  }
+
+  .team-list {
+    grid-template-columns: 1fr;
+  }
+
+  .team-member {
+    padding: 16px;
+  }
+
+  .employee-name {
+    font-size: 1.1em;
+  }
+
+  .employee-position {
+    font-size: 0.95em;
+  }
+}
+
+/* === Анимации === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

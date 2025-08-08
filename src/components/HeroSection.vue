@@ -46,10 +46,12 @@ gsap.registerPlugin(ScrollTrigger)
 onMounted(()=>{
     gsap.fromTo('.section1', {
     y:500,
+    opacity: 0
   },
   {
-    duration: 2,
+    duration: 0.6,
     y:0,
+    opacity: 1
   })
 //   gsap.fromTo('.section2', {
 //    x:3000,
@@ -148,5 +150,50 @@ onMounted(()=>{
 }
 .reverse {
   flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    height: auto;
+    margin: 40px 0;
+  }
+
+  .container {
+    width: 100%;
+    aspect-ratio: unset;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  .text-block {
+    max-width: 100%;
+    padding: 16px;
+    font-size: 0.95em;
+    box-shadow: none;
+    text-align: center;
+  }
+
+  .text-block h1 {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .img-holder {
+    width: 100%;
+    justify-content: center;
+    padding: 0 10px;
+  }
+
+  .img-holder img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+  }
+
+  .reverse {
+    flex-direction: column;
+  }
 }
 </style>

@@ -132,4 +132,9 @@ const titles = reactive({
   text-decoration: none;
   color: #d5eeff;
 }
+@media (max-width: 768px) {
+  .title-wrapper {
+    display: none;
+  }
+}
 </style>

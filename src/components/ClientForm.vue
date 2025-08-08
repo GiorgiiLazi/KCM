@@ -221,4 +221,10 @@ button:hover {
     font-size: 15px;
   }
 }
+
+@media (max-width: 768px){
+  .container{
+    flex-direction: column;
+  }
+}
 </style>
