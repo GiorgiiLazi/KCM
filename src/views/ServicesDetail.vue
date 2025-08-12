@@ -1,70 +1,19 @@
 <template>
-  <h1 style="color:black">{{ $route.params.opisanieUslug}}</h1>
+  <section>
+    <h1>{{ service?.name }}</h1>
+    <p>Описание услуги "{{ service?.name }}" от строительной компании КСМ в Санкт-Петербурге.</p>
+  </section>
 </template>
 
-<script setup>
-import { reactive } from 'vue' 
+<script>
+import { servicesList } from '../routes/servicesList.js'
 import { useRoute } from 'vue-router'
 
-const route = useRoute()
-const opisanieUslug= route.params.opisanieUslug
-console.log(opisanieUslug.value)
-
-const servicesList = reactive([
-  {
-    id: 1,
-    slug: 'kladochnye-raboty',
-    name: '🧱 Кладочные работы',
-    description: 'Профессиональная кладка кирпича, блоков, камня и других материалов с соблюдением всех строительных норм.',
-    gallery: ['brick1.jpg', 'brick2.jpg']
-  },
-  {
-    id: 2,
-    slug: 'krovelnye-raboty',
-    name: '🛢️ Кровельные работы',
-    description: 'Устройство и ремонт крыш любой сложности, включая монтаж кровельных материалов и утепление.',
-    gallery: ['roof1.jpg', 'roof2.jpg']
-  },
-  {
-    id: 3,
-    slug: 'gidroizolyaciya',
-    name: '🏗️ Гидроизоляция',
-    description: 'Защита конструкций от влаги: фундаменты, крыши, подвалы, балконы и другие элементы зданий.',
-    gallery: ['hydro1.jpg', 'hydro2.jpg']
-  },
-  {
-    id: 4,
-    slug: 'otdelochnye-raboty',
-    name: '🎨 Отделочные работы',
-    description: 'Внутренняя и внешняя отделка помещений, включая штукатурку, шпаклёвку, покраску и укладку плитки.',
-    gallery: ['finish1.jpg', 'finish2.jpg']
-  },
-  {
-    id: 5,
-    slug: 'fasadnye-raboty',
-    name: '🏘️ Фасадные работы',
-    description: 'Обновление и утепление фасадов, декоративная отделка, установка вентилируемых фасадов.',
-    gallery: ['fasad1.jpg', 'fasad2.jpg']
-  },
-  {
-    id: 6,
-    slug: 'blagoustroystvo-territorii',
-    name: '🚧 Благоустройство территории',
-    description: 'Создание дорожек, установка бордюров, освещение, ландшафтный дизайн и озеленение.',
-    gallery: ['land1.jpg', 'land2.jpg']
-  },
-  {
-    id: 7,
-    slug: 'landshaftnyj-dizajn',
-    name: '🌳 Ландшафтный дизайн',
-    description: 'Проектирование и реализация эстетичных и функциональных зеленых зон на вашем участке.',
-    gallery: ['design1.jpg', 'design2.jpg']
+export default {
+  setup() {
+    const route = useRoute()
+    const service = servicesList.find(s => s.slug === route.params.opisanieUslug)
+    return { service }
   }
-])
-
-
+}
 </script>
-
-<style scoped>
-
-</style>

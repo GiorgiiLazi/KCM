@@ -19,11 +19,12 @@
 
           <div class="dropdownContent">
             <ul class="dropdownList">
-              <li v-for="service in servicesList" :key="service.id" class="dropdownItem">
-                <router-link class="dropdownRouter"
-                  :to="{ name: 'opisanie-uslug', params: { opisanieUslug: toSlug(service.name) } }">
-                  {{ service.name }}
-                </router-link>
+              <li v-for="service in services" :key="service.id" class="dropdownItem">
+               <router-link
+                  class="dropdownRouter"
+                  :to="{ name: `usluga-${service.slug}` }">  
+                    {{ service.name }}
+              </router-link>
               </li>
             </ul>
           </div>
@@ -38,19 +39,12 @@
 </template>
 
 <script setup>
+import { servicesList } from '../routes/servicesList';
 import { ref, onMounted, onUnmounted, reactive } from 'vue';
 import { useRoute } from 'vue-router';
 import { toSlug } from '@/composables/toSlug';
 
-const servicesList = reactive([
-  { name: "Кладочные работы ", id: 4 },
-  { name: "Кровельные работы", id: 5 },
-  { name: "Гидроизоляция", id: 6 },
-  { name: "Отделочные работы", id: 7 },
-  { name: "Фасадные работы", id: 8 },
-  { name: "Благоустройство территории", id: 9 },
-  { name: "Ландшафтный дизайн", id: 10 }
-]);
+const services = reactive(servicesList)
 
 const isSticky = ref(false);
 const showMenu = ref(false);
