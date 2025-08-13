@@ -94,8 +94,8 @@ const routes = [
     }
   },
   // Динамические роуты из servicesList
-  ...servicesList.map(service => ({
-    path: `/uslugi/${service.slug}`,
+...servicesList.map(service => ({
+    path: `/uslugi/:opisanieUslug`,
     name: `usluga-${service.slug}`,
     component: ServicesDetail,
     meta: {

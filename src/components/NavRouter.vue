@@ -22,7 +22,7 @@
               <li v-for="service in services" :key="service.id" class="dropdownItem">
                <router-link
                   class="dropdownRouter"
-                  :to="{ name: `usluga-${service.slug}` }">  
+                  :to="{ name: `usluga-${service.slug}`, params: { opisanieUslug: service.slug } }">  
                     {{ service.name }}
               </router-link>
               </li>

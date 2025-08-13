@@ -1,140 +1,176 @@
 <template>
-  <section class="hero first-color">
-    <div class="container">
-      <h1>Строительство домов и коттеджей</h1>
-      <p>Строим дома, в которых хочется жить</p>
-    </div>
-  </section>
-
-  <main class="main-content">
-    <section class="service-block third-color">
+  <main class="construction-page" itemscope itemtype="https://schema.org/LocalBusiness">
+    <section class="hero first-color">
       <div class="container">
-        <h2 class="alt-color">Каркасное строительство</h2>
-        <p>Быстрый, экологичный и энергоэффективный вариант. Подходит для сезонного и круглогодичного проживания. Предлагаем:</p>
-        <ul>
-          <li>Проектирование и расчёт нагрузки</li>
-          <li>Сборка на месте по технологии SIP/каркас</li>
-          <li>Утепление, отделка, коммуникации</li>
-          <li>Гарантия — 2 года</li>
-        </ul>
-        <div class="gallery"> <!-- Добавьте фото домов --> </div>
+        <h1 itemprop="name" class="fade-in">Строительство коттеджей в Ленинградской области</h1>
+        <p itemprop="description" class="fade-in delay-1">
+          Мы предлагаем профессиональное строительство коттеджей «под ключ» в Ленинградской области — от проектирования до сдачи готового дома.
+          Возводим дома из монолита, кирпича, газобетона и по современным каркасным технологиям.
+        </p>
       </div>
     </section>
 
-    <section class="service-block second-color">
+    <section class="types third-color">
       <div class="container">
-        <h2>Кирпичные дома</h2>
-        <p>Классическая технология для максимальной долговечности и звукоизоляции. Мы выполняем:</p>
+        <h2 class="fade-in">Типы домов, которые мы строим</h2>
         <ul>
-          <li>Полный цикл работ: от фундамента до отделки</li>
-          <li>Прокладка инженерных сетей</li>
-          <li>Отделка фасада (штукатурка, облицовка, плитка)</li>
-          <li>Гарантия — 3 года</li>
-        </ul>
-        <div class="gallery"> <!-- Галерея кирпичных домов --> </div>
-      </div>
-    </section>
-
-    <section class="service-block fourth-color">
-      <div class="container">
-        <h2 class="alt-color">Индивидуальное проектирование</h2>
-        <p>Создаем уникальные дома по вашим идеям и стилю жизни. Включает:</p>
-        <ul>
-          <li>Разработка архитектурного проекта</li>
-          <li>Инженерные решения и ландшафтный дизайн</li>
-          <li>Авторский и технический надзор</li>
-          <li>Полная прозрачность бюджета</li>
-          <li>Гарантия — до 5 лет</li>
-        </ul>
-        <div class="gallery"> <!-- Галерея проектов и чертежей --> </div>
-      </div>
-    </section>
-
-    <section class="extras second-color">
-      <div class="container">
-        <h2>Дополнительные услуги</h2>
-        <ul>
-          <li>Помощь в получении разрешений</li>
-          <li>Согласование проекта в органах</li>
-          <li>Поставка материалов и логистика</li>
-          <li>Устройство террас, беседок, заборов</li>
+          <li class="fade-in delay-1"><strong>Монолитные</strong> — долговечные, прочные, с отличной шумоизоляцией.</li>
+          <li class="fade-in delay-2"><strong>Каркасные</strong> — быстрые в строительстве, энергоэффективные.</li>
+          <li class="fade-in delay-3"><strong>Кирпичные</strong> — классика, устойчивая к перепадам температур.</li>
+          <li class="fade-in delay-4"><strong>Газобетонные</strong> — лёгкие, тёплые и экологичные.</li>
         </ul>
       </div>
     </section>
 
-    <section class="guarantee fourth-color">
+    <section class="gallery third-color">
       <div class="container">
-        <h2 class="alt-color">Гарантии и подход</h2>
-        <p>Мы не просто строим — мы берём на себя ответственность. Наши клиенты получают:</p>
-        <ul>
-          <li>Контроль сроков и бюджета</li>
-          <li>Официальный договор и этапная оплата</li>
-          <li>Фото- и видеофиксация этапов</li>
-          <li>Гарантия на конструктивные элементы — до 5 лет</li>
-        </ul>
+        <h2 class="fade-in">Наши проекты</h2>
+        <div class="photo-grid">
+          <img v-for="n in 4" :key="n" :src="`/images/project${n}.jpg`" :alt="`Коттедж проект ${n}`" class="fade-in delay-1" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cta fourth-color">
+      <div class="container">
+        <h2 class="fade-in">Готовы построить ваш дом</h2>
+        <p class="fade-in delay-1">Закажите бесплатную консультацию и узнайте, какой вариант дома подойдёт именно вам — построим коттедж, который будет радовать долгие годы.</p>
+        <a href="#contact" class="btn fade-in delay-2" itemprop="url">Оставить заявку</a>
       </div>
     </section>
   </main>
 </template>
 
+<script setup>
+// Нет JS логики — чисто презентационный компонент
+</script>
+
 <style scoped>
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 1rem;
-}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-h1, h2 {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.hero {
-  padding: 6rem 1rem;
-  text-align: center;
+.construction-page {
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 1.4;
   color: #fff;
 }
 
-.service-block {
-  padding: 5rem 1rem;
-  margin-bottom: 4rem;
-  border-radius: 12px;
-  color: #000;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-ul {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-  color: #333;
+h1, h2 {
+  margin-bottom: 20px;
 }
 
-.gallery {
-  margin-top: 2rem;
-  height: 200px;
-  background: #eee;
-  border: 2px dashed #bbb;
-}
-
-.extras, .guarantee {
-  padding: 5rem 1rem;
-  margin-bottom: 4rem;
-  border-radius: 12px;
-  color: #000;
+p {
+  font-size: 18px;
 }
 
 .first-color {
   background: #005689;
 }
+
 .second-color {
   background: #007cb9;
 }
+
 .third-color {
   background: #d5eeff;
+  color: #000;
 }
 
-.alt-color {
-  color: #007cb9;
+.fourth-color {
+  background: #ff895d;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background: #fff;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #f0f0f0;
+}
+
+/* Галерея */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Анимации */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.fade-in.delay-3 {
+  animation-delay: 0.9s;
+}
+
+.fade-in.delay-4 {
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  h1, h2 {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 20px;
+  }
 }
 </style>

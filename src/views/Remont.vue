@@ -1,145 +1,175 @@
 <template>
-  <section class="hero first-color">
-    <div class="container">
-      <h1>Профессиональный ремонт квартир</h1>
-      <p>Мы воплощаем ваши мечты в реальность — от бюджетного ремонта до премиум-интерьеров под ключ.</p>
-    </div>
-  </section>
-
-  <main class="main-content">
-    <section class="service-block third-color">
+  <main class="repair-page" itemscope itemtype="https://schema.org/LocalBusiness">
+    <section class="hero first-color">
       <div class="container">
-        <h2 class="alt-color">Эконом-вариант</h2>
-        <p>Доступные решения без потери качества. Мы подбираем материалы, которые соответствуют вашему бюджету, но служат долго. Подходит для сдачи жилья, ремонта студий и небольших квартир. Включает:</p>
-        <ul>
-          <li>Шпатлевка и покраска стен</li>
-          <li>Замена напольного покрытия</li>
-          <li>Обновление сантехники</li>
-          <li>Гарантия — 1 год</li>
-        </ul>
-        <div class="gallery"> <!-- Добавьте сюда изображения --> </div>
+        <h1 itemprop="name" class="fade-in">Ремонт квартир в Санкт-Петербурге</h1>
+        <p itemprop="description" class="fade-in delay-1">
+          Выполняем ремонт квартир «под ключ» в Санкт-Петербурге. Берём на себя все этапы — от черновых работ до чистовой отделки, включая дизайн-проект, сантехнику, электрику и декоративные решения.
+        </p>
       </div>
     </section>
 
-    <section class="service-block second-color">
+    <section class="types third-color">
       <div class="container">
-        <h2>Евроремонт</h2>
-        <p>Современные материалы, строгая геометрия, визуальный комфорт и эргономика. Идеальное сочетание стиля и практичности. Мы предлагаем:</p>
+        <h2 class="fade-in">Виды работ, которые мы выполняем</h2>
         <ul>
-          <li>Выравнивание стен и полов</li>
-          <li>Прокладка скрытой электрики</li>
-          <li>Монтаж натяжных потолков</li>
-          <li>Установка современной фурнитуры</li>
-          <li>Гарантия — 2 года</li>
-        </ul>
-        <div class="gallery"> <!-- Добавьте изображения --> </div>
-      </div>
-    </section>
-
-    <section class="service-block fourth-color">
-      <div class="container">
-        <h2 class="alt-color">Элитный ремонт</h2>
-        <p>Эксклюзивный интерьер по индивидуальному дизайн-проекту. Мы сотрудничаем с лучшими архитекторами и дизайнерами. Включает:</p>
-        <ul>
-          <li>Дизайн-проект под ключ</li>
-          <li>Премиум-материалы</li>
-          <li>Авторский надзор</li>
-          <li>Полный контроль бюджета</li>
-          <li>Гарантия — 3 года</li>
-        </ul>
-        <div class="gallery"> <!-- Добавьте изображения --> </div>
-      </div>
-    </section>
-
-    <section class="extras second-color">
-      <div class="container">
-        <h2>Дополнительные услуги</h2>
-        <ul>
-          <li>Вывоз строительного мусора</li>
-          <li>Разработка 3D-визуализаций</li>
-          <li>Помощь в выборе материалов</li>
-          <li>Переезд и расстановка мебели</li>
+          <li class="fade-in delay-1"><strong>Косметический ремонт</strong> — обновление отделки, покраска, обои, замена покрытий.</li>
+          <li class="fade-in delay-2"><strong>Капитальный ремонт</strong> — перепланировка, инженерные сети, усиление конструкций.</li>
+          <li class="fade-in delay-3"><strong>Дизайнерский ремонт</strong> — уникальные решения под ваш стиль и интерьер.</li>
+          <li class="fade-in delay-4"><strong>Отделка новостроек</strong> — подготовка жилья к комфортному заселению с нуля.</li>
         </ul>
       </div>
     </section>
 
-    <section class="guarantee fourth-color">
+    <section class="gallery third-color">
       <div class="container">
-        <h2 class="alt-color">Гарантии и подход</h2>
-        <p>Мы предоставляем официальную гарантию на все виды работ. Наши клиенты получают:</p>
-        <ul>
-          <li>Договор с прописанными сроками и этапами</li>
-          <li>Постоянную фотофиксацию хода работ</li>
-          <li>Честную смету без скрытых платежей</li>
-          <li>Бесплатную консультацию и выезд специалиста</li>
-        </ul>
+        <h2 class="fade-in">Наши проекты</h2>
+        <div class="photo-grid">
+          <img v-for="n in 4" :key="n" :src="`/images/repair${n}.jpg`" :alt="`Ремонт квартир проект ${n}`" class="fade-in delay-1" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cta fourth-color">
+      <div class="container">
+        <h2 class="fade-in">Ремонт без лишних хлопот</h2>
+        <p class="fade-in delay-1">Мы работаем по договору, соблюдаем сроки и используем только качественные материалы. Закажите бесплатный выезд специалиста и расчёт сметы — сделаем вашу квартиру уютной и современной.</p>
+        <a href="#contact" class="btn fade-in delay-2" itemprop="url">Заказать ремонт</a>
       </div>
     </section>
   </main>
 </template>
 
+<script setup>
+// Презентационный компонент
+</script>
+
 <style scoped>
-.container {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.repair-page {
   font-family: "Bebas Neue", sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 1rem;
-}
-
-h1, h2 {
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.hero {
-  padding: 6rem 1rem;
-  text-align: center;
+  line-height: 1.4;
   color: #fff;
 }
 
-.service-block {
-  padding: 5rem 1rem;
-  margin-bottom: 4rem;
-  border-radius: 12px;
-  color: #000;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-ul {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
-  list-style-type: disc;
-  color: #333;
+h1, h2 {
+  margin-bottom: 20px;
 }
 
-.gallery {
-  margin-top: 2rem;
-  height: 200px;
-  background: #eee;
-  border: 2px dashed #bbb;
-}
-
-.extras, .guarantee {
-  padding: 5rem 1rem;
-  margin-bottom: 4rem;
-  border-radius: 12px;
-  color: #000;
+p {
+  font-size: 18px;
 }
 
 .first-color {
   background: #005689;
 }
+
 .second-color {
   background: #007cb9;
 }
+
 .third-color {
   background: #d5eeff;
-}
-fourth-color {
-  background: #ff895d;
-}
-.alt-color{
-  color: #007cb9;
+  color: #000;
 }
 
+.fourth-color {
+  background: #ff895d;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.btn {
+  background: #fff;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #f0f0f0;
+}
+
+/* Галерея */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Анимации */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.fade-in.delay-3 {
+  animation-delay: 0.9s;
+}
+
+.fade-in.delay-4 {
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  h1, h2 {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
 </style>
