@@ -35,13 +35,16 @@
       <div class="container">
         <h2 class="fade-in">Готовы построить ваш дом</h2>
         <p class="fade-in delay-1">Закажите бесплатную консультацию и узнайте, какой вариант дома подойдёт именно вам — построим коттедж, который будет радовать долгие годы.</p>
-        <a href="#contact" class="btn fade-in delay-2" itemprop="url">Оставить заявку</a>
+         <router-link class="btn fade-in delay-2" itemprop="url" to="/kontakty">
+          <AnimatedButton>Оставить заявку</AnimatedButton>
+         </router-link>
       </div>
     </section>
   </main>
 </template>
 
 <script setup>
+import AnimatedButton from '@/components/UI/AnimatedButton.vue';
 // Нет JS логики — чисто презентационный компонент
 </script>
 
@@ -97,7 +100,7 @@ ul li {
 .btn {
   background: #fff;
   color: #000;
-  padding: 12px 24px;
+  padding: 0;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;

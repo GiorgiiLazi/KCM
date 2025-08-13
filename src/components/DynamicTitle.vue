@@ -73,7 +73,7 @@ const titles = reactive({
   },
   "/kontakty": {
     title: "Обратная связь",
-    subtitle: "Свяжитесь с нами по любому вопросу",
+    subtitle: "Закажите бесплатную консультацию",
   },
   "/kcm": {
     title: "О нас",

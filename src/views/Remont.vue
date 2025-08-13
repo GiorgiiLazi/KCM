@@ -34,14 +34,16 @@
       <div class="container">
         <h2 class="fade-in">Ремонт без лишних хлопот</h2>
         <p class="fade-in delay-1">Мы работаем по договору, соблюдаем сроки и используем только качественные материалы. Закажите бесплатный выезд специалиста и расчёт сметы — сделаем вашу квартиру уютной и современной.</p>
-        <a href="#contact" class="btn fade-in delay-2" itemprop="url">Заказать ремонт</a>
+         <router-link class="btn fade-in delay-2" itemprop="url" to="/kontakty">
+          <AnimatedButton>Оставить заявку</AnimatedButton>
+         </router-link>
       </div>
     </section>
   </main>
 </template>
 
 <script setup>
-// Презентационный компонент
+import AnimatedButton from '@/components/UI/AnimatedButton.vue';
 </script>
 
 <style scoped>
@@ -96,7 +98,7 @@ ul li {
 .btn {
   background: #fff;
   color: #000;
-  padding: 12px 24px;
+  padding: 0px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;

@@ -33,7 +33,9 @@
       <div class="container">
         <h2>{{ content.cta.title }}</h2>
         <p>{{ content.cta.text }}</p>
-        <button>{{ content.cta.button }}</button>
+        <router-link itemprop="url" to="/kontakty">
+          <AnimatedButton>{{ content.cta.button }}</AnimatedButton>
+         </router-link>
       </div>
     </section>
   </main>
@@ -47,6 +49,7 @@
 </template>
 
 <script setup>
+import AnimatedButton from '@/components/UI/AnimatedButton.vue'
 import { ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { servicesContent } from '../routes/serviceContent'
