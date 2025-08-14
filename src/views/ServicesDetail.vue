@@ -1,19 +1,24 @@
 <template>
   <main v-if="content">
     <!-- Заголовок услуги -->
-    <section class="first-color animate-fadeIn">
+    <section class="first-color">
       <div class="container">
-        <h1>{{ content.title }}</h1>
-        <p>{{ content.description }}</p>
+        <h1 class="fade-in">{{ content.title }}</h1>
+        <p class="fade-in delay-1">{{ content.description }}</p>
       </div>
     </section>
 
     <!-- Преимущества / особенности -->
     <section class="third-color animate-slideIn">
       <div class="container">
-        <h2>Наши преимущества</h2>
+        <h2 class="fade-in">Наши преимущества</h2>
         <ul>
-          <li v-for="(feature, index) in content.features" :key="index">{{ feature }}</li>
+          <li v-for="(feature, index) in content.features"
+              :key="index"
+              class="fade-in"
+              :class="`delay-${index+1}`">
+            {{ feature }}
+          </li>
         </ul>
       </div>
     </section>
@@ -21,9 +26,13 @@
     <!-- Фотографии услуги -->
     <section class="third-color animate-fadeIn">
       <div class="container">
-        <h2>Фотографии работ</h2>
+        <h2 class="fade-in">Фотографии работ</h2>
         <div class="images-grid">
-          <img v-for="(img, index) in content.images" :key="index" :src="img" :alt="content.title + ' фото ' + (index+1)" />
+          <img v-for="(img, index) in content.images"
+               :key="index"
+               :src="img"
+               :alt="content.title + ' фото ' + (index+1)"
+               class="fade-in delay-1" />
         </div>
       </div>
     </section>
@@ -31,9 +40,9 @@
     <!-- Призыв к действию -->
     <section class="fourth-color animate-slideIn">
       <div class="container">
-        <h2>{{ content.cta.title }}</h2>
-        <p>{{ content.cta.text }}</p>
-        <router-link itemprop="url" to="/kontakty">
+        <h2 class="fade-in">{{ content.cta.title }}</h2>
+        <p class="fade-in delay-1">{{ content.cta.text }}</p>
+        <router-link itemprop="url" to="/kontakty" class="fade-in delay-2">
           <AnimatedButton>{{ content.cta.button }}</AnimatedButton>
          </router-link>
       </div>
@@ -103,6 +112,8 @@ function addJSONLD(service) {
 <style scoped>
 h1, h2 { font-family: "Bebas Neue", sans-serif; }
 
+/* Existing styles remain unchanged */
+
 .first-color {
   background: #005689;
   color: white;
@@ -143,11 +154,23 @@ ul { list-style-type: disc; padding-left: 20px; }
   border-radius: 8px;
 }
 
-.animate-fadeIn { animation: fadeIn 1s ease forwards; }
-.animate-slideIn { animation: slideIn 1s ease forwards; }
+/* Fade-in animations copied from example */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+.fade-in.delay-1 { animation-delay: 0.3s; }
+.fade-in.delay-2 { animation-delay: 0.6s; }
+.fade-in.delay-3 { animation-delay: 0.9s; }
+.fade-in.delay-4 { animation-delay: 1.2s; }
 
-@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes slideIn { 0% { transform: translateY(50px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @media (max-width: 768px) {
   .images-grid { grid-template-columns: repeat(2, 1fr); }

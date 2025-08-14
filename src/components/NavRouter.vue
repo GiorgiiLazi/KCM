@@ -129,17 +129,29 @@ onUnmounted(() => {
   cursor: pointer;
   color: white;
 }
+.dropdownList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* .dropdownList > li{
+  
+} */
 .dropdownContent {
   display: none;
+  width: fit-content;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #005689;
-  border-radius: 8px;
   padding: 6px 0;
+  font-size: 1.5em;
   margin-top: 4px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   z-index: 10000;
+}
+.dropdownContent > a{
+  width: 100%;
 }
 .dropdown:hover .dropdownContent {
   display: block;

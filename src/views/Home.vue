@@ -1,14 +1,9 @@
 <template>
-  <div class="home"></div>
+  <HeroSection/>
 </template>
 
-<script>
+<script setup>
+import HeroSection from '@/components/HeroSection.vue';
 
 
-export default {
-  name: 'HomeView',
-  components: {
-   
-  }
-}
 </script>

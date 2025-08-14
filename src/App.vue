@@ -9,7 +9,7 @@
     <DynamicTitle />
 
     <router-view />
-    <HeroSection v-if="$route.path === '/'" />
+    
   </section>
 
   <Footer />
