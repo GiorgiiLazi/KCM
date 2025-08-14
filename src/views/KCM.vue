@@ -16,8 +16,8 @@
   
 
       <article class="about-description fade-in" itemprop="description">
-        <h1 class="delay-3">Строительная компания «КСМ»</h1>
-        <h2 class="delay-4">Мы выполняем:</h2>
+        <h1 class="subtitle delay-3">Строительная компания «КСМ»</h1>
+        <h2 class="subtitle delay-4">Мы выполняем:</h2>
 
         <ul class="about-services">
           <li>
@@ -61,7 +61,7 @@
     <!-- Правая часть — фото -->
    <div class="img-wrapper fourth-color">
   <div class="img-circle">
-    <img src="@/assets/architector-01.webp" alt="Генеральный директор «КСМ» Михаил" loading="lazy" />
+    <img src="/images/architector-01.webp" alt="Генеральный директор «КСМ» Михаил" loading="lazy" />
   </div>
   <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
 </div>
@@ -179,7 +179,9 @@ h2 {
     font-size: 32px;
     text-align: center;
   }
-
+.subtitle{
+  text-align: start;
+}
 .about-company {
   padding: 40px 20px;
   background-color: #f9f9f9;

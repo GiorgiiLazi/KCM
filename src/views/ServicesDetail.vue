@@ -29,7 +29,7 @@
     <section class="third-color animate-fadeIn">
       <div class="container">
         <h2 class="fade-in">Фотографии работ</h2>
-        <div class="images-grid">
+        <div class="photo-grid">
           <img v-for="(img, index) in content.images"
                :key="index"
                :src="img"
@@ -146,15 +146,25 @@ h1, h2 { font-family: "Bebas Neue", sans-serif; }
 
 ul { list-style-type: disc; padding-left: 20px; }
 
-.images-grid {
+/* Галерея */
+.photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 15px;
+  overflow: visible; /* make sure hover scale is visible */
 }
 
-.images-grid img {
+.photo-grid img {
   width: 100%;
-  border-radius: 8px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  transform-origin: center;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.1);
 }
 .hero {
   height: 60vh;
