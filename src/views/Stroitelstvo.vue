@@ -63,14 +63,31 @@ import AnimatedButton from '@/components/UI/AnimatedButton.vue';
   padding: 40px 20px;
 }
 
-h1, h2 {
-  margin-bottom: 20px;
+
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-p {
-  font-size: 18px;
+.hero p {
+  margin-top: 20px;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
 }
 
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 28px;
+}
 .first-color {
   background: #005689;
 }
@@ -95,6 +112,7 @@ ul {
 
 ul li {
   margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
 .btn {

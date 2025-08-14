@@ -9,21 +9,21 @@
     <div :class="['contacts-container', 'desktop-contacts']">
       <div class="contact-item">
         <a href="https://wa.me/+79219239997">
-          <i class="fa-brands fa-whatsapp" style="font-size:48px;color:lightgreen"></i>
+          <i class="fa-brands fa-whatsapp" style="font-size:72px;color:lightgreen"></i>
         </a>
         <label>WhatsApp</label>
         <p><a href="https://wa.me/+79219239997">+7(921) 923-99-97</a></p>
       </div>
       <div class="contact-item">
         <a href="mailto:173797m@gmail.com">
-          <i class="fa-solid fa-envelope" style="font-size:48px;color:red"></i>
+          <i class="fa-solid fa-envelope" style="font-size:72px;color:red"></i>
         </a>
         <label>Email</label>
         <p><a href="mailto:info.ck.kcm@gmail.com">info.ck.ksm@gmail.com</a></p>
       </div>
       <div class="contact-item">
         <a href="tel:+79516550237">
-          <i class="fa-solid fa-phone" style="font-size:48px;color: blue"></i>
+          <i class="fa-solid fa-phone" style="font-size:72px;color: blue"></i>
         </a>
         <label>Телефон</label>
         <p><a href="tel:+79516550237">Михаил +7 (951) 655-02-37</a></p>
@@ -118,7 +118,7 @@ onUnmounted(()=>{
 .contact-item p a {
   text-decoration: none;
   color: white;
-  font-size: 12px;
+  font-size: 1.2em;
 }
 
 .contact-item label {

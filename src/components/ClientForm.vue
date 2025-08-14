@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <section class="contact-links">
-        <div class="location">
+    <section class="contact-links fade-in delay-1">
+        <div class="location fade-in delay-2">
           <span class="icons material-symbols-outlined">location_on</span>
           <div class="location-text">
             <h1 class="text text-title">Наш офис</h1>
@@ -9,7 +9,7 @@
             <h3>Гаражный проезд д. 1 офис 309/208</h3>
           </div>
         </div>
-        <div class="location">
+        <div class="location fade-in delay-3">
           <span class="icons material-symbols-outlined">apartment</span>
           <div class="location-text">
             <h1 class="text text-title">Часы Работы</h1>
@@ -17,7 +17,7 @@
             <h3>Cб-Вск: 10:00 - 17:00</h3>
           </div>
         </div>
-        <div class="location">
+        <div class="location fade-in delay-4">
           <span class="icons material-symbols-outlined">phone_in_talk</span>
           <div class="location-text">
             <h1 class="text text-title">Номера</h1>
@@ -33,7 +33,7 @@
           </div>
         </div>
     </section>
-    <section class="form-section">
+    <section class="form-section fade-in delay-1">
       <form ref="formRef" @submit.prevent="sendEmail">
         <h3>Свяжитесь с нами по любому вопросу 🙂</h3>
         <div>
@@ -207,6 +207,35 @@ button:hover {
   flex-direction: column;
   padding-left: 100px;
 }
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.fade-in.delay-3 {
+  animation-delay: 0.9s;
+}
+
+.fade-in.delay-4 {
+  animation-delay: 1.2s;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 600px) {
   .form-section {
     margin: 20px;

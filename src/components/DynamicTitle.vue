@@ -14,6 +14,8 @@
 </template>
 
 <script setup>
+import { dynamicTitles } from "@/routes/dynamicTitles";
+import { servicesContent } from "@/routes/serviceContent";
 import Title from "./UI/Title.vue";
 import { onMounted, reactive } from "vue";
 import {gsap} from 'gsap'
@@ -27,77 +29,16 @@ onMounted(()=>{
 });
 })
 
+const titles = reactive(dynamicTitles)
 
 
-
-const titles = reactive({
-  "/": {
-    title: "Строительная компания КСМ",
-    subtitle: "OOO «СК КАПИТАЛСТРОЙМОНТАЖ»",
-  },
-  "/uslugi/landshaftnyy-dizayn": {
-    title: "Ландшафтный дизайн участка",
-    subtitle: "Озеленим и преобразим территорию под ключ",
-  },
-  "/uslugi/otdelochnye-raboty": {
-    title: "Отделочные работы под ключ",
-    subtitle: "Качественно, эстетично и в срок",
-  },
-  "/uslugi/fasadnye-raboty": {
-    title: "Фасадные работы",
-    subtitle: "Современные технологии утепления и отделки фасадов",
-  },
-  "/uslugi/blagoustroystvo-territorii": {
-    title: "Благоустройство территории",
-    subtitle: "Создаём комфорт и порядок вокруг вашего дома",
-  },
-  "/uslugi/krovelnye-raboty": {
-    title: "Кровельные работы",
-    subtitle: "Надёжная защита от непогоды и долговечность",
-  },
-  "/uslugi/kladochnye-raboty": {
-    title: "Кладочные работы",
-    subtitle: "Профессиональная кладка стен и перегородок",
-  },
-  "/uslugi/gidroizolyatsiya": {
-    title: "Гидроизоляционные работы",
-    subtitle: "Защита от влаги — надолго и без лишних затрат",
-  },
-  "/remont-kvartir-i-komnat": {
-    title: "Ремонт квартир под ключ",
-    subtitle: "Доступно, быстро, надёжно",
-  },
-  "/stroitelstvo-domov-i-kottedzhey": {
-    title: "От фундамента до кровли, под ключ",
-    subtitle: "Индивидуальный проект, строгие сроки и контроль качества",
-  },
-  "/kontakty": {
-    title: "Обратная связь",
-    subtitle: "Закажите бесплатную консультацию",
-  },
-  "/kcm": {
-    title: "О нас",
-    subtitle: "Узнайте больше о нашей компании",
-  },
-  "/uslugi": {
-    title: "Наши услуги",
-    subtitle: "Мы выполняем ремонт, строительство и отделку под ключ",
-  },
-  "/primery": {
-    title: "Наши объекты",
-    subtitle: "Посмотрите выполненные нами проекты и объекты",
-  },
-  "/galereya": {
-    title: "Галерея",
-    subtitle: "Вдохновляйтесь фотографиями наших работ",
-  },
-});
 </script>
 
 <style scoped>
+
 .title-wrapper {
-  position: absolute;
-  top: 0;
+  position: relative;
+  bottom: 0;
   left: 0;
   height: 35vh;
   width: 100%;
@@ -107,6 +48,17 @@ const titles = reactive({
   z-index: 1;
 }
 .title-app {
+  position: absolute;
+  top: calc(100% + 10px); /* 10px below the nav bar */
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
   color: #d5eeff;
   font-family: "Oswald", sans-serif;

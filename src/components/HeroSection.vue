@@ -1,37 +1,68 @@
 <template>
-  <section name="fade" class="section section2 reverse">
-    <div class="container">
-      <div class="text-block text-block2">
-        <h1>
-          <strong>Качество, прозрачность и индивидуальный подход</strong> — вот
-          что ценят наши клиенты
-        </h1>
+  <main class="construction-page">
+
+    <section class="hero first-color">
+      <div class="container">
+        <h1 class="fade-in">Строительство коттеджей и домов</h1>
+        <p class="fade-in delay-1">
+          Качество, прозрачность и индивидуальный подход — вот что ценят наши клиенты. Мы строим дома, которые служат десятилетиями.
+        </p>
       </div>
-    </div>
-    <div class="img-holder">
-      <img
-        loading="lazy"
-        src="/images/house-2.webp"
-        alt="construction picture"
-      />
-    </div>
-  </section>
-  <section class="section section1 firstSection">
-    <div class="container">
-      <div class="text-block">
-        <h1 style="text-transform: uppercase">537 объектов</h1>
-        <h1 style="text-transform: uppercase">25 лет опыта</h1>
-        <h1 style="text-transform: uppercase">Сотни клиентов</h1>
+    </section>
+
+    <section class="achievements second-color">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item fade-in">
+            <h2>537+</h2>
+            <p>объектов</p>
+          </div>
+          <div class="stat-item fade-in delay-1">
+            <h2>25+</h2>
+            <p>лет опыта</p>
+          </div>
+          <div class="stat-item fade-in delay-2">
+            <h2>Сотни</h2>
+            <p>довольных клиентов</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="img-holder">
-      <img
-        loading="lazy"
-        src="/images/house-1.webp"
-        alt="construction picture"
-      />
-    </div>
-  </section>
+    </section>
+
+    <section class="services first-color">
+      <div class="container">
+        <h2 class="fade-in">Наши услуги</h2>
+        <div class="services-grid">
+          <div class="service-item fade-in delay-1">
+            <img loading="lazy" src="/images/house-1.webp" alt="Проектирование и дизайн">
+            <h3>Проектирование и дизайн</h3>
+            <p>Разработка индивидуальных проектов, которые учитывают все ваши пожелания и особенности участка.</p>
+          </div>
+          <div class="service-item fade-in delay-2">
+            <img loading="lazy" src="/images/house-2.webp" alt="Строительство под ключ">
+            <h3>Строительство «под ключ»</h3>
+            <p>Полный цикл работ — от фундамента до отделки. Строим из кирпича, монолита и газобетона.</p>
+          </div>
+          <!-- <div class="service-item fade-in delay-3">
+            <img loading="lazy" src="/images/house-3.webp" alt="Реконструкция и ремонт">
+            <h3>Реконструкция и ремонт</h3>
+            <p>Обновление, расширение и капитальный ремонт существующих строений с соблюдением всех норм.</p>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <section class="cta third-color">
+      <div class="container">
+        <h2 class="fade-in">Готовы обсудить ваш проект?</h2>
+        <p class="fade-in delay-1">
+          Свяжитесь с нами, чтобы получить бесплатную консультацию и расчёт стоимости вашего будущего дома.
+        </p>
+        <button class="btn fade-in delay-2">Оставить заявку</button>
+      </div>
+    </section>
+
+  </main>
 </template>
 
 <script setup>
@@ -41,156 +72,204 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  gsap.fromTo(
-    ".section1",
-    {
-      y: 500,
-      opacity: 0,
-    },
-    {
-      duration: 0.6,
-      y: 0,
-      opacity: 1,
-    }
-  );
-  //   gsap.fromTo('.section2', {
-  //    x:3000,
-  //    opacity: 0,
-  //   },
-  // {
-  //   x:0,
-  //   opacity: 1,
-  //   duration: 2,
-  //   scrollTrigger: {
-  //     trigger: '.section2',
-  //     start: 'top 70%',
-  //     bottom: 'top +=200px',
-  //     toggleActions: 'restart pause none none',
-  //      once: 'true'
-  //   }
-  // })
+  gsap.utils.toArray(".fade-in").forEach(element => {
+    gsap.fromTo(element,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
 });
 </script>
 
 <style scoped>
-.section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.construction-page {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
-.section2 {
-  background: #005689;
-}
+
 .container {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 16/9;
-  flex-grow: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
 }
 
-.text-block {
-  background: #005689;
-  padding: 20px;
-  max-width: 70%;
-  flex-wrap: nowrap;
-  border-radius: 12px;
-  text-align: left;
-  z-index: 3;
-
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.6);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.text-block2 {
-  background: #ff895d;
-}
-.img-holder {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center; /* center the image inside */
-  align-items: center;
-  overflow: hidden; /* prevent overflow if image scales */
-}
-
-.img-holder img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* keep image fully visible, maintain aspect ratio */
-  display: block;
-}
-
-.img-holder1 img,
-.img-holder2 img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-.text-block h1 {
-  margin: 10px 0px;
-  font-size: 40px;
+h1, h2, h3 {
   font-family: "Bebas Neue", sans-serif;
-}
-.text-block strong {
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.reverse {
-  flex-direction: row-reverse;
+  color: #fff;
 }
 
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.first-color {
+  background: #005689;
+  color: #fff;
+}
+
+.second-color {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.second-color h2 {
+  color: #005689;
+}
+
+.third-color {
+  background: #ff895d;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero p {
+  margin-top: 20px;
+}
+
+/* Achievements Section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.stat-item h2 {
+  font-size: 72px;
+  color: #ff895d;
+  margin-bottom: 10px;
+}
+.stat-item p {
+  color: #333;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+/* Services Section */
+.services h2 {
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.service-item {
+  text-align: center;
+}
+
+.service-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.service-item h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+.service-item p {
+  text-align: center;
+  font-size: 16px;
+  color: #ddd;
+}
+
+/* CTA Section */
+.cta {
+  text-align: center;
+}
+
+.cta h2 {
+  margin-bottom: 20px;
+}
+
+.cta p {
+  margin-bottom: 40px;
+}
+
+.btn {
+  background: #fff;
+  color: #ff895d;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-  .section {
-    flex-direction: column;
-    height: auto;
-    margin: 40px 0;
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
   }
 
   .container {
-    width: 100%;
-    aspect-ratio: unset;
-    padding: 0px;
-    margin: 0px;
+    padding: 40px 15px;
   }
 
-  .text-block {
-    width: 100%; /* Take full width */
-    padding: 0; /* Remove extra space if necessary */
-    margin: 0; /* Remove side gaps */
-    box-sizing: border-box; /* Keep padding inside width */
-    background-color: transparent; /* Remove visible background */
-    box-shadow: none;
-  }
-
-  .text-block h1 {
-    font-size: 26px;
-    text-align: center;
-  }
-  .img-holder {
-    width: 100%;
-    justify-content: center;
-    padding: 0 10px;
-  }
-
-  .img-holder img {
-    width: 100%;
-    height: auto; /* scale proportionally */
-    max-height: 300px;
-    object-fit: contain; /* maintain containment on mobile */
-  }
-
-  .reverse {
-    flex-direction: column;
+  .stats-grid,
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 }
 </style>

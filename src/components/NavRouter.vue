@@ -30,8 +30,11 @@
           </div>
         </div>
 
+        <router-link to="/proekty">Проекты коттеджей</router-link>
+        <router-link to="/rekvizity">Реквизиты</router-link>
         <router-link to="/galereya">Галерея</router-link>
         <router-link to="/kontakty">Контакты</router-link>
+        
       </div>
     </div>
   </nav>

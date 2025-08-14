@@ -1,10 +1,12 @@
 <template>
   <main v-if="content">
     <!-- Заголовок услуги -->
-    <section class="first-color">
+     <section class="hero first-color">
       <div class="container">
         <h1 class="fade-in">{{ content.title }}</h1>
-        <p class="fade-in delay-1">{{ content.description }}</p>
+        <p class="fade-in delay-1">
+          {{ content.description }}
+        </p>
       </div>
     </section>
 
@@ -154,7 +156,31 @@ ul { list-style-type: disc; padding-left: 20px; }
   width: 100%;
   border-radius: 8px;
 }
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
+.hero p {
+  margin-top: 20px;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+h3 {
+  color: #ff895d;
+  font-size: 28px;
+}
 /* Fade-in animations copied from example */
 .fade-in {
   opacity: 0;
@@ -174,7 +200,22 @@ ul { list-style-type: disc; padding-left: 20px; }
 }
 
 @media (max-width: 768px) {
-  .images-grid { grid-template-columns: repeat(2, 1fr); }
-  .first-color, .second-color, .fourth-color { padding: 20px 10px; }
+  .images-grid { 
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .first-color, .second-color, .fourth-color { 
+    padding: 20px 10px; 
+  }
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .container {
+    padding: 40px 15px;
+  }
 }
 </style>

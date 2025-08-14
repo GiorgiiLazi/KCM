@@ -157,7 +157,30 @@ ul li {
     transform: translateY(0);
   }
 }
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
+.hero p {
+  margin-top: 20px;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 28px;
+}
 /* Мобильная версия */
 @media (max-width: 768px) {
   .photo-grid {

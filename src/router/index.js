@@ -10,6 +10,8 @@ import Stroitelstvo from '../views/Stroitelstvo.vue'
 import Remont from '../views/Remont.vue'
 import ServicesDetail from '../views/ServicesDetail.vue'
 import NotFound from '../views/notFound.vue'
+import Rekvizity from '@/views/Rekvizity.vue'
+import Proekty from '@/views/Proekty.vue'
 
 const routes = [
   {
@@ -82,6 +84,26 @@ const routes = [
       keywords: 'ремонт квартир, ремонт комнат, КСМ, СПб'
     }
   },
+  {
+  path: '/rekvizity',
+  name: 'rekvizity',
+  component: Rekvizity,
+  meta: {
+    title: 'Реквизиты компании — КСМ, строительная компания в СПб',
+    description: 'Полная информация о реквизитах ООО и ИП компании КСМ в Санкт-Петербурге.',
+    keywords: 'реквизиты, КСМ, ООО, ИП, строительная компания, СПб'
+  }
+},
+{
+  path: '/proekty',
+  name: 'proekty',
+  component: Proekty,
+  meta: {
+    title: 'Проекты компании — КСМ, строительная компания в СПб',
+    description: 'Типовые проекты коттеджей, одноэтажных и двухэтажных домов.',
+    keywords: 'типовые проекты, одноэтажные дома, двухэтажные дома, коттеджы, строительная планировка, СПб, КСМ'
+  }
+},
   // Динамические роуты из servicesList
 ...servicesList.map(service => ({
     path: `/uslugi/:opisanieUslug`,

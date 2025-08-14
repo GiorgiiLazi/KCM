@@ -3,10 +3,8 @@
     <nav class="background">
       <NavRouter />
       <NavContacts />
+      <DynamicTitle />
     </nav>
-
-    <!-- Заголовок отображается поверх background -->
-    <DynamicTitle />
 
     <router-view />
     
@@ -18,7 +16,6 @@
 <script setup>
 import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
-import HeroSection from "./components/HeroSection.vue";
 import DynamicTitle from "./components/DynamicTitle.vue";
 import Footer from "./components/Footer.vue";
 </script>
@@ -31,7 +28,6 @@ body,
 html {
   overflow-x: hidden;
   box-sizing: border-box;
-  font-family: "Fira Sans", sans-serif;
   padding: 0;
   margin: 0;
   color: white;
@@ -46,7 +42,7 @@ html {
 }
 .background {
   position: relative;
-  height: 35vh;
+  height: 75vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
     url("@/assets/photo1.jpg");
   background-size: cover;

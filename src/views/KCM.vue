@@ -1,13 +1,13 @@
 <template>
-  <section class="about-company" itemscope itemtype="http://schema.org/Organization">
+  <section class="about-company first-color" itemscope itemtype="http://schema.org/Organization">
   <div class="about-inner">
     
     <!-- Левая часть — описание -->
-    <div class="about-content">
-      <h1 class="about-title" itemprop="name">Строительная компания «КСМ»</h1>
-      <h2 class="about-subtitle">ООО «СК КАПИТАЛСТРОЙМОНТАЖ»</h2>
+    <div class="about-content first-color">
+      <h1 class="about-title fade-in delay-1" itemprop="name">Строительная компания «КСМ»</h1>
+      <h2 class="about-subtitle fade-in delay-2">ООО «СК КАПИТАЛСТРОЙМОНТАЖ»</h2>
 
-      <article class="about-description" itemprop="description">
+      <article class="about-description fade-in delay-3" itemprop="description">
         Наша компания специализируется на широком спектре строительных и отделочных работ. 
         <h1>Мы выполняем:</h1>
 
@@ -48,8 +48,19 @@
 
         Мы работаем в Санкт-Петербурге и Ленинградской области, соблюдаем сроки и гарантируем качество на всех этапах — от проектирования до сдачи объекта.
       </article>
+    </div>
 
-      <section class="team-section">
+    <!-- Правая часть — фото -->
+   <div class="img-wrapper fourth-color">
+  <div class="img-circle">
+    <img src="@/assets/architector-01.webp" alt="Генеральный директор «КСМ» Михаил" loading="lazy" />
+  </div>
+  <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
+</div>
+
+  </div>
+</section>
+<section class="team-section fourth-color ">
     <div class="container">
       <h2 class="team-title">Наша команда</h2>
       <ul class="team-list">
@@ -66,18 +77,6 @@
       </ul>
     </div>
   </section>
-    </div>
-
-    <!-- Правая часть — фото -->
-   <div class="img-wrapper">
-  <div class="img-circle">
-    <img src="@/assets/architector-01.webp" alt="Генеральный директор «КСМ» Михаил" loading="lazy" />
-  </div>
-  <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
-</div>
-
-  </div>
-</section>
 </template>
 
 <script setup>
@@ -176,17 +175,38 @@ const employees = [
   min-width: 0;
   animation: fadeInUp 0.8s ease forwards;
 }
-
+.first-color {
+  background: #005689;
+  color: white;
+  padding: 40px 20px;
+}
+.second-color {
+  background: #007cb9;
+  color: white;
+  padding: 30px 20px;
+}
+.third-color {
+  background: #d5eeff;
+  color: black;
+  padding: 20px;
+  margin: 0;
+}
+.fourth-color {
+  background: #ff895d;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
 .about-title {
   font-size: 2.2em;
   margin-bottom: 10px;
-  color: #1a1a1a;
+  color: white;
 }
 
 .about-subtitle {
   font-size: 1.4em;
   margin-bottom: 20px;
-  color: #555;
+  color: white;
 }
 
 .about-description {
@@ -218,6 +238,7 @@ const employees = [
 
 /* === Фото гендиректора === */
 .img-wrapper {
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -246,8 +267,8 @@ const employees = [
 .img-caption {
   margin-top: 12px;
   text-align: center;
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 1.5rem;
+  color: white;
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -263,10 +284,6 @@ const employees = [
 }
 /* === Команда === */
 .team-section {
-  padding: 40px 20px;
-  background-color: #ffffff;
-  color: #333;
-  font-family: "Arial", sans-serif;
   animation: fadeInUp 1s ease forwards;
 }
 
@@ -290,7 +307,6 @@ const employees = [
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 1s ease forwards;
 }
 
 .employee-name {
@@ -365,12 +381,30 @@ const employees = [
 }
 
 /* === Анимации === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+
+.fade-in.delay-3 {
+  animation-delay: 0.9s;
+}
+
+.fade-in.delay-4 {
+  animation-delay: 1.2s;
+}
+
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
