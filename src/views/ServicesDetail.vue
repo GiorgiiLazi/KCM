@@ -41,14 +41,12 @@
   </main>
 
   <main v-else>
-    <section class="container">
-      <h1>Услуга не найдена</h1>
-      <p>Проверьте правильность ссылки или вернитесь на <a href="/">главную страницу</a>.</p>
-    </section>
+    <notFound></notFound>
   </main>
 </template>
 
 <script setup>
+import notFound from './notFound.vue'
 import AnimatedButton from '@/components/UI/AnimatedButton.vue'
 import { ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
