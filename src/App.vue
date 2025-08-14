@@ -44,7 +44,7 @@ html {
   position: relative;
   height: 75vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
-    url("@/assets/photo1.jpg");
+    url("/images/architect-02.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 25%;

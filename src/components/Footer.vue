@@ -33,7 +33,7 @@
 
       <div class="img-container">
         <img
-          src="@/assets/main-icon2.png"
+          src="/images/main-icon-2.webp"
           alt="OOO «СК КАПИТАЛСТРОЙМОНТАЖ»"
           loading="lazy"
         />

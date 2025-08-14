@@ -3,7 +3,7 @@
     <h1 class="title">Страница не найдена</h1>
       <p>Проверьте правильность ссылки или вернитесь на <router-link to="/">главную страницу</router-link>.</p>
     <div class="image-holder">
-      <img src="@/assets/confused.png" alt="страница не существует" />
+      <img src="/images/confused-worker-1.webp" alt="страница не существует" loading="lazy" />
     </div>
     </section>
   <div class="container">
