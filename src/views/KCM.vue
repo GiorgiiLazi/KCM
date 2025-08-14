@@ -1,15 +1,23 @@
 <template>
-  <section class="about-company first-color" itemscope itemtype="http://schema.org/Organization">
+  <section class="hero first-color">
+      <div class="container">
+        <h1 class="fade-in" itemprop="name">ООО «СК КАПИТАЛСТРОЙМОНТАЖ» </h1>
+        <p class="fade-in delay-1">
+          Наша компания специализируется на широком спектре строительных и отделочных работ.
+        </p>
+      </div>
+    </section>
+  <section class="about-company third-color" itemscope itemtype="http://schema.org/Organization">
   <div class="about-inner">
     
+    
     <!-- Левая часть — описание -->
-    <div class="about-content first-color">
-      <h1 class="about-title fade-in delay-1" itemprop="name">Строительная компания «КСМ»</h1>
-      <h2 class="about-subtitle fade-in delay-2">ООО «СК КАПИТАЛСТРОЙМОНТАЖ»</h2>
+    <div class="about-content third-color">
+  
 
-      <article class="about-description fade-in delay-3" itemprop="description">
-        Наша компания специализируется на широком спектре строительных и отделочных работ. 
-        <h1>Мы выполняем:</h1>
+      <article class="about-description fade-in" itemprop="description">
+        <h1 class="delay-3">Строительная компания «КСМ»</h1>
+        <h2 class="delay-4">Мы выполняем:</h2>
 
         <ul class="about-services">
           <li>
@@ -60,14 +68,14 @@
 
   </div>
 </section>
-<section class="team-section fourth-color ">
+<section class="team-section second-color ">
     <div class="container">
       <h2 class="team-title">Наша команда</h2>
-      <ul class="team-list">
+      <ul class="team-list ">
         <li
           v-for="(employee, index) in employees"
           :key="index"
-          class="team-member"
+          class="team-member third-color"
           itemscope
           itemtype="http://schema.org/Person"
         >
@@ -152,6 +160,26 @@ const employees = [
 
 <style scoped>
 /* === Базовая структура === */
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero p {
+  margin-top: 20px;
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
 .about-company {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -200,13 +228,13 @@ const employees = [
 .about-title {
   font-size: 2.2em;
   margin-bottom: 10px;
-  color: white;
+  color: #ff895d;
 }
 
 .about-subtitle {
   font-size: 1.4em;
   margin-bottom: 20px;
-  color: white;
+  color: #ff895d;
 }
 
 .about-description {
@@ -268,7 +296,7 @@ const employees = [
   margin-top: 12px;
   text-align: center;
   font-size: 1.5rem;
-  color: white;
+  color: black;
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -284,13 +312,13 @@ const employees = [
 }
 /* === Команда === */
 .team-section {
+  padding: 20px;
   animation: fadeInUp 1s ease forwards;
 }
 
 .team-title {
   font-size: 2em;
   margin-bottom: 20px;
-  color: #1a1a1a;
 }
 
 .team-list {
@@ -303,7 +331,6 @@ const employees = [
 }
 
 .team-member {
-  background-color: #f9f9f9;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -312,12 +339,10 @@ const employees = [
 .employee-name {
   font-size: 1.2em;
   margin: 0 0 10px 0;
-  color: #1a1a1a;
 }
 
 .employee-position {
   font-size: 1em;
-  color: #666;
 }
 
 /* === Мобильная версия === */
@@ -377,6 +402,17 @@ const employees = [
 
   .employee-position {
     font-size: 0.95em;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  h1, h2 {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 20px;
   }
 }
 

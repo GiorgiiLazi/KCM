@@ -194,7 +194,7 @@ ul li {
   }
 
   .container {
-    padding: 20px;
+    padding: 40px 15px;
   }
 }
 </style>
