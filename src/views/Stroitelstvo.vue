@@ -26,7 +26,7 @@
       <div class="container">
         <h2 class="fade-in">Наши проекты</h2>
         <div class="photo-grid">
-          <img v-for="n in 4" :key="n" :src="`/images/project${n}.jpg`" :alt="`Коттедж проект ${n}`" class="fade-in delay-1" />
+          <img v-for="n in 8" :key="n" :src="`/images/project-${n}.webp`" :alt="`Коттедж проект ${n}`" class="fade-in delay-1" loading="lazy"/>
         </div>
       </div>
     </section>
@@ -115,17 +115,20 @@ ul li {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  overflow: visible; /* make sure hover scale is visible */
 }
 
 .photo-grid img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
+  transform-origin: center;
 }
 
 .photo-grid img:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Анимации */
@@ -161,7 +164,7 @@ ul li {
 /* Мобильная версия */
 @media (max-width: 768px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 
   p {

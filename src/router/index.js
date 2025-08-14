@@ -4,7 +4,6 @@ import { servicesList } from '../routes/servicesList.js'
 import Home from '../views/Home.vue'
 import KCM from '../views/KCM.vue'
 import Services from '../views/Services.vue'
-import Examples from '../views/Examples.vue'
 import ContactForm from '../views/ContactForm.vue'
 import Gallery from '../views/Gallery.vue'
 import Stroitelstvo from '../views/Stroitelstvo.vue'
@@ -41,16 +40,6 @@ const routes = [
       title: 'Услуги строительной компании КСМ — СПб',
       description: 'Полный спектр строительных и ремонтных услуг от КСМ в Санкт-Петербурге.',
       keywords: 'услуги, строительство, ремонт, КСМ, СПб'
-    }
-  },
-  {
-    path: '/primery',
-    name: 'primery',
-    component: Examples,
-    meta: {
-      title: 'Примеры работ КСМ — строительство и ремонт',
-      description: 'Галерея и примеры выполненных проектов строительной компании КСМ.',
-      keywords: 'примеры работ, галерея, КСМ, СПб'
     }
   },
   {

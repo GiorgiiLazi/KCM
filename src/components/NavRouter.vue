@@ -30,7 +30,6 @@
           </div>
         </div>
 
-        <router-link to="/primery">Объекты</router-link>
         <router-link to="/galereya">Галерея</router-link>
         <router-link to="/kontakty">Контакты</router-link>
       </div>
@@ -102,7 +101,8 @@ onUnmounted(() => {
 }
 
 .router-container a,
-.dropdownRouter {
+.dropdownRouter,
+.menu-label {
   color: white;
   text-decoration: none;
   font-size: 14px;
@@ -155,6 +155,9 @@ onUnmounted(() => {
 }
 .dropdown:hover .dropdownContent {
   display: block;
+}
+.menu-label, a{
+text-shadow: 4px 6px 12px rgba(0,0,0,0.8);
 }
 
 /* Burger */

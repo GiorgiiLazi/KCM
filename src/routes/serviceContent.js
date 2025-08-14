@@ -8,10 +8,10 @@ export const servicesContent = {
       "Гарантия качества на все работы"
     ],
     images: [
-      "/images/kladochnye-1.jpg",
-      "/images/kladochnye-2.jpg",
-      "/images/kladochnye-3.jpg",
-      "/images/kladochnye-4.jpg"
+      "/images/kladochnye-1.webp",
+      "/images/kladochnye-2.webp",
+      "/images/kladochnye-3.webp",
+      "/images/kladochnye-4.webp"
     ],
     cta: {
       title: "Закажите кладочные работы",
@@ -28,10 +28,10 @@ export const servicesContent = {
       "Использование качественных материалов"
     ],
     images: [
-      "/images/krovelnye-1.jpg",
-      "/images/krovelnye-2.jpg",
-      "/images/krovelnye-3.jpg",
-      "/images/krovelnye-4.jpg"
+      "/images/krovelnye-1.webp",
+      "/images/krovelnye-2.webp",
+      "/images/krovelnye-3.webp",
+      "/images/krovelnye-4.webp"
     ],
     cta: {
       title: "Закажите кровельные работы",
@@ -48,10 +48,10 @@ export const servicesContent = {
       "Современные материалы и технологии"
     ],
     images: [
-      "/images/gidro-1.jpg",
-      "/images/gidro-2.jpg",
-      "/images/gidro-3.jpg",
-      "/images/gidro-4.jpg"
+      "/images/gidro-1.webp",
+      "/images/gidro-2.webp",
+      "/images/gidro-3.webp",
+      "/images/gidro-4.webp"
     ],
     cta: {
       title: "Закажите гидроизоляцию",
@@ -68,10 +68,10 @@ export const servicesContent = {
       "Полный спектр отделочных работ"
     ],
     images: [
-      "/images/otdelka-1.jpg",
-      "/images/otdelka-2.jpg",
-      "/images/otdelka-3.jpg",
-      "/images/otdelka-4.jpg"
+      "/images/otdelka-1.webp",
+      "/images/otdelka-2.webp",
+      "/images/otdelka-3.webp",
+      "/images/otdelka-4.webp"
     ],
     cta: {
       title: "Закажите отделочные работы",
@@ -88,10 +88,10 @@ export const servicesContent = {
       "Реставрация и ремонт фасадов"
     ],
     images: [
-      "/images/fasad-1.jpg",
-      "/images/fasad-2.jpg",
-      "/images/fasad-3.jpg",
-      "/images/fasad-4.jpg"
+      "/images/fasad-1.webp",
+      "/images/fasad-2.webp",
+      "/images/fasad-3.webp",
+      "/images/fasad-4.webp"
     ],
     cta: {
       title: "Закажите фасадные работы",
@@ -108,10 +108,10 @@ export const servicesContent = {
       "Монтаж освещения и малых форм"
     ],
     images: [
-      "/images/blagoustroystvo-1.jpg",
-      "/images/blagoustroystvo-2.jpg",
-      "/images/blagoustroystvo-3.jpg",
-      "/images/blagoustroystvo-4.jpg"
+      "/images/blagoustroystvo-1.webp",
+      "/images/blagoustroystvo-2.webp",
+      "/images/blagoustroystvo-3.webp",
+      "/images/blagoustroystvo-4.webp"
     ],
     cta: {
       title: "Закажите благоустройство",
@@ -128,10 +128,10 @@ export const servicesContent = {
       "Полное сопровождение реализации проекта"
     ],
     images: [
-      "/images/landshaft-1.jpg",
-      "/images/landshaft-2.jpg",
-      "/images/landshaft-3.jpg",
-      "/images/landshaft-4.jpg"
+      "/images/landshaft-1.webp",
+      "/images/landshaft-2.webp",
+      "/images/landshaft-3.webp",
+      "/images/landshaft-4.webp"
     ],
     cta: {
       title: "Закажите ландшафтный дизайн",

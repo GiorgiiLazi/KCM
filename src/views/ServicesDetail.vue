@@ -32,7 +32,8 @@
                :key="index"
                :src="img"
                :alt="content.title + ' фото ' + (index+1)"
-               class="fade-in delay-1" />
+               class="fade-in delay-1"
+               loading="lazy" />
         </div>
       </div>
     </section>

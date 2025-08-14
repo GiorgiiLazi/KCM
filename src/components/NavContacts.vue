@@ -8,18 +8,18 @@
     <!-- Десктопные контакты -->
     <div :class="['contacts-container', 'desktop-contacts']">
       <div class="contact-item">
-        <a href="https://wa.me/+79516550237">
+        <a href="https://wa.me/+79219239997">
           <i class="fa-brands fa-whatsapp" style="font-size:48px;color:lightgreen"></i>
         </a>
         <label>WhatsApp</label>
-        <p><a href="https://wa.me/+79516550237">+7 (951) 655-02-37</a></p>
+        <p><a href="https://wa.me/+79219239997">+7(921) 923-99-97</a></p>
       </div>
       <div class="contact-item">
         <a href="mailto:173797m@gmail.com">
           <i class="fa-solid fa-envelope" style="font-size:48px;color:red"></i>
         </a>
         <label>Email</label>
-        <p><a href="mailto:173797m@gmail.com">info.ck.ksm@gmail.com</a></p>
+        <p><a href="mailto:info.ck.kcm@gmail.com">info.ck.ksm@gmail.com</a></p>
       </div>
       <div class="contact-item">
         <a href="tel:+79516550237">
@@ -202,11 +202,10 @@ onUnmounted(()=>{
   }
   .mobile-logo {
     position:fixed;
-    top: 20px;
-    right: 20px;
+    top: 0px;
+    right: 0px;
     z-index: 9999;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     padding: 10px 20px;
     background-color: #005689;
