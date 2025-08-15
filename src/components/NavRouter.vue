@@ -1,30 +1,34 @@
 <template>
   <nav :class="['nav-2', { sticky: isSticky }]">
     <div class="router-container">
+      <!-- Burger Menu -->
       <button class="burger" @click="toggleMenu">
         <span :class="{ open: showMenu }">&#9776;</span>
       </button>
 
+      <!-- Navigation -->
       <div class="links-wrapper" :class="{ open: showMenu }">
         <router-link @click="scrollToTop" to="/">Главная</router-link>
         <router-link @click="scrollToTop" to="/kcm">О нас</router-link>
         <router-link @click="scrollToTop" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
         <router-link @click="scrollToTop" to="/remont-kvartir-i-komnat">Ремонт</router-link>
 
-        <div class="dropdown">
-          <div class="dropdown-trigger">
+        <!-- Dropdown -->
+        <div class="dropdown desktop-only">
+          <div class="dropdown-trigger" @click="toggleDropdown">
             <span class="menu-label">Услуги</span>
             <span class="arrow material-symbols-outlined">arrow_drop_down</span>
           </div>
-
-          <div class="dropdownContent">
+          <div v-if="showDropdown" class="dropdownContent">
             <ul class="dropdownList">
               <li v-for="service in services" :key="service.id" class="dropdownItem">
-               <router-link @click="scrollToTop"
+                <router-link
+                  @click="closeAll"
                   class="dropdownRouter"
-                  :to="{ name: `usluga-${service.slug}`, params: { opisanieUslug: service.slug } }">  
-                    {{ service.name }}
-              </router-link>
+                  :to="{ name: `usluga-${service.slug}`, params: { opisanieUslug: service.slug } }"
+                >  
+                  {{ service.name }}
+                </router-link>
               </li>
             </ul>
           </div>
@@ -34,24 +38,56 @@
         <router-link @click="scrollToTop" to="/rekvizity">Реквизиты</router-link>
         <router-link @click="scrollToTop" to="/galereya">Галерея</router-link>
         <router-link @click="scrollToTop" to="/kontakty">Контакты</router-link>
-        
       </div>
     </div>
   </nav>
+
+  <!-- Mobile dropdown through teleport -->
+  <teleport to="body">
+    <div v-if="showDropdownMobile" class="mobile-dropdown">
+      <ul>
+        <li v-for="service in services" :key="service.id">
+          <router-link
+            @click="closeAll"
+            :to="{ name: `usluga-${service.slug}`, params: { opisanieUslug: service.slug } }"
+          >
+            {{ service.name }}
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </teleport>
 </template>
 
 <script setup>
 import { scrollToTop } from '@/composables/scrollToTop';
 import { servicesList } from '../routes/servicesList';
-import { ref, onMounted, onUnmounted, reactive } from 'vue';
-import { useRoute } from 'vue-router';
-import { toSlug } from '@/composables/toSlug';
+import { ref, reactive, onMounted, onUnmounted } from 'vue';
 
-const services = reactive(servicesList)
+const services = reactive(servicesList);
 
 const isSticky = ref(false);
 const showMenu = ref(false);
-const toggleMenu = () => showMenu.value = !showMenu.value;
+const showDropdown = ref(false); // desctop
+const showDropdownMobile = ref(false); // mobile
+
+const toggleMenu = () => {
+  showMenu.value = !showMenu.value;
+};
+
+const toggleDropdown = () => {
+  if (window.innerWidth <= 768) {
+    showDropdownMobile.value = !showDropdownMobile.value;
+  } else {
+    showDropdown.value = !showDropdown.value;
+  }
+};
+
+const closeAll = () => {
+  showMenu.value = false;
+  showDropdown.value = false;
+  showDropdownMobile.value = false;
+};
 
 const handleScroll = () => {
   isSticky.value = window.scrollY > 200;
@@ -65,11 +101,10 @@ onUnmounted(() => {
 });
 </script>
 
-
 <style scoped>
 .nav-2 {
   width: 100%;
-  background-color: transparent;
+  background-color: #005689;
   padding: 20px;
   z-index: 1000;
   transition: all 0.3s ease-in-out;
@@ -83,12 +118,6 @@ onUnmounted(() => {
   background-color: #005689;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   padding: 10px 20px;
-  animation: fadeInDown 0.3s ease;
-}
-
-@keyframes fadeInDown {
-  from { transform: translateY(-100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 .router-container {
@@ -123,10 +152,11 @@ onUnmounted(() => {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Dropdown */
+/* Dropdown desktop */
 .dropdown {
   position: relative;
 }
+
 .dropdown-trigger {
   display: flex;
   align-items: center;
@@ -134,35 +164,21 @@ onUnmounted(() => {
   cursor: pointer;
   color: white;
 }
-.dropdownList{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-/* .dropdownList > li{
-  
-} */
+
 .dropdownContent {
-  display: none;
-  width: fit-content;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #005689;
   padding: 6px 0;
-  font-size: 1.5em;
-  margin-top: 4px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   z-index: 10000;
 }
-.dropdownContent > a{
-  width: 100%;
-}
-.dropdown:hover .dropdownContent {
-  display: block;
-}
-.menu-label, a{
-text-shadow: 4px 6px 12px rgba(0,0,0,0.8);
+
+.dropdownList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Burger */
@@ -179,7 +195,24 @@ text-shadow: 4px 6px 12px rgba(0,0,0,0.8);
   transform: rotate(90deg);
 }
 
-/* ----------- Mobile Styles ----------- */
+/* Mobile dropdown via teleport */
+.mobile-dropdown {
+  position: fixed;
+  top: 60px; /* под шапкой */
+  left: 0;
+  right: 0;
+  background-color: #005689;
+  z-index: 999999;
+  padding: 10px;
+}
+
+.mobile-dropdown a {
+  display: block;
+  padding: 8px;
+  color: white;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .burger {
     display: block;
@@ -190,7 +223,6 @@ text-shadow: 4px 6px 12px rgba(0,0,0,0.8);
     flex-direction: column;
     width: 100%;
     background-color: #005689;
-    margin-top: 10px;
     border-radius: 8px;
     padding: 10px;
   }
@@ -199,14 +231,8 @@ text-shadow: 4px 6px 12px rgba(0,0,0,0.8);
     display: flex;
   }
 
-  .dropdownContent {
-    position: static;
-    box-shadow: none;
-    padding-left: 10px;
-  }
-
-  .dropdown-trigger {
-    padding: 6px 0;
+  .desktop-only {
+    display: none;
   }
 }
 </style>

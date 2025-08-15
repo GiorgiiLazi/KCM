@@ -1,7 +1,7 @@
 <template>
   <section class="app-container">
+    <NavRouter />
     <nav class="background">
-      <NavRouter />
       <NavContacts />
       <DynamicTitle />
     </nav>
