@@ -1,13 +1,14 @@
 <template>
   <section class="app-container">
-    <NavRouter />
-    <nav class="background">
-      <NavContacts />
-      <DynamicTitle />
-    </nav>
+    <header class="header-background">
+      <NavRouter />
+      <nav class="nav">
+        <NavContacts />
+        <DynamicTitle />
+      </nav>
+    </header>
 
     <router-view />
-    
   </section>
 
   <Footer />
@@ -23,9 +24,7 @@ import Footer from "./components/Footer.vue";
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap");
 
-#app,
-body,
-html {
+html, body, #app {
   overflow-x: hidden;
   box-sizing: border-box;
   padding: 0;
@@ -33,34 +32,33 @@ html {
   color: white;
   background: #d5eeff;
   font-family: "Fira Sans", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-style: normal;
 }
-.app-container {
+
+/* Фон только для шапки */
+.header-background {
   position: relative;
-}
-.background {
-  position: relative;
-  height: 75vh;
+  height: 75vh; /* фиксируем высоту */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
     url("/images/architect-02.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 25%;
+  background-position: center;
 }
+
+.nav {
+  position: relative;
+  height: 100%;
+}
+
+/* Анимация переходов */
 .fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+.fade-leave-to { opacity: 0; }
 .fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
-}
+.fade-leave-from { opacity: 1; }
 .fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
+.fade-leave-active { transition: opacity 0.5s ease; }
+
+/* Заголовок */
 .title-wrapper {
   position: absolute;
   top: 0;
@@ -73,6 +71,7 @@ html {
   pointer-events: none;
   z-index: 1;
 }
+
 .title-app {
   text-align: center;
   color: #d5eeff;
@@ -90,11 +89,13 @@ html {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
 }
+
 .router-link-exact-active {
   background: #ff895d;
 }
+
 @media (max-width:768px) { 
-  .background{
+  .header-background {
     height: 40vh;
   }
 }
