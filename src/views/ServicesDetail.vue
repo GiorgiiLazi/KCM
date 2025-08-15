@@ -1,23 +1,21 @@
 <template>
   <main v-if="content">
-    <!-- Заголовок услуги -->
-     <section class="hero first-color">
+    <!-- Hero -->
+    <section class="hero first-color">
       <div class="container">
         <h1 class="fade-in">{{ content.title }}</h1>
-        <p class="fade-in delay-1">
-          {{ content.description }}
-        </p>
+        <p class="fade-in delay-1">{{ content.description }}</p>
       </div>
     </section>
 
-    <!-- Преимущества / особенности -->
+    <!-- Advantages -->
     <section class="third-color animate-slideIn">
       <div class="container">
         <h2 class="fade-in">Наши преимущества</h2>
         <ul>
-          <li v-for="(feature, index) in content.features"
-              :key="index"
-              class="fade-in"
+          <li v-for="(feature, index) in content.features" 
+              :key="index" 
+              class="fade-in" 
               :class="`delay-${index+1}`">
             {{ feature }}
           </li>
@@ -25,29 +23,36 @@
       </div>
     </section>
 
-    <!-- Фотографии услуги -->
+    <!-- Gallery -->
     <section class="third-color animate-fadeIn">
       <div class="container">
         <h2 class="fade-in">Фотографии работ</h2>
         <div class="photo-grid">
-          <img v-for="(img, index) in content.images"
-               :key="index"
-               :src="img"
+          <img v-for="(img, index) in content.images" 
+               :key="index" 
+               :src="img" 
                :alt="content.title + ' фото ' + (index+1)"
                class="fade-in delay-1"
-               loading="lazy" />
+               loading="lazy"
+               @click="openLightbox(index)" />
         </div>
+        <vue-easy-lightbox
+          :visible="lightboxVisible"
+          :imgs="content.images"
+          :index="lightboxIndex"
+          @hide="lightboxVisible = false"
+        />
       </div>
     </section>
 
-    <!-- Призыв к действию -->
+    <!-- Call to action -->
     <section class="fourth-color animate-slideIn">
       <div class="container">
         <h2 class="fade-in">{{ content.cta.title }}</h2>
         <p class="fade-in delay-1">{{ content.cta.text }}</p>
         <router-link itemprop="url" to="/kontakty" class="fade-in delay-2">
           <AnimatedButton>{{ content.cta.button }}</AnimatedButton>
-         </router-link>
+        </router-link>
       </div>
     </section>
   </main>
@@ -58,16 +63,25 @@
 </template>
 
 <script setup>
-import notFound from './notFound.vue'
-import AnimatedButton from '@/components/UI/AnimatedButton.vue'
 import { ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import notFound from './notFound.vue'
+import AnimatedButton from '@/components/UI/AnimatedButton.vue'
+import VueEasyLightbox from 'vue-easy-lightbox'
 import { servicesContent } from '../routes/serviceContent'
 
 const route = useRoute()
 const content = ref(servicesContent[route.params.opisanieUslug] || null)
 
-// Следим за изменением slug в URL
+// Lightbox state
+const lightboxVisible = ref(false)
+const lightboxIndex = ref(0)
+const openLightbox = (index) => {
+  lightboxIndex.value = index
+  lightboxVisible.value = true
+}
+
+// Watching slug change in url
 watch(
   () => route.params.opisanieUslug,
   (newSlug) => {
@@ -76,7 +90,7 @@ watch(
   }
 )
 
-// SEO-теги и JSON-LD
+// SEO-tags and JSON-LD
 onMounted(() => {
   if (route.meta) {
     document.title = route.meta.title || 'КСМ — строительная компания'
@@ -115,8 +129,6 @@ function addJSONLD(service) {
 <style scoped>
 h1, h2 { font-family: "Bebas Neue", sans-serif; }
 
-/* Existing styles remain unchanged */
-
 .first-color {
   background: #005689;
   color: white;
@@ -150,8 +162,8 @@ ul { list-style-type: disc; padding-left: 20px; }
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  overflow: visible; /* make sure hover scale is visible */
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .photo-grid img {
@@ -159,12 +171,32 @@ ul { list-style-type: disc; padding-left: 20px; }
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
-  transform-origin: center;
+  
+  /* hover works independently */
+  transition: transform 0.3s ease-in-out, opacity 0.8s ease, margin 0.8s ease;
+  
+  /* fade-in using opacity + margin instead of transform */
+  opacity: 0;
+  margin-top: 20px;
+  animation: fadeInUpHover 0.8s forwards;
 }
 
 .photo-grid img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* hover scale works correctly */
+}
+
+@keyframes fadeInUpHover {
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* final state after fade-in */
+  }
 }
 .hero {
   height: 60vh;
@@ -202,12 +234,6 @@ h3 {
 .fade-in.delay-3 { animation-delay: 0.9s; }
 .fade-in.delay-4 { animation-delay: 1.2s; }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 @media (max-width: 768px) {
   .images-grid { 

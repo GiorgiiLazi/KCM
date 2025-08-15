@@ -1,16 +1,17 @@
-
-  <template>
+<template>
   <main class="construction-page">
-
+    <!-- Hero Section -->
     <section class="hero first-color">
       <div class="container">
         <h1 class="fade-in">Строительство коттеджей и домов</h1>
         <p class="fade-in delay-1">
-          Качество, прозрачность и индивидуальный подход — вот что ценят наши клиенты. Мы строим дома, которые служат десятилетиями.
+          Качество, прозрачность и индивидуальный подход — вот что ценят наши
+          клиенты. Мы строим дома, которые служат десятилетиями.
         </p>
       </div>
     </section>
 
+    <!-- Achievements Section -->
     <section class="achievements second-color">
       <div class="container">
         <div class="stats-grid">
@@ -30,52 +31,97 @@
       </div>
     </section>
 
+    <!-- Services Section -->
     <section class="services first-color">
       <div class="container">
         <h2 class="fade-in">Наши услуги</h2>
         <div class="services-grid">
-          <div class="service-item fade-in delay-1">
-            <img loading="lazy" src="/images/project-1.webp" alt="Проектирование и дизайн">
-            <h3>Проектирование и дизайн коттеджей</h3>
-            <p>Разработка индивидуальных проектов, которые учитывают все ваши пожелания и особенности участка.</p>
-          </div>
-          <div class="service-item fade-in delay-2">
-            <img loading="lazy" src="/images/project-3.webp" alt="Строительство под ключ">
-            <h3>Строительство коттеджей «под ключ»</h3>
-            <p>Полный цикл работ — от фундамента до отделки. Строим из кирпича, монолита и газобетона.</p>
-          </div>
-          <div class="service-item fade-in delay-3">
-            <img loading="lazy" src="/images/repair-2.webp" alt="Реконструкция и ремонт">
-            <h3>Реконструкция и ремонт</h3>
-            <p>Обновление, расширение и капитальный ремонт существующих строений с соблюдением всех норм.</p>
+          <div
+            v-for="(img, idx) in images"
+            :key="idx"
+            class="service-item fade-in"
+            :class="`delay-${idx + 1}`"
+          >
+            <img
+              loading="lazy"
+              :src="img.src"
+              :alt="img.alt"
+              @click="openLightbox(idx)"
+            />
+            <h3>{{ img.title }}</h3>
+            <p>{{ img.description }}</p>
           </div>
         </div>
       </div>
+
+      <!-- Lightbox (outside grid items, will always center) -->
+      <vue-easy-lightbox
+        :visible="show"
+        :imgs="images.map(i => i.src)"
+        :index="index"
+        @hide="show = false"
+      />
     </section>
 
+    <!-- CTA Section -->
     <section class="cta third-color">
       <div class="container">
         <h2 class="fade-in">Готовы обсудить ваш проект?</h2>
         <p class="fade-in delay-1">
-          Свяжитесь с нами, чтобы получить бесплатную консультацию и расчёт стоимости вашего будущего дома.
+          Свяжитесь с нами, чтобы получить бесплатную консультацию и расчёт
+          стоимости вашего будущего дома.
         </p>
-        <Animated-button/>
+        <AnimatedButton />
       </div>
     </section>
-
   </main>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+import VueEasyLightbox from "vue-easy-lightbox";
 import AnimatedButton from "@/components/UI/AnimatedButton.vue";
 import { gsap } from "gsap";
-import { onMounted } from "vue";
 import ScrollTrigger from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
 
+// Lightbox state
+const show = ref(false);
+const index = ref(0);
+const images = [
+  {
+    src: "/images/project-1.webp",
+    alt: "Проектирование и дизайн",
+    title: "Проектирование и дизайн коттеджей",
+    description:
+      "Разработка индивидуальных проектов, которые учитывают все ваши пожелания и особенности участка.",
+  },
+  {
+    src: "/images/project-3.webp",
+    alt: "Строительство под ключ",
+    title: "Строительство коттеджей «под ключ»",
+    description:
+      "Полный цикл работ — от фундамента до отделки. Строим из кирпича, монолита и газобетона.",
+  },
+  {
+    src: "/images/repair-2.webp",
+    alt: "Реконструкция и ремонт",
+    title: "Реконструкция и ремонт",
+    description:
+      "Обновление, расширение и капитальный ремонт существующих строений с соблюдением всех норм.",
+  },
+];
+
+const openLightbox = (i) => {
+  index.value = i;
+  show.value = true;
+};
+
+// GSAP fade-in animations
+gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
-  gsap.utils.toArray(".fade-in").forEach(element => {
-    gsap.fromTo(element,
+  gsap.utils.toArray(".fade-in").forEach((element) => {
+    gsap.fromTo(
+      element,
       { opacity: 0, y: 20 },
       {
         opacity: 1,
@@ -85,8 +131,8 @@ onMounted(() => {
         scrollTrigger: {
           trigger: element,
           start: "top 85%",
-          toggleActions: "play none none none"
-        }
+          toggleActions: "play none none none",
+        },
       }
     );
   });
@@ -94,8 +140,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
+/* Base Styles */
 .construction-page {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -108,14 +155,16 @@ onMounted(() => {
   padding: 80px 20px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Bebas Neue", sans-serif;
-  color: #fff;
 }
 
 h1 {
   font-size: 60px;
   text-align: center;
+  color: #fff;
 }
 
 h2 {
@@ -125,6 +174,7 @@ h2 {
 
 h3 {
   font-size: 28px;
+  color: #fff;
 }
 
 p {
@@ -134,6 +184,7 @@ p {
   text-align: center;
 }
 
+/* Section Colors */
 .first-color {
   background: #005689;
   color: #fff;
@@ -153,7 +204,7 @@ p {
   color: #fff;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   height: 60vh;
   display: flex;
@@ -166,7 +217,7 @@ p {
   margin-top: 20px;
 }
 
-/* Achievements Section */
+/* Achievements */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -180,13 +231,14 @@ p {
   color: #ff895d;
   margin-bottom: 10px;
 }
+
 .stat-item p {
   color: #333;
   text-transform: uppercase;
   font-size: 20px;
 }
 
-/* Services Section */
+/* Services */
 .services h2 {
   margin-bottom: 60px;
 }
@@ -207,19 +259,15 @@ p {
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 20px;
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
 }
 
-.service-item h3 {
-  color: #fff;
-  margin-bottom: 10px;
-}
-.service-item p {
-  text-align: center;
-  font-size: 16px;
-  color: #ddd;
+.service-item img:hover {
+  transform: scale(1.1);
 }
 
-/* CTA Section */
+/* CTA */
 .cta {
   text-align: center;
 }
@@ -231,7 +279,6 @@ p {
 .cta p {
   margin-bottom: 40px;
 }
-
 
 /* Animations */
 .fade-in {

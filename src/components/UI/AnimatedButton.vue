@@ -1,27 +1,20 @@
 <template>
   <div class="container">
     <router-link class="fade-in delay-2" itemprop="url" to="/kontakty">
-          <button class="btn">Оставить заявку</button>
-    
-        </router-link>
+      <button class="btn">Оставить заявку</button>
+    </router-link>
   </div>
-  
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style scoped>
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-content: center;
-
 }
 .btn {
-
-
   background: #fff;
   color: #ff895d;
   padding: 15px 40px;

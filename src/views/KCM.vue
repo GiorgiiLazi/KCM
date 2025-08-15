@@ -336,15 +336,21 @@ h2 {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: inline-block; /* makes scaling work nicely */
 }
 
-.employee-name {
-  font-size: 1.2em;
-  margin: 0 0 10px 0;
+.team-member:hover {
+  transform: scale(1.05); /* scales card */
 }
 
-.employee-position {
-  font-size: 1em;
+/* Optional: counter-scale text so child elements don't grow */
+.team-member > * {
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover > * {
+  transform: scale(0.952); /* 1 / 1.05 to keep children visually same size */
 }
 
 /* === Мобильная версия === */

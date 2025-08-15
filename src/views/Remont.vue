@@ -21,12 +21,27 @@
       </div>
     </section>
 
+       <!-- Gallery Section -->
     <section class="gallery third-color">
       <div class="container">
         <h2 class="fade-in">Наши проекты</h2>
         <div class="photo-grid">
-          <img v-for="n in 8" :key="n" :src="`/images/repair-${n}.webp`" :alt="`Ремонт квартир проект ${n}`" class="fade-in delay-1" loading="lazy"/>
+          <div v-for="(img, idx) in images" :key="idx" class="photo">
+            <img
+              :src="img.src"
+              :alt="`Ремонт квартир ${idx + 1}`"
+              loading="lazy"
+              @click="openLightbox(idx)"
+            />
+          </div>
         </div>
+
+        <vue-easy-lightbox
+          :visible="show"
+          :imgs="images.map(i => i.src)"
+          :index="index"
+          @hide="show = false"
+        />
       </div>
     </section>
 
@@ -43,7 +58,27 @@
 </template>
 
 <script setup>
-import AnimatedButton from '@/components/UI/AnimatedButton.vue';
+import { ref } from "vue";
+import VueEasyLightbox from "vue-easy-lightbox";
+import AnimatedButton from '@/components/UI/AnimatedButton.vue';// Lightbox state
+
+const show = ref(false);
+const index = ref(0);
+const images = [
+  { src: "/images/repair-1.webp" },
+  { src: "/images/repair-2.webp" },
+  { src: "/images/repair-3.webp" },
+  { src: "/images/repair-4.webp" },
+  { src: "/images/repair-5.webp" },
+  { src: "/images/repair-6.webp" },
+  { src: "/images/repair-7.webp" },
+  { src: "/images/repair-8.webp" },
+];
+
+const openLightbox = (i) => {
+  index.value = i;
+  show.value = true;
+};
 </script>
 
 <style scoped>
@@ -126,7 +161,7 @@ ul li {
 }
 
 .photo-grid img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 /* Анимации */
 .fade-in {
