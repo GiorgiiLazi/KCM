@@ -6,10 +6,10 @@
       </button>
 
       <div class="links-wrapper" :class="{ open: showMenu }">
-        <router-link to="/">Главная</router-link>
-        <router-link to="/kcm">О нас</router-link>
-        <router-link to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
-        <router-link to="/remont-kvartir-i-komnat">Ремонт</router-link>
+        <router-link @click="scrollToTop" to="/">Главная</router-link>
+        <router-link @click="scrollToTop" to="/kcm">О нас</router-link>
+        <router-link @click="scrollToTop" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
+        <router-link @click="scrollToTop" to="/remont-kvartir-i-komnat">Ремонт</router-link>
 
         <div class="dropdown">
           <div class="dropdown-trigger">
@@ -20,7 +20,7 @@
           <div class="dropdownContent">
             <ul class="dropdownList">
               <li v-for="service in services" :key="service.id" class="dropdownItem">
-               <router-link
+               <router-link @click="scrollToTop"
                   class="dropdownRouter"
                   :to="{ name: `usluga-${service.slug}`, params: { opisanieUslug: service.slug } }">  
                     {{ service.name }}
@@ -30,10 +30,10 @@
           </div>
         </div>
 
-        <router-link to="/proekty">Проекты коттеджей</router-link>
-        <router-link to="/rekvizity">Реквизиты</router-link>
-        <router-link to="/galereya">Галерея</router-link>
-        <router-link to="/kontakty">Контакты</router-link>
+        <router-link @click="scrollToTop" to="/proekty">Проекты коттеджей</router-link>
+        <router-link @click="scrollToTop" to="/rekvizity">Реквизиты</router-link>
+        <router-link @click="scrollToTop" to="/galereya">Галерея</router-link>
+        <router-link @click="scrollToTop" to="/kontakty">Контакты</router-link>
         
       </div>
     </div>
@@ -41,6 +41,7 @@
 </template>
 
 <script setup>
+import { scrollToTop } from '@/composables/scrollToTop';
 import { servicesList } from '../routes/servicesList';
 import { ref, onMounted, onUnmounted, reactive } from 'vue';
 import { useRoute } from 'vue-router';
@@ -55,6 +56,7 @@ const toggleMenu = () => showMenu.value = !showMenu.value;
 const handleScroll = () => {
   isSticky.value = window.scrollY > 200;
 };
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
