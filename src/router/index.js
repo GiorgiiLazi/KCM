@@ -119,9 +119,10 @@ const baseRoutes = [
 
 // Динамические роуты servicesList
 const dynamicServiceRoutes = servicesList.map(service => ({
-  path: `/uslugi/${service.slug}`,
+  path: `/uslugi/:opisanieUslug`,
   name: `usluga-${service.slug}`,
   component: ServicesDetail,
+  props: true, // <-- pass route params as props
   meta: {
     title: `${service.name} — КСМ, строительная компания в СПб`,
     description: `Услуга "${service.name}" от строительной компании КСМ в Санкт-Петербурге.`,
