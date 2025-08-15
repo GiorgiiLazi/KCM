@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <router-link class="fade-in delay-2" itemprop="url" to="/kontakty">
-      <button class="btn">Оставить заявку</button>
+      <button @click="scrollToTop" class="btn">Оставить заявку</button>
     </router-link>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { scrollToTop } from '@/composables/scrollToTop';
+</script>
 
 <style scoped>
 .container {

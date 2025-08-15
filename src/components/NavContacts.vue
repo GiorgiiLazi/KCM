@@ -15,18 +15,18 @@
         <p><a href="https://wa.me/+79219239997">+7(921) 923-99-97</a></p>
       </div>
       <div class="contact-item">
-        <a href="mailto:173797m@gmail.com">
+        <a href="mailto:info.ck.kcm@gmail.com">
           <i class="fa-solid fa-envelope" style="font-size:72px;color:red"></i>
         </a>
         <label>Email</label>
         <p><a href="mailto:info.ck.kcm@gmail.com">info.ck.ksm@gmail.com</a></p>
       </div>
       <div class="contact-item">
-        <a href="tel:+79516550237">
+        <a href="tel:+79219239997">
           <i class="fa-solid fa-phone" style="font-size:72px;color: blue"></i>
         </a>
         <label>Телефон</label>
-        <p><a href="tel:+79516550237">Михаил +7 (951) 655-02-37</a></p>
+        <p><a href="tel:+79219239997">Михаил +7(921) 923-99-97</a></p>
       </div>
     </div>
 
@@ -38,13 +38,13 @@
 
   <!-- Мобильные контакты внизу -->
   <div :class="['mobile-contacts', {isTransparent: isTransparent}]">
-    <a href="https://wa.me/+79516550237" class="mobile-icon">
+    <a href="https://wa.me/+79219239997" class="mobile-icon">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <a href="mailto:173797m@gmail.com" class="mobile-icon">
+    <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
       <i class="fa-solid fa-envelope"></i>
     </a>
-    <a href="tel:+79516550237" class="mobile-icon">
+    <a href="tel:+79219239997" class="mobile-icon">
       <i class="fa-solid fa-phone"></i>
     </a>
   </div>
