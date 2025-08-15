@@ -239,6 +239,7 @@ h3 {
   .images-grid { 
     grid-template-columns: 1;
      gap: 15px;
+     
   }
   .first-color, .second-color, .fourth-color { 
     padding: 20px 10px; 
