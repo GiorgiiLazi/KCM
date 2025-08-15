@@ -5,41 +5,205 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon & Apple Touch Icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/src/assets/icons/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/src/assets/icons/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/src/assets/icons/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/src/assets/icons/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/src/assets/icons/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/src/assets/icons/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/src/assets/icons/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/src/assets/icons/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-128.png" sizes="128x128" />
+    <meta
+      name="description"
+      content="Строительная компания КСМ — строительство коттеджей, ремонт квартир, отделка и благоустройство в Санкт-Петербурге и Ленинградской области."
+    />
+    <meta
+      name="keywords"
+      content="строительство коттеджей, ремонт квартир, отделка, благоустройство, КСМ, строительная компания, СПб"
+    />
 
-    <meta name="application-name" content="&nbsp;"/>
+    <!-- og titles -->
+    <meta
+      property="og:title"
+      content="Строительная компания КСМ — СПб и Ленобласть"
+    />
+    <meta
+      property="og:description"
+      content="КСМ — строительство коттеджей, ремонт квартир и благоустройство в Санкт-Петербурге и Ленинградской Области."
+    />
+    <meta property="og:image" content="favicon-196x196" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kcm-stroy.netlify.app/" />
+
+    <!-- Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="/images/main-icon-1.webp" as="image" />
+    <link rel="preload" href="/images/architect-02.webp" as="image" />
+
+    <!-- Language & Geo tags -->
+    <meta name="geo.region" content="RU-SPE" />
+    <meta name="geo.placename" content="Санкт-Петербург" />
+    <meta name="geo.position" content="59.9386;30.3141" />
+    <meta name="ICBM" content="59.9386, 30.3141" />
+
+    <!-- Favicon & Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/src/assets/icons/apple-touch-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/src/assets/icons/apple-touch-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/src/assets/icons/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/src/assets/icons/apple-touch-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/src/assets/icons/apple-touch-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/src/assets/icons/apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/src/assets/icons/apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/src/assets/icons/apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/src/assets/icons/favicon-196x196.png"
+      sizes="196x196"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/src/assets/icons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/src/assets/icons/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/src/assets/icons/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/src/assets/icons/favicon-128.png"
+      sizes="128x128"
+    />
+
+    <meta name="application-name" content="&nbsp;" />
     <meta name="msapplication-TileColor" content="#" />
-    <meta name="msapplication-TileImage" content="/src/assets/icons/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="/src/assets/icons/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="/src/assets/icons/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="/src/assets/icons/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="/src/assets/icons/mstile-310x310.png" />
+    <meta
+      name="msapplication-TileImage"
+      content="/src/assets/icons/mstile-144x144.png"
+    />
+    <meta
+      name="msapplication-square70x70logo"
+      content="/src/assets/icons/mstile-70x70.png"
+    />
+    <meta
+      name="msapplication-square150x150logo"
+      content="/src/assets/icons/mstile-150x150.png"
+    />
+    <meta
+      name="msapplication-wide310x150logo"
+      content="/src/assets/icons/mstile-310x150.png"
+    />
+    <meta
+      name="msapplication-square310x310logo"
+      content="/src/assets/icons/mstile-310x310.png"
+    />
 
     <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
 
+  
     <title>Строительная компания КСМ</title>
+
+    <link rel="canonical" href="https://ksm-site.ru/" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "КСМ — строительная компания",
+        "image": "https://ksm-site.ru/src/assets/icons/favicon-196x196.png",
+        "url": "https://ksm-site.ru",
+        "telephone": [
+          "+7-951-655-02-37",
+          "+7-921-923-99-97",
+          "+7-921-996-99-97"
+        ],
+        "email": "info.ck.ksm@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "пр. Гаражный, д.1, лит. А, офис 309/208",
+          "addressLocality": "Санкт-Петербург",
+          "postalCode": "192289",
+          "addressCountry": "RU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "59.8675",
+          "longitude": "30.4763"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "17:00"
+          }
+        ],
+        "priceRange": "₽₽"
+      }
+    </script>
   </head>
 
   <body>
     <noscript>
       <strong>
-        We're sorry but this site doesn't work properly without JavaScript enabled.
-        Please enable it to continue.
+        We're sorry but this site doesn't work properly without JavaScript
+        enabled. Please enable it to continue.
       </strong>
     </noscript>
 

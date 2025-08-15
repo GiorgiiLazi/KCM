@@ -267,7 +267,7 @@ h3 {
   .first-color,
   .second-color,
   .fourth-color {
-    padding: 20px 10px;
+    padding: 20px 10px; 
   }
   h1 {
     font-size: 40px;

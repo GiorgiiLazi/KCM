@@ -2,7 +2,7 @@
   <nav class="nav-1">
     <!-- Десктопная иконка -->
     <div class="icon-container">
-      <img src="/images/main-icon-2.webp" alt="КСМ логотип" loading="lazy">
+      <img src="/images/main-icon-1.webp" alt="КСМ логотип">
     </div>
 
     <!-- Десктопные контакты -->
@@ -32,19 +32,22 @@
 
     <!-- Мобильная иконка компании -->
     <div class="mobile-logo">
-      <img src="/images/main-icon-2.webp" alt="КСМ логотип" loading="lazy">
+      <img src="/images/main-icon-1.webp" alt="КСМ логотип">
     </div>
   </nav>
 
   <!-- Мобильные контакты внизу -->
   <div :class="['mobile-contacts', {isTransparent: isTransparent}]">
     <a href="https://wa.me/+79219239997" class="mobile-icon">
+      <span class="sr-only">WhatsApp: +79219239997 </span>
       <i class="fa-brands fa-whatsapp"></i>
     </a>
     <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
+      <span class="sr-only">info.ck.kcm@gmail.com</span>
       <i class="fa-solid fa-envelope"></i>
     </a>
     <a href="tel:+79219239997" class="mobile-icon">
+      <span class="sr-only">Telephone: +79219239997 </span>
       <i class="fa-solid fa-phone"></i>
     </a>
   </div>
@@ -196,7 +199,17 @@ onUnmounted(()=>{
     text-decoration: none;
     padding: 0 10px;
   }
-
+  .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
   .mobile-icon i {
     font-size: 28px;
   }
