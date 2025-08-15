@@ -253,7 +253,11 @@ button:hover {
 
 @media (max-width: 768px){
   .container{
-    flex-direction: column;
+    flex-direction: column-reverse;
+    text-align: left;
+  }
+  .contact-links{
+    padding-left: 0px;
   }
 }
 </style>
