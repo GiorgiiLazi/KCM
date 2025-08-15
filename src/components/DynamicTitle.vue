@@ -15,45 +15,27 @@
 
 <script setup>
 import { dynamicTitles } from "@/routes/dynamicTitles";
-import { servicesContent } from "@/routes/serviceContent";
 import Title from "./UI/Title.vue";
-import { onMounted, reactive } from "vue";
-import {gsap} from 'gsap'
+import { reactive } from "vue";
 
-onMounted(()=>{
-  gsap.to(".linkToForm", {
-  x: 20, // Moves the element 200px to the right
-  duration: 2, // Animation duration of 2 seconds
-  repeat: -1, // Repeats the animation infinitely
-  yoyo: true // Makes the animation play forward and then backward
-});
-})
-
-const titles = reactive(dynamicTitles)
-
-
+const titles = reactive(dynamicTitles);
 </script>
 
 <style scoped>
-
 .title-wrapper {
   position: relative;
-  bottom: 0;
-  left: 0;
-  height: 35vh;
+  height: 40vh; /* now matches the mobile container */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
 }
+
 .title-app {
-  position: absolute;
-  top: calc(100% + 10px); /* 10px below the nav bar */
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,30 +45,34 @@ const titles = reactive(dynamicTitles)
   color: #d5eeff;
   font-family: "Oswald", sans-serif;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
 }
-.title-app a{
-  z-index: 1000000;
-  cursor: pointer;
-}
+
 .title-app h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .title-app h2 {
   margin: 0.5rem 0 0;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
+
 .linkToForm {
-  pointer-events: auto;
-  z-index: 10000;
-  cursor: pointer;
   text-decoration: none;
   color: #d5eeff;
+  cursor: pointer;
 }
+
 @media (max-width: 768px) {
   .title-wrapper {
-    display: none;
+    height: 40vh; /* mobile container height */
+  }
+  .title-app h1 {
+    font-size: 1.8rem;
+  }
+  .title-app h2 {
+    font-size: 1.2rem;
   }
 }
 </style>

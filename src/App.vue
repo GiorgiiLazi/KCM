@@ -93,4 +93,9 @@ html {
 .router-link-exact-active {
   background: #ff895d;
 }
+@media (max-width:768px) { 
+  .background{
+    height: 40vh;
+  }
+}
 </style>

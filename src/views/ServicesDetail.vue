@@ -237,7 +237,8 @@ h3 {
 
 @media (max-width: 768px) {
   .images-grid { 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1;
+     gap: 15px;
   }
   .first-color, .second-color, .fourth-color { 
     padding: 20px 10px; 
