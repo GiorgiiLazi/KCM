@@ -13,10 +13,12 @@
       <div class="container">
         <h2 class="fade-in">Наши преимущества</h2>
         <ul>
-          <li v-for="(feature, index) in content.features" 
-              :key="index" 
-              class="fade-in" 
-              :class="`delay-${index+1}`">
+          <li
+            v-for="(feature, index) in content.features"
+            :key="index"
+            class="fade-in"
+            :class="`delay-${index + 1}`"
+          >
             {{ feature }}
           </li>
         </ul>
@@ -28,13 +30,15 @@
       <div class="container">
         <h2 class="fade-in">Фотографии работ</h2>
         <div class="photo-grid">
-          <img v-for="(img, index) in content.images" 
-               :key="index" 
-               :src="img" 
-               :alt="content.title + ' фото ' + (index+1)"
-               class="fade-in delay-1"
-               loading="lazy"
-               @click="openLightbox(index)" />
+          <img
+            v-for="(img, index) in content.images"
+            :key="index"
+            :src="img"
+            :alt="content.title + ' фото ' + (index + 1)"
+            class="fade-in delay-1"
+            loading="lazy"
+            @click="openLightbox(index)"
+          />
         </div>
         <vue-easy-lightbox
           :visible="lightboxVisible"
@@ -63,71 +67,78 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-import notFound from './notFound.vue'
-import AnimatedButton from '@/components/UI/AnimatedButton.vue'
-import VueEasyLightbox from 'vue-easy-lightbox'
-import { servicesContent } from '../routes/serviceContent'
+import { ref, watch, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import notFound from "./notFound.vue";
+import AnimatedButton from "@/components/UI/AnimatedButton.vue";
+import VueEasyLightbox from "vue-easy-lightbox";
+import { servicesContent } from "../routes/serviceContent";
 
-const route = useRoute()
-const content = ref(servicesContent[route.params.opisanieUslug] || null)
+const route = useRoute();
+const content = ref(servicesContent[route.params.opisanieUslug] || null);
 
 // Lightbox state
-const lightboxVisible = ref(false)
-const lightboxIndex = ref(0)
+const lightboxVisible = ref(false);
+const lightboxIndex = ref(0);
 const openLightbox = (index) => {
-  lightboxIndex.value = index
-  lightboxVisible.value = true
-}
+  lightboxIndex.value = index;
+  lightboxVisible.value = true;
+};
 
 // Watching slug change in url
 watch(
   () => route.params.opisanieUslug,
   (newSlug) => {
-    content.value = servicesContent[newSlug] || null
-    if (content.value) addJSONLD(content.value)
+    content.value = servicesContent[newSlug] || null;
+    if (content.value) addJSONLD(content.value);
   }
-)
+);
 
 // SEO-tags and JSON-LD
 onMounted(() => {
   if (route.meta) {
-    document.title = route.meta.title || 'КСМ — строительная компания'
-    setMetaTag('description', route.meta.description)
-    setMetaTag('keywords', route.meta.keywords)
+    document.title = route.meta.title || "КСМ — строительная компания";
+    setMetaTag("description", route.meta.description);
+    setMetaTag("keywords", route.meta.keywords);
   }
-  if (content.value) addJSONLD(content.value)
-})
+  if (content.value) addJSONLD(content.value);
+});
 
 function setMetaTag(name, contentValue) {
-  let tag = document.querySelector(`meta[name="${name}"]`)
+  let tag = document.querySelector(`meta[name="${name}"]`);
   if (!tag) {
-    tag = document.createElement('meta')
-    tag.setAttribute('name', name)
-    document.head.appendChild(tag)
+    tag = document.createElement("meta");
+    tag.setAttribute("name", name);
+    document.head.appendChild(tag);
   }
-  tag.setAttribute('content', contentValue)
+  tag.setAttribute("content", contentValue);
 }
 
 function addJSONLD(service) {
-  const script = document.createElement('script')
-  script.type = 'application/ld+json'
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
   script.text = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": service.title,
-    "description": service.description,
-    "provider": { "@type": "Organization", "name": "КСМ", "url": "https://yourdomain.ru" },
-    "image": service.images,
-    "url": window.location.href
-  })
-  document.head.appendChild(script)
+    name: service.title,
+    description: service.description,
+    provider: {
+      "@type": "Organization",
+      name: "КСМ",
+      url: "https://yourdomain.ru",
+    },
+    image: service.images,
+    url: window.location.href,
+  });
+  document.head.appendChild(script);
 }
 </script>
 
 <style scoped>
-h1, h2 { font-family: "Bebas Neue", sans-serif; }
+h1,
+h2 {
+  font-family: "Bebas Neue", sans-serif;
+}
 
 .first-color {
   background: #005689;
@@ -154,9 +165,15 @@ h1, h2 { font-family: "Bebas Neue", sans-serif; }
   text-align: center;
 }
 
-.container { max-width: 1200px; margin: 0 auto; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-ul { list-style-type: disc; padding-left: 20px; }
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
 
 /* Галерея */
 .photo-grid {
@@ -171,10 +188,10 @@ ul { list-style-type: disc; padding-left: 20px; }
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
-  
+
   /* hover works independently */
   transition: transform 0.3s ease-in-out, opacity 0.8s ease, margin 0.8s ease;
-  
+
   /* fade-in using opacity + margin instead of transform */
   opacity: 0;
   margin-top: 20px;
@@ -229,20 +246,28 @@ h3 {
   transform: translateY(20px);
   animation: fadeInUp 0.8s forwards;
 }
-.fade-in.delay-1 { animation-delay: 0.3s; }
-.fade-in.delay-2 { animation-delay: 0.6s; }
-.fade-in.delay-3 { animation-delay: 0.9s; }
-.fade-in.delay-4 { animation-delay: 1.2s; }
-
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+.fade-in.delay-2 {
+  animation-delay: 0.6s;
+}
+.fade-in.delay-3 {
+  animation-delay: 0.9s;
+}
+.fade-in.delay-4 {
+  animation-delay: 1.2s;
+}
 
 @media (max-width: 768px) {
-  .images-grid { 
-    grid-template-columns: 1;
-     gap: 15px;
-     
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
-  .first-color, .second-color, .fourth-color { 
-    padding: 20px 10px; 
+  .first-color,
+  .second-color,
+  .fourth-color {
+    padding: 20px 10px;
   }
   h1 {
     font-size: 40px;
