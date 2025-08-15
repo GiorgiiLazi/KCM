@@ -1,3 +1,4 @@
+// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import { servicesList } from '../routes/servicesList.js'
 
@@ -13,7 +14,7 @@ import NotFound from '../views/notFound.vue'
 import Rekvizity from '@/views/Rekvizity.vue'
 import Proekty from '@/views/Proekty.vue'
 
-const routes = [
+const baseRoutes = [
   {
     path: '/',
     name: 'glavnaya',
@@ -85,36 +86,25 @@ const routes = [
     }
   },
   {
-  path: '/rekvizity',
-  name: 'rekvizity',
-  component: Rekvizity,
-  meta: {
-    title: 'Реквизиты компании — КСМ, строительная компания в СПб',
-    description: 'Полная информация о реквизитах ООО и ИП компании КСМ в Санкт-Петербурге.',
-    keywords: 'реквизиты, КСМ, ООО, ИП, строительная компания, СПб'
-  }
-},
-{
-  path: '/proekty',
-  name: 'proekty',
-  component: Proekty,
-  meta: {
-    title: 'Проекты компании — КСМ, строительная компания в СПб',
-    description: 'Типовые проекты коттеджей, одноэтажных и двухэтажных домов.',
-    keywords: 'типовые проекты, одноэтажные дома, двухэтажные дома, коттеджы, строительная планировка, СПб, КСМ'
-  }
-},
-  // Динамические роуты из servicesList
-...servicesList.map(service => ({
-    path: `/uslugi/:opisanieUslug`,
-    name: `usluga-${service.slug}`,
-    component: ServicesDetail,
+    path: '/rekvizity',
+    name: 'rekvizity',
+    component: Rekvizity,
     meta: {
-      title: `${service.name} — КСМ, строительная компания в СПб`,
-      description: `Услуга "${service.name}" от строительной компании КСМ в Санкт-Петербурге.`,
-      keywords: `${service.name}, КСМ, строительная компания, СПб`
+      title: 'Реквизиты компании — КСМ, строительная компания в СПб',
+      description: 'Полная информация о реквизитах ООО и ИП компании КСМ в Санкт-Петербурге.',
+      keywords: 'реквизиты, КСМ, ООО, ИП, строительная компания, СПб'
     }
-  })),
+  },
+  {
+    path: '/proekty',
+    name: 'proekty',
+    component: Proekty,
+    meta: {
+      title: 'Проекты компании — КСМ, строительная компания в СПб',
+      description: 'Типовые проекты коттеджей, одноэтажных и двухэтажных домов.',
+      keywords: 'типовые проекты, одноэтажные дома, двухэтажные дома, коттеджы, строительная планировка, СПб, КСМ'
+    }
+  },
   { 
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
@@ -127,28 +117,26 @@ const routes = [
   }
 ]
 
+// Динамические роуты servicesList
+const dynamicServiceRoutes = servicesList.map(service => ({
+  path: `/uslugi/${service.slug}`,
+  name: `usluga-${service.slug}`,
+  component: ServicesDetail,
+  meta: {
+    title: `${service.name} — КСМ, строительная компания в СПб`,
+    description: `Услуга "${service.name}" от строительной компании КСМ в Санкт-Петербурге.`,
+    keywords: `${service.name}, КСМ, строительная компания, СПб`,
+    dynamic: true,
+    service
+  }
+}))
+
+const routes = [...baseRoutes, ...dynamicServiceRoutes]
+
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
 
-// Установка метатегов при смене роута
-router.afterEach((to) => {
-  if (to.meta?.title) document.title = to.meta.title
-
-  const setMetaTag = (name, content) => {
-    if (!content) return
-    let tag = document.querySelector(`meta[name="${name}"]`)
-    if (!tag) {
-      tag = document.createElement('meta')
-      tag.setAttribute('name', name)
-      document.head.appendChild(tag)
-    }
-    tag.setAttribute('content', content)
-  }
-
-  setMetaTag('description', to.meta?.description)
-  setMetaTag('keywords', to.meta?.keywords)
-})
-
+export { routes }
 export default router
