@@ -11,13 +11,7 @@
             <p><strong>Банк:</strong> ООО "Банк Точка", БИК 044525104</p>
             <p><strong>Корр. счёт:</strong> 30101810745374525104</p>
             <p><strong>ИНН/КПП:</strong> 7816755087 / 781601001</p>
-            <p class="advantages">
-              <strong>Особенности оплаты через ООО</strong>
-              <ul>
-                <li>НДС 20% обязателен</li>
-                <li>Налоги на прибыль, имущество, соц. и мед. страхование</li>
-              </ul>
-            </p>
+            
           </div>
 
           <!-- ИП -->
@@ -27,14 +21,7 @@
             <p><strong>Банк:</strong> ООО "Банк Точка", БИК 044525104</p>
             <p><strong>Корр. счёт:</strong> 30101810745374525104</p>
             <p><strong>ИНН:</strong> 781601312197</p>
-            <p class="advantages">
-              <strong>Преимущества оплаты через ИП:</strong>
-              <ul>
-                <li>Налог 7% вместо НДС</li>
-                <li>1% комиссия банку</li>
-                <li>Простая бухгалтерия и меньше налогов</li>
-              </ul>
-            </p>
+            
           </div>
         </div>
       </div>
@@ -136,13 +123,6 @@ onMounted(async () => {
   margin: 10px 0 0 20px;
 }
 
-.advantages strong {
-  display: block;
-  margin-bottom: 5px;
-}
-p{
-    text-align: left;
-}
 
 /* Мобильная версия */
 @media (max-width: 768px) {
