@@ -2,7 +2,7 @@
   <nav class="nav-1">
     <!-- Десктопная иконка -->
     <div class="icon-container">
-      <img src="/images/main-icon-1.webp" alt="КСМ логотип">
+      <img src="/images/main-icon-2.webp" alt="КСМ логотип">
     </div>
 
     <!-- Десктопные контакты -->
@@ -32,7 +32,7 @@
 
     <!-- Мобильная иконка компании -->
     <div class="mobile-logo">
-      <img src="/images/main-icon-1.webp" alt="КСМ логотип">
+      <img src="/images/main-icon-2.webp" alt="КСМ логотип">
     </div>
   </nav>
 
