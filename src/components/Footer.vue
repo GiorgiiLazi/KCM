@@ -16,8 +16,8 @@
             </template>
 
             <template v-else-if="contact.itemprop === 'openingHours'">
-                <p>{{ contact.value1 }}</p>
-                <p>{{ contact.value2 }}</p>
+              <p>{{ contact.value1 }}</p>
+              <p>{{ contact.value2 }}</p>
             </template>
 
             <template v-else-if="contact.href">
@@ -27,6 +27,17 @@
             <template v-else>
               <span :itemprop="contact.itemprop">{{ contact.value }}</span>
             </template>
+          </div>
+        </li>
+
+        <li>
+          <div class="contact-wrapper">
+            <span class="icons material-symbols-outlined">chat</span>
+            <strong>WhatsApp:&nbsp;</strong>
+          </div>
+          <div class="contact-values">
+            <a href="https://wa.me/79219239997" target="_blank" rel="noopener noreferrer">+7 (921) 923-99-97</a><br>
+            <a href="https://wa.me/79219969997" target="_blank" rel="noopener noreferrer">+7 (921) 996-99-97</a>
           </div>
         </li>
       </ul>
@@ -76,9 +87,15 @@ const contacts = [
     href: "mailto:info.ck.ksm@gmail.com",
     icon: "mail",
     itemprop: "email"
+  },
+  {
+    name: "Email 2",
+    value: "173797m@gmail.com",
+    href: "mailto:173797m@gmail.com",
+    icon: "mail",
+    itemprop: "email"
   }
 ];
-
 </script>
 
 <style scoped>
