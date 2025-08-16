@@ -16,34 +16,18 @@
       <div class="links-wrapper">
         <router-link @click="onNavigate" to="/">Главная</router-link>
         <router-link @click="onNavigate" to="/kcm">О нас</router-link>
-        <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey"
-          >Строительство</router-link
-        >
-        <router-link @click="onNavigate" to="/remont-kvartir-i-komnat"
-          >Ремонт</router-link
-        >
+        <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
+        <router-link @click="onNavigate" to="/remont-kvartir-i-komnat">Ремонт</router-link>
 
         <!-- Desktop dropdown -->
-        <div
-          class="dropdown desktop-only"
-          :class="{ open: showDropdown }"
-          @mouseenter="showDropdown = true"
-          @mouseleave="showDropdown = false"
-        >
-          <div
-            class="dropdown-trigger"
-            @click.prevent="showDropdown = !showDropdown"
-          >
+        <div class="dropdown desktop-only">
+          <div class="dropdown-trigger" tabindex="0">
             <span class="menu-label">Услуги</span>
             <span class="arrow material-symbols-outlined">arrow_drop_down</span>
           </div>
-          <div v-if="showDropdown" class="dropdownContent">
+          <div class="dropdownContent">
             <ul class="dropdownList">
-              <li
-                v-for="service in services"
-                :key="service.id"
-                class="dropdownItem"
-              >
+              <li v-for="service in services" :key="service.id" class="dropdownItem">
                 <router-link
                   @click="onNavigate"
                   class="dropdownRouter"
@@ -69,10 +53,7 @@
 
   <!-- Mobile overlay -->
   <teleport to="body">
-    <transition
-      enter-active-class="fadeRight"
-      leave-active-class="fadeLeft"
-    >
+    <transition enter-active-class="fadeRight" leave-active-class="fadeLeft">
       <div
         v-if="showMenu"
         ref="mobileMenu"
@@ -81,30 +62,17 @@
         aria-modal="true"
       >
         <div class="mobile-header">
-          <button
-            class="mobile-close"
-            @click="toggleMenu"
-            aria-label="Закрыть меню"
-          >
-            ✕
-          </button>
+          <button class="mobile-close" @click="toggleMenu" aria-label="Закрыть меню">✕</button>
         </div>
 
         <nav class="mobile-links">
           <router-link @click="onNavigate" to="/">Главная</router-link>
           <router-link @click="onNavigate" to="/kcm">О нас</router-link>
-          <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey"
-            >Строительство</router-link
-          >
-          <router-link @click="onNavigate" to="/remont-kvartir-i-komnat"
-            >Ремонт</router-link
-          >
+          <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
+          <router-link @click="onNavigate" to="/remont-kvartir-i-komnat">Ремонт</router-link>
 
           <div class="mobile-dropdown">
-            <button
-              class="mobile-dropdown-trigger"
-              @click="toggleMobileDropdown"
-            >
+            <button class="mobile-dropdown-trigger" @click="toggleMobileDropdown">
               Услуги
               <span class="arrow material-symbols-outlined">arrow_drop_down</span>
             </button>
@@ -142,7 +110,6 @@ const services = reactive(servicesList);
 
 const isSticky = ref(false);
 const showMenu = ref(false);
-const showDropdown = ref(false);
 const showMobileDropdown = ref(false);
 
 const burgerBtn = ref(null);
@@ -159,7 +126,6 @@ const lockBody = (lock) => {
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;
   lockBody(showMenu.value);
-  showDropdown.value = false;
   showMobileDropdown.value = false;
 };
 
@@ -170,48 +136,34 @@ const toggleMobileDropdown = () => {
 const onNavigate = () => {
   scrollToTop();
   showMenu.value = false;
-  showDropdown.value = false;
   showMobileDropdown.value = false;
   lockBody(false);
 };
 
-const onDocClick = (e) => {
-  if (!showMenu.value) return;
-  const menuEl = mobileMenu.value;
-  const btnEl = burgerBtn.value;
-  if (!menuEl) return;
-  if (menuEl.contains(e.target) || (btnEl && btnEl.contains(e.target))) return;
-  showMenu.value = false;
-  lockBody(false);
-};
-
 const onKeydown = (e) => {
-  if (e.key === "Escape" && showMenu.value) {
+  if (e.key === "Escape") {
     showMenu.value = false;
+    showMobileDropdown.value = false;
     lockBody(false);
   }
 };
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
-  document.addEventListener("click", onDocClick);
   document.addEventListener("keydown", onKeydown);
 });
-
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
-  document.removeEventListener("click", onDocClick);
   document.removeEventListener("keydown", onKeydown);
 });
 </script>
 
 <style scoped>
-/* keep all your styles unchanged */
 .nav-2 {
   width: 100%;
   background-color: transparent;
   padding: 20px;
-  z-index: 1000;
+  z-index: 1000000000;
   transition: all 0.3s ease-in-out;
   position: static;
 }
@@ -233,7 +185,7 @@ onUnmounted(() => {
 
 .links-wrapper {
   display: flex;
-  gap: 12px;
+  gap: 18px; /* расстояние между пунктами меню */
   flex-wrap: wrap;
   align-items: center;
 }
@@ -273,7 +225,8 @@ onUnmounted(() => {
   background-color: #005689;
   padding: 6px 0;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-  z-index: 10000;
+  z-index: 100000;
+  display: none;
 }
 .dropdownList {
   list-style: none;
@@ -282,6 +235,13 @@ onUnmounted(() => {
 }
 .dropdownList li {
   margin: 0;
+  padding: 10px 0px;
+}
+
+/* Главное: открытие дропдауна */
+.dropdown:hover .dropdownContent,
+.dropdown:focus-within .dropdownContent {
+  display: block;
 }
 
 /* Burger */
@@ -314,11 +274,7 @@ onUnmounted(() => {
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 86, 137, 0.98),
-    rgba(0, 86, 137, 0.98)
-  );
+  background: linear-gradient(180deg, rgba(0, 86, 137, 0.98), rgba(0, 86, 137, 0.98));
   z-index: 200000;
   display: flex;
   flex-direction: column;

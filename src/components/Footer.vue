@@ -10,9 +10,24 @@
 
           <div class="contact-values">
             <template v-if="contact.icon === 'call'">
-              <a v-if="contact.href1" :href="contact.href1" :itemprop="contact.itemprop">{{ contact.value1 }}</a><br>
-              <a v-if="contact.href2" :href="contact.href2" :itemprop="contact.itemprop">{{ contact.value2 }}</a><br>
-              <a v-if="contact.href3" :href="contact.href3" :itemprop="contact.itemprop">{{ contact.value3 }}</a>
+              <a
+                v-if="contact.href1"
+                :href="contact.href1"
+                :itemprop="contact.itemprop"
+                >{{ contact.value1 }}</a
+              ><br />
+              <a
+                v-if="contact.href2"
+                :href="contact.href2"
+                :itemprop="contact.itemprop"
+                >{{ contact.value2 }}</a
+              ><br />
+              <a
+                v-if="contact.href3"
+                :href="contact.href3"
+                :itemprop="contact.itemprop"
+                >{{ contact.value3 }}</a
+              >
             </template>
 
             <template v-else-if="contact.itemprop === 'openingHours'">
@@ -20,24 +35,23 @@
               <p>{{ contact.value2 }}</p>
             </template>
 
-            <template v-else-if="contact.href">
-              <a :href="contact.href" :itemprop="contact.itemprop">{{ contact.value }}</a>
+            <template v-else-if="contact.emails">
+              <template v-for="(email, index) in contact.emails" :key="index">
+                <a :href="`mailto:${email}`" :itemprop="contact.itemprop">{{ email }}</a><br />
+              </template>
+            </template>
+
+            <template v-else-if="contact.whatsapps">
+              <template v-for="(wa, index) in contact.whatsapps" :key="index">
+                <a :href="`https://wa.me/${wa.href}`" target="_blank" rel="noopener noreferrer">
+                  {{ wa.value }}
+                </a><br />
+              </template>
             </template>
 
             <template v-else>
               <span :itemprop="contact.itemprop">{{ contact.value }}</span>
             </template>
-          </div>
-        </li>
-
-        <li>
-          <div class="contact-wrapper">
-            <span class="icons material-symbols-outlined">chat</span>
-            <strong>WhatsApp:&nbsp;</strong>
-          </div>
-          <div class="contact-values">
-            <a href="https://wa.me/79219239997" target="_blank" rel="noopener noreferrer">+7 (921) 923-99-97</a><br>
-            <a href="https://wa.me/79219969997" target="_blank" rel="noopener noreferrer">+7 (921) 996-99-97</a>
           </div>
         </li>
       </ul>
@@ -60,7 +74,7 @@ const contacts = [
     value: "192289, Санкт-Петербург, пр. Гаражный, д.1, лит. А, офис 309/208",
     href: "",
     icon: "location_on",
-    itemprop: "address"
+    itemprop: "address",
   },
   {
     name: "Часы Работы",
@@ -68,7 +82,7 @@ const contacts = [
     value2: "Cб-Вск: 10:00 - 17:00",
     href: "",
     icon: "clock_loader_20",
-    itemprop: "openingHours"
+    itemprop: "openingHours",
   },
   {
     name: "Телефон (Михаил)",
@@ -79,22 +93,22 @@ const contacts = [
     value3: "+7 (921) 996-99-97",
     href3: "tel:+79219969997",
     icon: "call",
-    itemprop: "telephone"
+    itemprop: "telephone",
   },
   {
     name: "Email",
-    value: "info.ck.ksm@gmail.com",
-    href: "mailto:info.ck.ksm@gmail.com",
     icon: "mail",
-    itemprop: "email"
+    itemprop: "email",
+    emails: ["info.ck.ksm@gmail.com", "173797m@gmail.com"],
   },
   {
-    name: "Email 2",
-    value: "173797m@gmail.com",
-    href: "mailto:173797m@gmail.com",
-    icon: "mail",
-    itemprop: "email"
-  }
+    name: "WhatsApp",
+    icon: "lift_to_talk",
+    whatsapps: [
+      { value: "+7 (921) 923-99-97", href: "79219239997" },
+      { value: "+7 (921) 996-99-97", href: "79219969997" },
+    ],
+  },
 ];
 </script>
 
@@ -105,6 +119,7 @@ const contacts = [
   align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 .contacts-info {

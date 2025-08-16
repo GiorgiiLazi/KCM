@@ -187,7 +187,7 @@ onUnmounted(()=>{
     right: 0;
     background-color: #005689;
     padding: 10px 0;
-    z-index: 9999;
+    z-index: 1000;
     overflow-x: auto;
   }
   .isTransparent{
