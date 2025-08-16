@@ -2,11 +2,12 @@
   "name": "kcm",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite-ssg build",
+  "preview": "vite preview",
+  "ssg:dev": "vite-ssg dev"
+},
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "gsap": "^3.13.0",

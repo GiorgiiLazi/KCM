@@ -44,13 +44,16 @@
 
 <script setup>
 import { onMounted } from "vue";
-import { gsap } from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
-  gsap.utils.toArray(".fade-in").forEach(element => {
-    gsap.fromTo(element,
+onMounted(async () => {
+  // dynamically import both gsap and ScrollTrigger only in browser
+  const { gsap } = await import("gsap")
+  const { ScrollTrigger } = await import("gsap/ScrollTrigger")
+  gsap.registerPlugin(ScrollTrigger)
+
+  gsap.utils.toArray(".fade-in").forEach((element) => {
+    gsap.fromTo(
+      element,
       { opacity: 0, y: 20 },
       {
         opacity: 1,
@@ -60,12 +63,12 @@ onMounted(() => {
         scrollTrigger: {
           trigger: element,
           start: "top 85%",
-          toggleActions: "play none none none"
-        }
+          toggleActions: "play none none none",
+        },
       }
-    );
-  });
-});
+    )
+  })
+})
 </script>
 
 <style scoped>

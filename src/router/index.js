@@ -1,6 +1,8 @@
 // src/router/index.js
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import { servicesList } from '../routes/servicesList.js'
+
+const isClient = typeof window !== 'undefined' 
 
 import Home from '../views/Home.vue'
 import KCM from '../views/KCM.vue'
@@ -135,7 +137,7 @@ const dynamicServiceRoutes = servicesList.map(service => ({
 const routes = [...baseRoutes, ...dynamicServiceRoutes]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: isClient ? createWebHistory() : createMemoryHistory(),
   routes
 })
 

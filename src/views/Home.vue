@@ -117,8 +117,13 @@ const openLightbox = (i) => {
 };
 
 // GSAP fade-in animations
-gsap.registerPlugin(ScrollTrigger);
-onMounted(() => {
+
+onMounted(async () => {
+  // Import GSAP only in the browser
+  const { gsap } = await import('gsap')
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+  gsap.registerPlugin(ScrollTrigger)
+
   gsap.utils.toArray(".fade-in").forEach((element) => {
     gsap.fromTo(
       element,
@@ -134,9 +139,9 @@ onMounted(() => {
           toggleActions: "play none none none",
         },
       }
-    );
-  });
-});
+    )
+  })
+})
 </script>
 
 <style scoped>

@@ -3,12 +3,12 @@ import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
 import { routes } from './router'
 
-export const createAppSSG = ViteSSG(
+export const createApp = ViteSSG(
   App,
-  {
-    routes
-  },
-  ({ app, router }) => {
+  { routes },
+  ({ app, router, isClient }) => {
+    if (!isClient) return
+
     router.afterEach((to) => {
       if (to.meta?.title) document.title = to.meta.title
 
