@@ -12,8 +12,8 @@
         <span :class="{ open: showMenu }">&#9776;</span>
       </button>
 
-      <!-- Desktop links (hidden on small screens) -->
-      <div class="links-wrapper" :class="{ open: showMenu }">
+      <!-- Desktop links -->
+      <div class="links-wrapper">
         <router-link @click="onNavigate" to="/">Главная</router-link>
         <router-link @click="onNavigate" to="/kcm">О нас</router-link>
         <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey"
@@ -23,7 +23,7 @@
           >Ремонт</router-link
         >
 
-        <!-- Desktop dropdown (hover / click) -->
+        <!-- Desktop dropdown -->
         <div
           class="dropdown desktop-only"
           :class="{ open: showDropdown }"
@@ -54,15 +54,12 @@
                 >
                   {{ service.name }}
                 </router-link>
-              
               </li>
             </ul>
           </div>
         </div>
 
-        <router-link @click="onNavigate" to="/proekty"
-          >Проекты коттеджей</router-link
-        >
+        <router-link @click="onNavigate" to="/proekty">Проекты</router-link>
         <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
         <router-link @click="onNavigate" to="/galereya">Галерея</router-link>
         <router-link @click="onNavigate" to="/kontakty">Контакты</router-link>
@@ -70,64 +67,69 @@
     </div>
   </nav>
 
-  <!-- Mobile overlay menu rendered into body to avoid affecting layout -->
+  <!-- Mobile overlay -->
   <teleport to="body">
-    <div
-      v-if="showMenu"
-      ref="mobileMenu"
-      class="mobile-overlay"
-      role="dialog"
-      aria-modal="true"
+    <transition
+      enter-active-class="fadeRight"
+      leave-active-class="fadeLeft"
     >
-      <div class="mobile-header">
-        <button
-          class="mobile-close"
-          @click="toggleMenu"
-          aria-label="Закрыть меню"
-        >
-          ✕
-        </button>
-      </div>
-
-      <nav class="mobile-links">
-        <router-link @click="onNavigate" to="/">Главная</router-link>
-        <router-link @click="onNavigate" to="/kcm">О нас</router-link>
-        <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey"
-          >Строительство</router-link
-        >
-        <router-link @click="onNavigate" to="/remont-kvartir-i-komnat"
-          >Ремонт</router-link
-        >
-
-        <!-- Mobile dropdown inside overlay -->
-        <div class="mobile-dropdown">
-          <button class="mobile-dropdown-trigger" @click="toggleMobileDropdown">
-            Услуги
-            <span class="arrow material-symbols-outlined">arrow_drop_down</span>
+      <div
+        v-if="showMenu"
+        ref="mobileMenu"
+        class="mobile-overlay"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="mobile-header">
+          <button
+            class="mobile-close"
+            @click="toggleMenu"
+            aria-label="Закрыть меню"
+          >
+            ✕
           </button>
-          <ul v-if="showMobileDropdown" class="mobile-dropdown-list">
-            <li v-for="service in services" :key="service.id">
-              <router-link
-                @click="onNavigate"
-                :to="{
-                  name: `usluga-${service.slug}`,
-                  params: { opisanieUslug: service.slug },
-                }"
-              >
-                {{ service.name }}
-              </router-link>
-            </li>
-          </ul>
         </div>
 
-        <router-link @click="onNavigate" to="/proekty"
-          >Проекты коттеджей</router-link
-        >
-        <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
-        <router-link @click="onNavigate" to="/galereya">Галерея</router-link>
-        <router-link @click="onNavigate" to="/kontakty">Контакты</router-link>
-      </nav>
-    </div>
+        <nav class="mobile-links">
+          <router-link @click="onNavigate" to="/">Главная</router-link>
+          <router-link @click="onNavigate" to="/kcm">О нас</router-link>
+          <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey"
+            >Строительство</router-link
+          >
+          <router-link @click="onNavigate" to="/remont-kvartir-i-komnat"
+            >Ремонт</router-link
+          >
+
+          <div class="mobile-dropdown">
+            <button
+              class="mobile-dropdown-trigger"
+              @click="toggleMobileDropdown"
+            >
+              Услуги
+              <span class="arrow material-symbols-outlined">arrow_drop_down</span>
+            </button>
+            <ul v-if="showMobileDropdown" class="mobile-dropdown-list">
+              <li v-for="service in services" :key="service.id">
+                <router-link
+                  @click="onNavigate"
+                  :to="{
+                    name: `usluga-${service.slug}`,
+                    params: { opisanieUslug: service.slug },
+                  }"
+                >
+                  {{ service.name }}
+                </router-link>
+              </li>
+            </ul>
+          </div>
+
+          <router-link @click="onNavigate" to="/proekty">Проекты</router-link>
+          <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
+          <router-link @click="onNavigate" to="/galereya">Галерея</router-link>
+          <router-link @click="onNavigate" to="/kontakty">Контакты</router-link>
+        </nav>
+      </div>
+    </transition>
   </teleport>
 </template>
 
@@ -140,28 +142,25 @@ const services = reactive(servicesList);
 
 const isSticky = ref(false);
 const showMenu = ref(false);
-const showDropdown = ref(false); // desktop dropdown
-const showMobileDropdown = ref(false); // mobile dropdown
+const showDropdown = ref(false);
+const showMobileDropdown = ref(false);
 
 const burgerBtn = ref(null);
 const mobileMenu = ref(null);
 
-// sticky nav
 const handleScroll = () => {
   isSticky.value = window.scrollY > 200;
 };
 
-// lock/unlock body scroll when mobile menu open
 const lockBody = (lock) => {
   document.body.style.overflow = lock ? "hidden" : "";
 };
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;
-  // close any dropdowns when toggling menu
+  lockBody(showMenu.value);
   showDropdown.value = false;
   showMobileDropdown.value = false;
-  lockBody(showMenu.value);
 };
 
 const toggleMobileDropdown = () => {
@@ -169,7 +168,6 @@ const toggleMobileDropdown = () => {
 };
 
 const onNavigate = () => {
-  // scroll to top, close everything and unlock scroll
   scrollToTop();
   showMenu.value = false;
   showDropdown.value = false;
@@ -177,27 +175,19 @@ const onNavigate = () => {
   lockBody(false);
 };
 
-// close overlay on click outside or Esc
 const onDocClick = (e) => {
   if (!showMenu.value) return;
-
   const menuEl = mobileMenu.value;
   const btnEl = burgerBtn.value;
   if (!menuEl) return;
-
-  // If click is inside menu or on burger button, ignore
   if (menuEl.contains(e.target) || (btnEl && btnEl.contains(e.target))) return;
-
-  // otherwise close
   showMenu.value = false;
-  showMobileDropdown.value = false;
   lockBody(false);
 };
 
 const onKeydown = (e) => {
   if (e.key === "Escape" && showMenu.value) {
     showMenu.value = false;
-    showMobileDropdown.value = false;
     lockBody(false);
   }
 };
@@ -216,7 +206,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Base nav */
+/* keep all your styles unchanged */
 .nav-2 {
   width: 100%;
   background-color: transparent;
@@ -241,7 +231,6 @@ onUnmounted(() => {
   flex-wrap: wrap;
 }
 
-/* Desktop links */
 .links-wrapper {
   display: flex;
   gap: 12px;
@@ -309,32 +298,28 @@ onUnmounted(() => {
   transition: transform 0.2s;
 }
 
-/* ------------- Mobile styles ------------- */
 @media (max-width: 768px) {
   .burger {
     display: block;
   }
-
-  /* hide desktop links on mobile */
   .links-wrapper {
     display: none;
   }
-
   .desktop-only {
     display: none;
   }
 }
 
-/* Mobile overlay (teleported) */
+/* Overlay with animations */
 .mobile-overlay {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   background: linear-gradient(
     180deg,
     rgba(0, 86, 137, 0.98),
     rgba(0, 86, 137, 0.98)
   );
-  z-index: 200000; /* very high, above everything */
+  z-index: 200000;
   display: flex;
   flex-direction: column;
   padding: 18px;
@@ -342,7 +327,34 @@ onUnmounted(() => {
   overflow-y: auto;
 }
 
-/* close button / top area */
+.fadeRight {
+  animation: fadeRight 0.3s ease-in-out forwards;
+}
+.fadeLeft {
+  animation: fadeLeft 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
 .mobile-header {
   display: flex;
   justify-content: flex-end;
@@ -356,7 +368,6 @@ onUnmounted(() => {
   cursor: pointer;
 }
 
-/* Mobile links list */
 .mobile-links {
   display: flex;
   flex-direction: column;
@@ -374,7 +385,7 @@ onUnmounted(() => {
   font-family: "Bebas Neue", sans-serif;
 }
 
-/* Mobile dropdown inside overlay */
+/* Dropdown */
 .mobile-dropdown {
   display: flex;
   flex-direction: column;
