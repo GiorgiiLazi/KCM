@@ -88,6 +88,8 @@ const sendEmail = () => {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background: #d5eeff;
+
 }
 .form-section {
   max-width: 600px;
