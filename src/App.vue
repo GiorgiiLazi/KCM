@@ -9,16 +9,18 @@
         </nav>
       </div>
 
-      <!-- Dynamic background with smooth slide-fade -->
-      <transition name="slide-fade-bg" mode="out-in">
-        <img
-          :key="currentBg"
-          class="header-img"
-          :src="currentBg"
-          alt="Header background"
-          loading="lazy"
-        />
-      </transition>
+      <!-- Dynamic background slider -->
+      <div class="slider-container">
+        <transition-group name="slide" tag="div">
+          <img
+            :key="currentBg"
+            class="header-img"
+            :src="currentBg"
+            alt="Header background"
+            loading="lazy"
+          />
+        </transition-group>
+      </div>
     </header>
 
     <router-view />
@@ -63,30 +65,40 @@ const currentBg = computed(() => routeBackgrounds[route.path] || "/images/archit
 </script>
 
 <style>
-html, body, #app, .app-container {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html, body, #app {
   overflow-x: hidden;
-  font-family: "Fira Sans", sans-serif;
-  background: #000;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   color: white;
+  background: #d5eeff;
+  font-family: "Fira Sans", sans-serif;
 }
 
+/* Header */
 .header-background {
   position: relative;
   height: 75vh;
-  overflow: hidden;
   display: flex;
   align-items: flex-start;
+  overflow: hidden;
 }
-
 .header-content {
   position: relative;
   z-index: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+/* Slider */
+.slider-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .header-img {
@@ -96,37 +108,68 @@ html, body, #app, .app-container {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
   filter: brightness(0.6);
 }
 
-/* Smooth simultaneous slide-fade for backgrounds */
-.slide-fade-bg-enter-from {
-  opacity: 0;
+/* Transition animations */
+.slide-enter-from {
   transform: translateX(100%);
 }
-.slide-fade-bg-enter-to {
-  opacity: 1;
-  transform: translateX(0);
-}
-.slide-fade-bg-leave-from {
-  opacity: 1;
-  transform: translateX(0);
-  position: absolute; /* держим над новым фоном */
-}
-.slide-fade-bg-leave-to {
-  opacity: 0;
-  transform: translateX(-20%);
-}
-.slide-fade-bg-enter-active{
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-}
-.slide-fade-bg-leave-active {
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+.slide-enter-active {
+  animation: slide-in 0.4s ease-out forwards;
 }
 
-.nav {
-  position: relative;
-  height: 100%;
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+.slide-leave-active {
+  animation: slide-out 0.4s ease-out forwards;
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-out {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Header title */
+.title-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.title-app {
+  text-align: center;
+  color: #d5eeff;
+  font-family: "Oswald", sans-serif;
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.title-app h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+.title-app h2 {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+}
+
+@media (max-width:768px) {
+  .header-background {
+    height: 40vh;
+  }
 }
 </style>
