@@ -71,7 +71,7 @@ const currentSubtitle = computed(
 
 // Backgrounds
 const routeBackgrounds = {
-  "/": "/images/dynamic/main.webp",
+  "/": "/images/dynamic/images/dynamic/stroyka.webp",
   "/uslugi/landshaftnyy-dizayn": "/images/dynamic/park.webp",
   "/uslugi/otdelochnye-raboty": "/images/dynamic/otdelka.webp",
   "/uslugi/fasadnye-raboty": "/images/dynamic/facade.webp",
@@ -80,7 +80,7 @@ const routeBackgrounds = {
   "/uslugi/kladochnye-raboty": "/images/dynamic/kladka.webp",
   "/uslugi/gidroizolyatsiya": "/images/dynamic/hydro.webp",
   "/remont-kvartir-i-komnat": "/images/dynamic/interiour-1.webp",
-  "/stroitelstvo-domov-i-kottedzhey": "/images/dynamic/stroyka.webp",
+  "/stroitelstvo-domov-i-kottedzhey": "/images/dynamic/main.webp",
   "/kontakty": "/images/dynamic/interiour-2.webp",
   "/rekvizity": "/images/dynamic/planning.webp",
   "/proekty": "/images/dynamic/plans.webp",
