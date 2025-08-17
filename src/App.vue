@@ -71,7 +71,7 @@ const currentSubtitle = computed(
 
 // Backgrounds
 const routeBackgrounds = {
-  "/": "/images/dynamic/images/dynamic/stroyka.webp",
+  "/": "/images/dynamic/stroyka.webp",
   "/uslugi/landshaftnyy-dizayn": "/images/dynamic/park.webp",
   "/uslugi/otdelochnye-raboty": "/images/dynamic/otdelka.webp",
   "/uslugi/fasadnye-raboty": "/images/dynamic/facade.webp",
