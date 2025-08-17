@@ -239,6 +239,8 @@ button:hover {
   margin: 0; /* no extra margin */
   padding: 20px;
   border-radius: 0; /* optional if you don’t want rounded corners */
+
+  
 }
 
 .map-wrapper {
@@ -246,6 +248,10 @@ button:hover {
   max-width: none; /* remove any max width restriction */
   margin: 0; /* center for desktop if you want */
   aspect-ratio: 3 / 2;
+
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .map-wrapper iframe {
