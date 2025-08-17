@@ -20,7 +20,7 @@
           <i class="fa-brands fa-telegram" style="font-size:72px;color: #088efc;"></i>
         </a>
         <label>Telegram</label>
-        <p><a href="https://t.me/spb_ksm" target="_blank">+7 (953) 160-70-62</a></p>
+        <p><a href="https://t.me/spb_ksm" target="_blank">@spb_ksm</a></p>
       </div>
       <div class="contact-item">
         <a href="mailto:info.ck.kcm@gmail.com">
@@ -190,7 +190,7 @@ onUnmounted(()=>{
   .mobile-contacts {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    gap: 10px;
     position: fixed;
     bottom: 0;
     left: 0;
