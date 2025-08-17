@@ -16,7 +16,7 @@
         <p><a href="https://wa.me/+79219969997">+7 (921) 996-99-97</a></p>
       </div>
       <div class="contact-item">
-        <a href="https://wa.me/+79219239997">
+        <a href="https://t.me/spb_ksm" target="_blank">
           <i class="fa-brands fa-telegram" style="font-size:72px;color: #088efc;"></i>
         </a>
         <label>Telegram</label>
