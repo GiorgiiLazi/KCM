@@ -23,6 +23,7 @@
             :src="currentBg"
             alt="Header background"
             loading='eager'
+            @load="onImageLoad"
           />
         </transition-group>
 
@@ -34,6 +35,7 @@
             :src="currentBg"
             alt="Header background"
             loading="lazy"
+            @load="onImageLoad"
           />
         </transition>
       </div>
@@ -46,7 +48,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
 import { useRoute } from "vue-router";
 import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
@@ -89,6 +91,26 @@ const currentBg = computed(
   () => routeBackgrounds[route.path] || "/images/architect-02.webp"
 );
 
+// Image loading state for blur
+const imageLoaded = ref(false);
+function onImageLoad() {
+  imageLoaded.value = true;
+}
+
+// Watch route change to reset blur
+watch(() => currentBg.value, () => {
+  imageLoaded.value = false;
+});
+
+// Apply loaded class
+watch(imageLoaded, (loaded) => {
+  const imgs = document.querySelectorAll(".header-img");
+  imgs.forEach(img => {
+    if (loaded) img.classList.add("loaded");
+    else img.classList.remove("loaded");
+  });
+});
+
 // Detect mobile
 const isMobile = ref(false);
 const checkMobile = () => {
@@ -97,6 +119,12 @@ const checkMobile = () => {
 onMounted(() => {
   checkMobile();
   window.addEventListener("resize", checkMobile);
+
+  // Add loaded class if already cached
+  const imgs = document.querySelectorAll(".header-img");
+  imgs.forEach(img => {
+    if (img.complete) img.classList.add("loaded");
+  });
 });
 onBeforeUnmount(() => {
   window.removeEventListener("resize", checkMobile);
@@ -151,6 +179,7 @@ body,
   height: 100%;
 }
 
+/* LQIP blur */
 .header-img {
   position: absolute;
   top: 0;
@@ -158,8 +187,13 @@ body,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
+  filter: brightness(0.6) blur(20px);
+  transition: filter 0.6s ease;
   will-change: transform, opacity;
+}
+
+.header-img.loaded {
+  filter: brightness(0.6) blur(0);
 }
 
 /* Slide animations */
