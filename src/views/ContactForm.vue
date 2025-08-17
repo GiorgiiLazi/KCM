@@ -1,37 +1,37 @@
 <template>
-  <div class="container">
+  <main class="container">
     <section class="contact-links fade-in delay-1">
-        <div class="location fade-in delay-2">
-          <span class="icons material-symbols-outlined">location_on</span>
-          <div class="location-text">
-            <h1 class="text text-title">Наш офис</h1>
-            <h3>г.Санкт-Петербург</h3>
-            <h3>Гаражный проезд д. 1 офис 309/208</h3>
-          </div>
+      <div class="location fade-in delay-2">
+        <span class="icons material-symbols-outlined">location_on</span>
+        <div class="location-text">
+          <h1 class="text text-title">Наш офис</h1>
+          <h3>г.Санкт-Петербург</h3>
+          <h3>Гаражный проезд д. 1 офис 309/208</h3>
         </div>
-        <div class="location fade-in delay-3">
-          <span class="icons material-symbols-outlined">apartment</span>
-          <div class="location-text">
-            <h1 class="text text-title">Часы Работы</h1>
-            <h3>Пн-Пт: 09:00 - 18:00</h3>
-            <h3>Cб-Вск: 10:00 - 17:00</h3>
-          </div>
+      </div>
+      <div class="location fade-in delay-3">
+        <span class="icons material-symbols-outlined">apartment</span>
+        <div class="location-text">
+          <h1 class="text text-title">Часы Работы</h1>
+          <h3>Пн-Пт: 09:00 - 18:00</h3>
+          <h3>Cб-Вск: 10:00 - 17:00</h3>
         </div>
-        <div class="location fade-in delay-4">
-          <span class="icons material-symbols-outlined">phone_in_talk</span>
-          <div class="location-text">
-            <h1 class="text text-title">Номера</h1>
-            <a href="tel:+79516550237">
-              <h3>+7 (951) 655-02-37</h3>
-            </a>
-            <a href="tel:+79219239997">
-              <h3>+7 (921) 923-99-97</h3>
-            </a>
-            <a href="tel:+79219969997">
-              <h3>+7 (921) 996-99-97</h3>
-            </a>
-          </div>
+      </div>
+      <div class="location fade-in delay-4">
+        <span class="icons material-symbols-outlined">phone_in_talk</span>
+        <div class="location-text">
+          <h1 class="text text-title">Номера</h1>
+          <a href="tel:+79516550237">
+            <h3>+7 (951) 655-02-37</h3>
+          </a>
+          <a href="tel:+79219239997">
+            <h3>+7 (921) 923-99-97</h3>
+          </a>
+          <a href="tel:+79219969997">
+            <h3>+7 (921) 996-99-97</h3>
+          </a>
         </div>
+      </div>
     </section>
     <section class="form-section fade-in delay-1">
       <form ref="formRef" @submit.prevent="sendEmail">
@@ -61,7 +61,19 @@
         <button type="submit">Отправить</button>
       </form>
     </section>
-  </div>
+  </main>
+  <section class="map-container third-color">
+    <h1 class="map-title">Наш Офис</h1>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2004.1813380317915!2d30.441339577122033!3d59.84612857486869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962f7c61b33b87%3A0x56ad9df1cf549f4b!2z0JPQsNGA0LDQttC90YvQuSDQv9GALdC0LCAxLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0KDQvtGB0YHQuNGPLCAxOTIyODk!5e0!3m2!1sru!2sge!4v1755454018796!5m2!1sru!2sge"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
 </template>
 
 <script setup>
@@ -84,12 +96,20 @@ const sendEmail = () => {
 </script>
 
 <style scoped>
-.container{
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.third-color {
+  background: #ff895d;
+  color: #fff;
+}
+.container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   background: #d5eeff;
-
 }
 .form-section {
   max-width: 600px;
@@ -171,11 +191,11 @@ button:hover {
 .text {
   color: #ff895d;
 }
-.icons{
+.icons {
   font-size: 6rem;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
-.text-title{
+.text-title {
   text-transform: none;
   font-weight: bold;
   font-family: "Bebas Neue", sans-serif;
@@ -184,15 +204,15 @@ button:hover {
   font-size: 2rem;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
-.text-title a h3{
+.text-title a h3 {
   text-decoration: none;
 }
-.location{
+.location {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.location-text h3{
+.location-text h3 {
   color: black;
   font-family: "Fira Sans", sans-serif;
   font-weight: 200;
@@ -201,13 +221,46 @@ button:hover {
 }
 .location-text a {
   text-decoration: none;
-  color: inherit; 
+  color: inherit;
 }
-.contact-links{
+.contact-links {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding-left: 100px;
+}
+/* Map */
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 0; /* no extra margin */
+  padding: 20px;
+  border-radius: 0; /* optional if you don’t want rounded corners */
+}
+
+.map-wrapper {
+  width: 100%;
+  max-width: none; /* remove any max width restriction */
+  margin: 0; /* center for desktop if you want */
+  aspect-ratio: 3 / 2;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 20px;
+}
+
+/* Desktop specific width */
+@media (min-width: 1024px) {
+  .map-wrapper {
+    width: 60%;
+    margin: 0 auto; /* centers map on desktop */
+  }
 }
 /* Animations */
 .fade-in {
@@ -231,6 +284,13 @@ button:hover {
 .fade-in.delay-4 {
   animation-delay: 1.2s;
 }
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 4px;
+}
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -239,6 +299,10 @@ button:hover {
 }
 
 @media (max-width: 600px) {
+  .map-wrapper {
+    width: 75%;
+    margin: 0 auto; /* centers map on desktop */
+  }
   .form-section {
     margin: 20px;
     padding: 15px;
@@ -253,12 +317,12 @@ button:hover {
   }
 }
 
-@media (max-width: 768px){
-  .container{
+@media (max-width: 768px) {
+  .container {
     flex-direction: column-reverse;
     text-align: left;
   }
-  .contact-links{
+  .contact-links {
     padding-left: 0px;
   }
 }
