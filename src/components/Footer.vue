@@ -2,60 +2,87 @@
   <footer class="contacts-info">
     <div class="footer-container">
       <ul class="about-contacts">
-        <li v-for="contact in contacts" :key="contact.name">
+        <!-- Адрес -->
+        <li>
           <div class="contact-wrapper">
-            <span class="icons material-symbols-outlined">{{ contact.icon }}</span>
-            <strong>{{ contact.name }}:&nbsp;</strong>
+            <span class="icons material-symbols-outlined">location_on</span>
+            <strong>Адрес:&nbsp;</strong>
           </div>
-
           <div class="contact-values">
-            <template v-if="contact.icon === 'call'">
-              <a
-                v-if="contact.href1"
-                :href="contact.href1"
-                :itemprop="contact.itemprop"
-                >{{ contact.value1 }}</a
-              ><br />
-              <a
-                v-if="contact.href2"
-                :href="contact.href2"
-                :itemprop="contact.itemprop"
-                >{{ contact.value2 }}</a
-              ><br />
-              <a
-                v-if="contact.href3"
-                :href="contact.href3"
-                :itemprop="contact.itemprop"
-                >{{ contact.value3 }}</a
-              >
-            </template>
+            <span itemprop="address">
+              192289, Санкт-Петербург, Гаражный проезд, д.1, лит. А, офис 309/208
+            </span>
+          </div>
+        </li>
 
-            <template v-else-if="contact.itemprop === 'openingHours'">
-              <p>{{ contact.value1 }}</p>
-              <p>{{ contact.value2 }}</p>
-            </template>
+        <!-- Часы работы -->
+        <li>
+          <div class="contact-wrapper">
+            <span class="icons material-symbols-outlined">clock_loader_20</span>
+            <strong>Часы Работы:&nbsp;</strong>
+          </div>
+          <div class="contact-values">
+            <p>Пн-Пт: 09:00 - 18:00</p>
+            <p>Cб-Вск: 10:00 - 17:00</p>
+          </div>
+        </li>
 
-            <template v-else-if="contact.emails">
-              <template v-for="(email, index) in contact.emails" :key="index">
-                <a :href="`mailto:${email}`" :itemprop="contact.itemprop">{{ email }}</a><br />
-              </template>
-            </template>
+        <!-- Телефоны -->
+        <li>
+          <div class="contact-wrapper">
+            <span class="icons material-symbols-outlined">call</span>
+            <strong>Телефон (Михаил):&nbsp;</strong>
+          </div>
+          <div class="contact-values">
+            <a href="tel:+79516550237" itemprop="telephone">+7 (951) 655-02-37</a><br />
+            <a href="tel:+79219239997" itemprop="telephone">+7 (921) 923-99-97</a><br />
+            <a href="tel:+79219969997" itemprop="telephone">+7 (921) 996-99-97</a>
+          </div>
+        </li>
 
-            <template v-else-if="contact.whatsapps">
-              <template v-for="(wa, index) in contact.whatsapps" :key="index">
-                <a :href="`https://wa.me/${wa.href}`" target="_blank" rel="noopener noreferrer">
-                  {{ wa.value }}
-                </a><br />
-              </template>
-            </template>
+        <!-- Email -->
+        <li>
+          <div class="contact-wrapper">
+            <span class="icons material-symbols-outlined">mail</span>
+            <strong>Email:&nbsp;</strong>
+          </div>
+          <div class="contact-values">
+            <a href="mailto:info.ck.ksm@gmail.com" itemprop="email">info.ck.ksm@gmail.com</a><br />
+            <a href="mailto:173797m@gmail.com" itemprop="email">173797m@gmail.com</a>
+          </div>
+        </li>
 
-            <template v-else>
-              <span :itemprop="contact.itemprop">{{ contact.value }}</span>
-            </template>
+        <!-- WhatsApp -->
+        <li>
+          <div class="contact-wrapper">
+            <span class="icons"><i class="fa-brands fa-whatsapp"></i></span>
+            <strong>WhatsApp:&nbsp;</strong>
+          </div>
+          <div class="contact-values">
+            <a href="https://wa.me/79219239997" target="_blank" rel="noopener noreferrer">
+              +7 (921) 923-99-97
+            </a><br />
+            <a href="https://wa.me/79219969997" target="_blank" rel="noopener noreferrer">
+              +7 (921) 996-99-97
+            </a>
+          </div>
+        </li>
+
+        <!-- Telegram -->
+        <li>
+          <div class="contact-wrapper">
+            <span class="icons"><i class="fa-brands fa-telegram"></i></span>
+            <strong>Telegram:&nbsp;</strong>
+          </div>
+          <div class="contact-values">
+            <a href="https://t.me/spb_ksm" target="_blank" rel="noopener noreferrer">
+              @spb_ksm
+            </a>
           </div>
         </li>
       </ul>
 
+      <!-- Logo -->
       <div class="img-container">
         <img
           src="/images/main-icon-2.webp"
@@ -66,51 +93,6 @@
     </div>
   </footer>
 </template>
-
-<script setup>
-const contacts = [
-  {
-    name: "Адрес",
-    value: "192289, Санкт-Петербург, Гаражный проезд, д.1, лит. А, офис 309/208",
-    href: "",
-    icon: "location_on",
-    itemprop: "address",
-  },
-  {
-    name: "Часы Работы",
-    value1: "Пн-Пт: 09:00 - 18:00",
-    value2: "Cб-Вск: 10:00 - 17:00",
-    href: "",
-    icon: "clock_loader_20",
-    itemprop: "openingHours",
-  },
-  {
-    name: "Телефон (Михаил)",
-    value1: "+7 (951) 655-02-37",
-    href1: "tel:+79516550237",
-    value2: "+7 (921) 923-99-97",
-    href2: "tel:+79219239997",
-    value3: "+7 (921) 996-99-97",
-    href3: "tel:+79219969997",
-    icon: "call",
-    itemprop: "telephone",
-  },
-  {
-    name: "Email",
-    icon: "mail",
-    itemprop: "email",
-    emails: ["info.ck.ksm@gmail.com", "173797m@gmail.com"],
-  },
-  {
-    name: "WhatsApp",
-    icon: "lift_to_talk",
-    whatsapps: [
-      { value: "+7 (921) 923-99-97", href: "79219239997" },
-      { value: "+7 (921) 996-99-97", href: "79219969997" },
-    ],
-  },
-];
-</script>
 
 <style scoped>
 .footer-container {
