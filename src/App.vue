@@ -22,7 +22,7 @@
             class="header-img"
             :src="currentBg"
             alt="Header background"
-            loading="lazy"
+            loading='eager'
           />
         </transition-group>
 
