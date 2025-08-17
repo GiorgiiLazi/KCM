@@ -9,9 +9,14 @@
         </nav>
       </div>
 
-      <!-- Dynamic background slider -->
-      <div class="slider-container">
-        <transition-group name="slide" tag="div">
+      <!-- Dynamic background with slide animation -->
+      <div class="slider-container" :class="{ 'mobile': isMobile }">
+        <transition-group
+          v-if="!isMobile"
+          name="slide"
+          tag="div"
+          class="slide-wrapper"
+        >
           <img
             :key="currentBg"
             class="header-img"
@@ -20,6 +25,17 @@
             loading="lazy"
           />
         </transition-group>
+
+        <!-- Mobile: simple fade (or instant switch) -->
+        <transition name="fade" v-else>
+          <img
+            :key="currentBg"
+            class="header-img"
+            :src="currentBg"
+            alt="Header background"
+            loading="lazy"
+          />
+        </transition>
       </div>
     </header>
 
@@ -30,7 +46,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { useRoute } from "vue-router";
 import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
@@ -40,9 +56,18 @@ import { dynamicTitles } from "./routes/dynamicTitles";
 
 const route = useRoute();
 
-const currentTitle = computed(() => dynamicTitles[route.path]?.title || "Строительная компания КСМ");
-const currentSubtitle = computed(() => dynamicTitles[route.path]?.subtitle || "OOO «СК КАПИТАЛСТРОЙМОНТАЖ»");
+// Titles
+const currentTitle = computed(
+  () =>
+    dynamicTitles[route.path]?.title || "Строительная компания КСМ"
+);
+const currentSubtitle = computed(
+  () =>
+    dynamicTitles[route.path]?.subtitle ||
+    "OOO «СК КАПИТАЛСТРОЙМОНТАЖ»"
+);
 
+// Backgrounds
 const routeBackgrounds = {
   "/": "/images/dynamic/main.webp",
   "/uslugi/landshaftnyy-dizayn": "/images/dynamic/park.webp",
@@ -60,12 +85,30 @@ const routeBackgrounds = {
   "/kcm": "/images/dynamic/ksm.webp",
   "/galereya": "/images/dynamic/otdelka.webp",
 };
+const currentBg = computed(
+  () => routeBackgrounds[route.path] || "/images/architect-02.webp"
+);
 
-const currentBg = computed(() => routeBackgrounds[route.path] || "/images/architect-02.webp");
+// Detect mobile
+const isMobile = ref(false);
+const checkMobile = () => {
+  isMobile.value = window.innerWidth <= 768;
+};
+onMounted(() => {
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+});
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkMobile);
+});
 </script>
 
 <style>
-html, body, #app {
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:wght@300;400;500;700&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap");
+
+html,
+body,
+#app {
   overflow-x: hidden;
   box-sizing: border-box;
   padding: 0;
@@ -75,14 +118,15 @@ html, body, #app {
   font-family: "Fira Sans", sans-serif;
 }
 
-/* Header */
+/* Header background */
 .header-background {
   position: relative;
   height: 75vh;
+  overflow: hidden;
   display: flex;
   align-items: flex-start;
-  overflow: hidden;
 }
+
 .header-content {
   position: relative;
   z-index: 2;
@@ -91,7 +135,6 @@ html, body, #app {
   flex-direction: column;
 }
 
-/* Slider */
 .slider-container {
   position: absolute;
   top: 0;
@@ -99,6 +142,13 @@ html, body, #app {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: 1;
+}
+
+.slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .header-img {
@@ -109,34 +159,42 @@ html, body, #app {
   height: 100%;
   object-fit: cover;
   filter: brightness(0.6);
+  will-change: transform, opacity;
 }
 
-/* Transition animations */
+/* Slide animations */
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s ease-in-out;
+}
 .slide-enter-from {
   transform: translateX(100%);
 }
-.slide-enter-active {
-  animation: slide-in 0.4s ease-out forwards;
+.slide-enter-to {
+  transform: translateX(0);
 }
-
+.slide-leave-from {
+  transform: translateX(0);
+}
 .slide-leave-to {
   transform: translateX(-100%);
 }
-.slide-leave-active {
-  animation: slide-out 0.4s ease-out forwards;
+
+/* Mobile fallback fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 
-@keyframes slide-in {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes slide-out {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Header title */
+/* Заголовок */
 .title-wrapper {
   position: absolute;
   top: 0;
@@ -162,12 +220,17 @@ html, body, #app {
   margin: 0;
   font-size: 2rem;
 }
+
 .title-app h2 {
   margin: 0.5rem 0 0;
   font-size: 1.2rem;
 }
 
-@media (max-width:768px) {
+.router-link-exact-active {
+  background: #ff895d;
+}
+
+@media (max-width: 768px) {
   .header-background {
     height: 40vh;
   }
