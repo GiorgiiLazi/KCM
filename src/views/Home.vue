@@ -16,11 +16,11 @@
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item fade-in">
-            <h2>537+</h2>
+            <h2>{{ currNumber }}+</h2>
             <p>объектов</p>
           </div>
           <div class="stat-item fade-in delay-1">
-            <h2>25+</h2>
+            <h2>{{ currExp }}+</h2>
             <p>лет опыта</p>
           </div>
           <div class="stat-item fade-in delay-2">
@@ -78,7 +78,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import VueEasyLightbox from "vue-easy-lightbox";
 import AnimatedButton from "@/components/UI/AnimatedButton.vue";
 import { gsap } from "gsap";
@@ -87,6 +87,28 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 // Lightbox state
 const show = ref(false);
 const index = ref(0);
+const currNumber = ref(0)
+const finalNumber = ref(537)
+const currExp = ref(0)
+const finalExp = ref(25)
+// counter functions
+const countObjects = async () =>{
+    const interval = setInterval(()=>{
+      currNumber.value +=1
+      if(currNumber.value >= finalNumber.value){
+        clearInterval(interval)
+      }
+    },5)
+  }
+  const countExperience = async () =>{
+    const interval = setInterval(()=>{
+      currExp.value +=1
+      if(currExp.value >= finalExp.value){
+        clearInterval(interval)
+      }
+    },50)
+  }
+
 const images = [
   {
     src: "/images/project-1.webp",
@@ -119,6 +141,9 @@ const openLightbox = (i) => {
 // GSAP fade-in animations
 
 onMounted(async () => {
+
+  countObjects()
+  countExperience()
   // Import GSAP only in the browser
   const { gsap } = await import('gsap')
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
@@ -141,6 +166,11 @@ onMounted(async () => {
       }
     )
   })
+  
+})
+
+onUnmounted(()=>{
+  currNumber.value = 0;
 })
 </script>
 
