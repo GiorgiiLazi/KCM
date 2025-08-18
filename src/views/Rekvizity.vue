@@ -5,7 +5,8 @@
         <h2 class="fade-in title" itemprop="name">Способы оплаты</h2>
         <div class="payment-grid">
           <!-- ООО -->
-          <div class="payment-item fade-in delay-1 second-color" itemprop="department" itemscope itemtype="https://schema.org/Organization">
+          <div class="payment-item fade-in delay-1 fourth-color" itemprop="department" itemscope itemtype="https://schema.org/Organization">
+            <img src="/images/ksm-stamp.webp" alt="Печать КСМ" loading="lazy">
             <h3 itemprop="name">ООО "СК Капиталстроймонтаж"</h3>
             <p><strong>Расчётный счёт:</strong> <span itemprop="bankAccount">40702810620000188738</span></p>
             <p><strong>Банк:</strong> ООО "Банк Точка", БИК 044525104</p>
@@ -15,7 +16,8 @@
           </div>
 
           <!-- ИП -->
-          <div class="payment-item fade-in delay-2 second-color" itemprop="department" itemscope itemtype="https://schema.org/Person">
+          <div class="payment-item fade-in delay-2 fourth-color" itemprop="department" itemscope itemtype="https://schema.org/Person">
+            <img src="/images/ip-stamp.webp" alt="Печать индивидуального предпринимателя" loading="lazy">
             <h3 itemprop="name">ИП Лазишвили Мамука Нодарович</h3>
             <p><strong>Расчётный счёт:</strong> <span itemprop="bankAccount">40802810720000515460</span></p>
             <p><strong>Банк:</strong> ООО "Банк Точка", БИК 044525104</p>
@@ -98,17 +100,25 @@ onMounted(async () => {
 }
 
 .payment-item {
+  position: relative;
   padding: 30px;
   border-radius: 12px;
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
 }
 
 .payment-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
-
+.payment-item img{
+  width: min(200px, 300px);
+  height: auto;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
 .payment-item h3 {
   margin-bottom: 20px;
   font-size: 28px;
@@ -134,7 +144,9 @@ onMounted(async () => {
   .payment-item {
     padding: 20px;
   }
-
+  .payment-item img{
+    width: max(70px, 80px)
+  }
   .payment-item h3 {
     font-size: 24px;
   }
