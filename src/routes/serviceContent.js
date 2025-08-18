@@ -29,9 +29,7 @@ export const servicesContent = {
     ],
     images: [
       "/images/krovelnye-1.webp",
-      "/images/krovelnye-2.webp",
-      "/images/krovelnye-3.webp",
-      "/images/krovelnye-4.webp"
+      "/images/krovelnye-2.webp"
     ],
     cta: {
       title: "Закажите кровельные работы",
@@ -48,10 +46,10 @@ export const servicesContent = {
       "Современные материалы и технологии"
     ],
     images: [
-      "/images/gidro-1.webp",
-      "/images/gidro-2.webp",
-      "/images/gidro-3.webp",
-      "/images/gidro-4.webp"
+      "/images/hydro-1.webp",
+      "/images/hydro-2.webp",
+      "/images/hydro-3.webp",
+      "/images/hydro-4.webp"
     ],
     cta: {
       title: "Закажите гидроизоляцию",

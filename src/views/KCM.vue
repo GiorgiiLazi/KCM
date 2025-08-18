@@ -20,38 +20,10 @@
           <h1 class="subtitle delay-3">Строительная компания «КСМ»</h1>
           <h2 class="subtitle delay-4">Мы выполняем:</h2>
 
-          <ul class="about-services">
+          <ul v-for="service in services "class="about-services" :key="service.id">
             <li>
               <span class="material-symbols-outlined">check</span>
-              <p>Монолитные и каркасные дома;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Дома из газобетона;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Ремонт квартир и помещений;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Отделочные работы любой сложности;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Фасадные и кровельные работы;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Окраска, шпаклевка и штукатурка ручная и машинным способом;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Кладочные и гидроизоляционные работы;</p>
-            </li>
-            <li>
-              <span class="material-symbols-outlined">check</span>
-              <p>Благоустройство территории и ландшафтный дизайн;</p>
+              <p>{{ service.name }}</p>
             </li>
           </ul>
 
@@ -96,7 +68,9 @@
 </template>
 
 <script setup>
-const services = [
+import { reactive } from 'vue';
+
+const services = reactive([
   {
     name: "Монолитные и каркасные дома;",
     id: 1,
@@ -129,9 +103,9 @@ const services = [
     name: "Благоустройство территории и ландшафтный дизайн;",
     id: 8,
   },
-];
+]);
 
-const employees = [
+const employees = reactive([
   {
     name: "Лазишвили Мамука Нодарович",
     position: "Генеральный директор",
@@ -160,11 +134,10 @@ const employees = [
     name: "Лазишвили Георгий Мамукавич",
     position: "Программист",
   },
-];
+]);
 </script>
 
 <style scoped>
-/* === Базовая структура === */
 .hero {
   height: 60vh;
   display: flex;
@@ -204,7 +177,7 @@ h2 {
   animation: fadeInUp 1s ease forwards;
 }
 
-/* === Контент компании === */
+/* === Company's content === */
 .about-content {
   flex: 1;
   min-width: 0;
@@ -271,7 +244,7 @@ h2 {
   margin-right: 8px;
 }
 
-/* === Фото гендиректора === */
+/* === General Director photo === */
 .img-wrapper {
   background-color: transparent;
   display: flex;
@@ -317,7 +290,7 @@ h2 {
     transform: translateY(0);
   }
 }
-/* === Команда === */
+/* === Team === */
 .team-section {
   padding: 20px;
   animation: fadeInUp 1s ease forwards;
@@ -358,7 +331,7 @@ h2 {
   transform: scale(0.952); /* 1 / 1.05 to keep children visually same size */
 }
 
-/* === Мобильная версия === */
+/* === Mobile version === */
 @media (max-width: 768px) {
   .about-inner {
     flex-direction: column-reverse;
@@ -432,7 +405,7 @@ h2 {
   }
 }
 
-/* === Анимации === */
+/* === Animations === */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
