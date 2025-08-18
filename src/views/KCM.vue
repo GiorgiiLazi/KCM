@@ -65,7 +65,7 @@
       <div class="img-wrapper fourth-color">
         <div class="img-circle">
           <img
-            src="/images/general-director-1.webp"
+            src="/images/general-director.webp"
             alt="Генеральный директор «КСМ» Михаил"
             loading="lazy"
           />
@@ -138,7 +138,7 @@ const employees = [
   },
   {
     name: "Баширов Алияддин Яхья оглы",
-    position: "Директор по строительству",
+    position: "Директор по строительству, Почетный Президент",
   },
   {
     name: "Стрижинец Виталий Евгеньевич",
