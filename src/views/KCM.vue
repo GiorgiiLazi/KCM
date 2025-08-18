@@ -1,77 +1,83 @@
 <template>
   <section class="hero first-color">
-      <div class="container">
-        <h1 class="fade-in" itemprop="name">ООО «СК КАПИТАЛСТРОЙМОНТАЖ» </h1>
-        <p class="fade-in delay-1">
-          Наша компания специализируется на широком спектре строительных и отделочных работ.
-        </p>
-      </div>
-    </section>
-  <section class="about-company third-color" itemscope itemtype="http://schema.org/Organization">
-  <div class="about-inner">
-    
-    
-    <!-- Левая часть — описание -->
-    <div class="about-content third-color">
-  
-
-      <article class="about-description fade-in" itemprop="description">
-        <h1 class="subtitle delay-3">Строительная компания «КСМ»</h1>
-        <h2 class="subtitle delay-4">Мы выполняем:</h2>
-
-        <ul class="about-services">
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Монолитные и каркасные дома;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Дома из газобетона;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Ремонт квартир и помещений;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Отделочные работы любой сложности;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Фасадные и кровельные работы;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Окраска, шпаклевка и штукатурка ручная и машинным способом;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Кладочные и гидроизоляционные работы;</p>
-          </li>
-          <li>
-            <span class="material-symbols-outlined">check</span>
-            <p>Благоустройство территории и ландшафтный дизайн;</p>
-          </li>
-        </ul>
-
-        Мы работаем в Санкт-Петербурге и Ленинградской области, соблюдаем сроки и гарантируем качество на всех этапах — от проектирования до сдачи объекта.
-      </article>
+    <div class="container">
+      <h1 class="fade-in" itemprop="name">ООО «СК КАПИТАЛСТРОЙМОНТАЖ»</h1>
+      <p class="fade-in delay-1">
+        Наша компания специализируется на широком спектре строительных и
+        отделочных работ.
+      </p>
     </div>
+  </section>
+  <section
+    class="about-company third-color"
+    itemscope
+    itemtype="http://schema.org/Organization"
+  >
+    <div class="about-inner">
+      <!-- Левая часть — описание -->
+      <div class="about-content third-color">
+        <article class="about-description fade-in" itemprop="description">
+          <h1 class="subtitle delay-3">Строительная компания «КСМ»</h1>
+          <h2 class="subtitle delay-4">Мы выполняем:</h2>
 
-    <!-- Правая часть — фото -->
-   <div class="img-wrapper fourth-color">
-  <div class="img-circle">
-    <img src="/images/architector-01.webp" alt="Генеральный директор «КСМ» Михаил" loading="lazy" />
-  </div>
-  <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
-</div>
+          <ul class="about-services">
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Монолитные и каркасные дома;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Дома из газобетона;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Ремонт квартир и помещений;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Отделочные работы любой сложности;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Фасадные и кровельные работы;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Окраска, шпаклевка и штукатурка ручная и машинным способом;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Кладочные и гидроизоляционные работы;</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">check</span>
+              <p>Благоустройство территории и ландшафтный дизайн;</p>
+            </li>
+          </ul>
 
-  </div>
-</section>
-<section class="team-section second-color ">
+          Мы работаем в Санкт-Петербурге и Ленинградской области, соблюдаем
+          сроки и гарантируем качество на всех этапах — от проектирования до
+          сдачи объекта.
+        </article>
+      </div>
+
+      <!-- Правая часть — фото -->
+      <div class="img-wrapper fourth-color">
+        <div class="img-circle">
+          <img
+            src="/images/general-director-1.webp"
+            alt="Генеральный директор «КСМ» Михаил"
+            loading="lazy"
+          />
+        </div>
+        <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
+      </div>
+    </div>
+  </section>
+  <section class="team-section second-color">
     <div class="container">
       <h2 class="team-title">Наша команда</h2>
-      <ul class="team-list ">
+      <ul class="team-list">
         <li
           v-for="(employee, index) in employees"
           :key="index"
@@ -80,7 +86,9 @@
           itemtype="http://schema.org/Person"
         >
           <h3 class="employee-name" itemprop="name">{{ employee.name }}</h3>
-          <p class="employee-position" itemprop="jobTitle">{{ employee.position }}</p>
+          <p class="employee-position" itemprop="jobTitle">
+            {{ employee.position }}
+          </p>
         </li>
       </ul>
     </div>
@@ -88,42 +96,40 @@
 </template>
 
 <script setup>
-
-const services= [
+const services = [
   {
     name: "Монолитные и каркасные дома;",
-    id: 1
+    id: 1,
   },
   {
     name: "Дома из газобетона;",
-    id: 2
+    id: 2,
   },
   {
     name: "Ремонт квартир и помещений;",
-    id: 3
+    id: 3,
   },
   {
     name: "Отделочные работы любой сложности;",
-    id: 4
+    id: 4,
   },
   {
     name: "Фасадные и кровельные работы;",
-    id: 5
+    id: 5,
   },
   {
     name: "Окраска, шпаклевка и штукатурка ручная и машинным способом;",
-    id: 6
+    id: 6,
   },
   {
     name: "Кладочные и гидроизоляционные работы;",
-    id: 7
+    id: 7,
   },
   {
     name: "Благоустройство территории и ландшафтный дизайн;",
-    id: 8
-  }
-]
-
+    id: 8,
+  },
+];
 
 const employees = [
   {
@@ -134,7 +140,7 @@ const employees = [
     name: "Баширов Алияддин Яхья оглы",
     position: "Директор по строительству",
   },
-   {
+  {
     name: "Стрижинец Виталий Евгеньевич",
     position: "Инженер, руководитель проекта",
   },
@@ -150,12 +156,11 @@ const employees = [
     name: "Бабышева Светлана Михайловна",
     position: "Бухгалтер",
   },
-    {
+  {
     name: "Лазишвили Георгий Мамукавич",
     position: "Программист",
   },
 ];
-
 </script>
 
 <style scoped>
@@ -176,10 +181,10 @@ h1 {
   text-align: center;
 }
 h2 {
-    font-size: 32px;
-    text-align: center;
-  }
-.subtitle{
+  font-size: 32px;
+  text-align: center;
+}
+.subtitle {
   text-align: start;
 }
 .about-company {
@@ -356,7 +361,7 @@ h2 {
 /* === Мобильная версия === */
 @media (max-width: 768px) {
   .about-inner {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     gap: 20px;
   }
@@ -415,7 +420,8 @@ h2 {
     font-size: 16px;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 22px;
   }
 
