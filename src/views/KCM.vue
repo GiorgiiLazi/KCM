@@ -369,7 +369,9 @@ h2 {
   .about-title {
     font-size: 1.6em;
   }
-
+  .subtitle{
+    text-align: center;
+  }
   .about-subtitle {
     font-size: 1.2em;
   }
