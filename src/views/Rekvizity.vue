@@ -118,6 +118,7 @@ onMounted(async () => {
   position: absolute;
   bottom: 0px;
   right: 0px;
+  transform: rotate(-30deg)
 }
 .payment-item h3 {
   margin-bottom: 20px;
