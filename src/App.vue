@@ -86,6 +86,7 @@ const routeBackgrounds = {
   "/proekty": "/images/dynamic/plans.webp",
   "/kcm": "/images/dynamic/ksm.webp",
   "/galereya": "/images/dynamic/otdelka.webp",
+  "/:pathMatch(.*)*": "/images/dynamic/stroyka.webp"
 };
 const currentBg = computed(
   () => routeBackgrounds[route.path] || "/images/architect-02.webp"
