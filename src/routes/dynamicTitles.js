@@ -1,7 +1,7 @@
 export const dynamicTitles = {
   "/": {
     title: "Строительная компания КСМ",
-    subtitle: "OOO «СК КАПИТАЛСТРОЙМОНТАЖ»",
+    subtitle: "OOO «СК КСМ»",
   },
   "/uslugi/landshaftnyy-dizayn": {
     title: "Ландшафтный дизайн участка",

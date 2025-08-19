@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <!-- Lightbox (outside grid items, will always center) -->
+      <!-- Lightbox -->
       <vue-easy-lightbox
         :visible="show"
         :imgs="images.map(i => i.src)"
@@ -62,6 +62,27 @@
         @hide="show = false"
       />
     </section>
+
+    <!-- Testimonials Section -->
+      <section class="testimonials second-color">
+    <div class="container">
+      <h2 class="fade-in">Отзывы наших клиентов</h2>
+      <div class="testimonials-wrapper">
+        <button class="arrow left" @click="prevReview">&#10094;</button>
+        <div class="reviews-container" ref="reviewsContainer">
+          <div
+            class="testimonial-card"
+            v-for="(review, idx) in reviews"
+            :key="idx"
+          >
+            <p class="testimonial-text">"{{ review.text }}"</p>
+            <p class="testimonial-author">— {{ review.author }}</p>
+          </div>
+        </div>
+        <button class="arrow right" @click="nextReview">&#10095;</button>
+      </div>
+    </div>
+  </section>
 
     <!-- CTA Section -->
     <section class="cta third-color">
@@ -91,7 +112,7 @@ const currNumber = ref(0)
 const finalNumber = ref(537)
 const currExp = ref(0)
 const finalExp = ref(25)
-// counter functions
+
 const countObjects = async () =>{
     const interval = setInterval(()=>{
       currNumber.value +=1
@@ -133,18 +154,35 @@ const images = [
   },
 ];
 
+// testimonials
+const reviewsContainer = ref(null);
+const currentIndex = ref(0);
+
+const reviews = [
+  {
+    text: "Мы долго искали компанию, которая сможет не просто построить дом, а учесть все особенности нашего участка с перепадами высот. Команда всё продумала и предложила надёжное решение. Сейчас живём в доме и радуемся.",
+    author: "Алексей Петров, Приморский район, СПБ",
+  },
+  {
+    text: "Столкнулись с проблемой сырости в старом доме. Ребята сделали грамотную реконструкцию и укрепили фундамент. Теперь дом стал тёплым и сухим, как новый.",
+    author: "Марина Коваленко, Гатчина",
+  },
+  {
+    text: "Хотели построить коттедж, но боялись скрытых расходов. Компания предоставила прозрачную смету, всё соответствовало договору. Работой остались очень довольны.",
+    author: "Игорь Смирнов, Ломоносов",
+  },
+  {
+    text: "После неудачного опыта с другой бригадой думали, что стройку лучше отложить. Здесь же всё организовали чётко и по срокам. Дом получился именно таким, как мы мечтали.",
+    author: "Наталья Соколова, Всеволожск",
+  },
+]
+
 const openLightbox = (i) => {
   index.value = i;
   show.value = true;
 };
 
-// GSAP fade-in animations
-
 onMounted(async () => {
-
-  countObjects()
-  countExperience()
-  // Import GSAP only in the browser
   const { gsap } = await import('gsap')
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
   gsap.registerPlugin(ScrollTrigger)
@@ -166,12 +204,54 @@ onMounted(async () => {
       }
     )
   })
-  
+
+  ScrollTrigger.create({
+    trigger: ".achievements",
+    start: "top 80%",
+    once: true,
+    onEnter: () => {
+      countObjects()
+      countExperience()
+    },
+  })
+  // snap scroll on manual swipe
+  const container = reviewsContainer.value;
+  container.addEventListener("scroll", () => {
+    const cardWidth = container.children[0].offsetWidth + parseInt(getComputedStyle(container).gap);
+    const newIndex = Math.round(container.scrollLeft / cardWidth);
+    currentIndex.value = newIndex;
+  });
 })
 
 onUnmounted(()=>{
   currNumber.value = 0;
+  currExp.value = 0;
 })
+
+
+
+const scrollToIndex = (index) => {
+  const container = reviewsContainer.value;
+  const cardWidth = container.children[0].offsetWidth + parseInt(getComputedStyle(container).gap);
+  container.scrollTo({
+    left: cardWidth * index,
+    behavior: "smooth",
+  });
+};
+
+const prevReview = () => {
+  if (currentIndex.value > 0) {
+    currentIndex.value--;
+    scrollToIndex(currentIndex.value);
+  }
+};
+
+const nextReview = () => {
+  if (currentIndex.value < reviews.length - 1) {
+    currentIndex.value++;
+    scrollToIndex(currentIndex.value);
+  }
+};
 </script>
 
 <style scoped>
@@ -302,6 +382,67 @@ p {
   transform: scale(1.1);
 }
 
+/* Testimonials */
+.testimonials-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviews-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
+
+.testimonial-card {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+}
+
+.testimonial-text {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.testimonial-author {
+  font-size: 16px;
+  font-weight: bold;
+  color: #005689;
+}
+
+.arrow {
+  background: #005689;
+  color: #fff;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.arrow.left {
+  margin-right: 10px;
+}
+
+.arrow.right {
+  margin-left: 10px;
+}
+
+.arrow:hover {
+  background: #003f5c;
+}
+
 /* CTA */
 .cta {
   text-align: center;
@@ -339,6 +480,11 @@ p {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 85%;
+    margin: 0 auto;
   }
 }
 </style>

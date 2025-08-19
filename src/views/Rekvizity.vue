@@ -7,7 +7,7 @@
           <!-- ООО -->
           <div class="payment-item fade-in delay-1 fourth-color" itemprop="department" itemscope itemtype="https://schema.org/Organization">
             <img src="/images/ksm-stamp.webp" alt="Печать КСМ" loading="lazy">
-            <h3 itemprop="name">ООО "СК Капиталстроймонтаж"</h3>
+            <h3 itemprop="name">ООО "СК КСМ"</h3>
             <p><strong>Расчётный счёт:</strong> <span itemprop="bankAccount">40702810620000188738</span></p>
             <p><strong>Банк:</strong> ООО "Банк Точка", БИК 044525104</p>
             <p><strong>Корр. счёт:</strong> 30101810745374525104</p>
