@@ -91,7 +91,7 @@ const galleryImages = reactive({
     { src: '/images/gallery/otdelka-3.webp', alt: 'Фото Отделка детский сад 3' },
     { src: '/images/gallery/otdelka-4.webp', alt: 'Фото Отделка детский сад 4' },
   ],
-  "Кладка плитки": [
+  "Устройство укладки плитки": [
     { src: '/images/gallery/plitka-1.webp', alt: 'Фото Кладка плитки 1' },
     { src: '/images/gallery/plitka-2.webp', alt: 'Фото Кладка плитки 2' },
     { src: '/images/gallery/plitka-3.webp', alt: 'Фото Кладка плитки 3' },
@@ -124,7 +124,7 @@ const galleryImages = reactive({
     { src: '/images/gallery/fundament-3.webp', alt: 'Фото Укрепление Фундамента 3' },
     { src: '/images/gallery/fundament-4.webp', alt: 'Фото Укрепление Фундамента 4' },
   ],
-  "Стяжка, топпинг и разметки паркинга": [
+  "Стяжка, Топпинг и разметки паркинга": [
     { src: '/images/gallery/parking-1.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 1' },
     { src: '/images/gallery/parking-2.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 2' },
     { src: '/images/gallery/parking-3.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 3' },
@@ -147,14 +147,14 @@ const galleryImages = reactive({
     { src: '/images/gallery/kirpich-3.webp', alt: 'Фото Кладка кирпича 3' },
     { src: '/images/gallery/kirpich-4.webp', alt: 'Фото Кладка кирпича 4' },
   ],
-  "Кладка блоков":
+  "Кладка блоков СКЦ":
   [
     { src: '/images/gallery/kladka-1.webp', alt: 'Фото Кладка блоков 1' },
     { src: '/images/gallery/kladka-2.webp', alt: 'Фото Кладка блоков 2' },
     { src: '/images/gallery/kladka-3.webp', alt: 'Фото Кладка блоков 3' },
     { src: '/images/gallery/kladka-4.webp', alt: 'Фото Кладка блоков 4' },
   ],
-  "Навесы": [
+  "Навесы, пандусы": [
     { src: '/images/gallery/navesy-1.webp', alt: 'Фото Навес 1' },
     { src: '/images/gallery/navesy-2.webp', alt: 'Фото Навес 2' },
     { src: '/images/gallery/navesy-3.webp', alt: 'Фото Навес 3' },

@@ -74,6 +74,7 @@ import AnimatedButton from "@/components/UI/AnimatedButton.vue";
 import VueEasyLightbox from "vue-easy-lightbox";
 import { servicesContent } from "../routes/serviceContent";
 
+
 const route = useRoute();
 const content = ref(servicesContent[route.params.opisanieUslug] || null);
 

@@ -15,6 +15,7 @@ import ServicesDetail from '../views/ServicesDetail.vue'
 import NotFound from '../views/notFound.vue'
 import Rekvizity from '@/views/Rekvizity.vue'
 import Proekty from '@/views/Proekty.vue'
+import ProjectDetails from '@/views/ProjectDetails.vue'
 
 const baseRoutes = [
   {
@@ -106,6 +107,17 @@ const baseRoutes = [
       description: 'Типовые проекты коттеджей, одноэтажных и двухэтажных домов.',
       keywords: 'типовые проекты, одноэтажные дома, двухэтажные дома, коттеджы, строительная планировка, СПб, КСМ'
     }
+  },
+ {
+    path: '/proekty/:id',
+    name: 'project-details',
+    component: ProjectDetails,
+    meta: {
+      title: 'Детали проекта — КСМ, строительная компания в СПб',
+      description: 'Подробная информация о выбранном проекте коттеджа или дома.',
+      keywords: 'детали проекта, планировка, фото, одноэтажные дома, двухэтажные дома, КСМ, СПб'
+    },
+     props: true
   },
   { 
     path: '/:pathMatch(.*)*',

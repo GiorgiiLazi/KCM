@@ -86,11 +86,21 @@ const routeBackgrounds = {
   "/proekty": "/images/dynamic/plans.webp",
   "/kcm": "/images/dynamic/ksm.webp",
   "/galereya": "/images/dynamic/otdelka.webp",
-  "/:pathMatch(.*)*": "/images/dynamic/stroyka.webp"
 };
-const currentBg = computed(
-  () => routeBackgrounds[route.path] || "/images/architect-02.webp"
-);
+
+// Correct handling for dynamic routes and 404
+const currentBg = computed(() => {
+  // Exact match first
+  if (routeBackgrounds[route.path]) return routeBackgrounds[route.path];
+
+  // Check if route matches /proekty/:id dynamically
+  if (route.matched.some(record => record.path === '/proekty/:id')) {
+    return "/images/house-1.webp"; // фон для проектов
+  }
+
+  // Fallback (404 or unknown route)
+  return "/images/dynamic/stroyka.webp";
+});
 
 // Image loading state for blur
 const imageLoaded = ref(false);

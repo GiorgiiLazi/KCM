@@ -37,9 +37,9 @@ async function animateTitle() {
   await ensureGsap();
   if (!gsap) return;
 
-  // Kill previous animations + reset inline styles
-  gsap.killTweensOf(".title-main, .title-sub");
-  gsap.set(".title-main, .title-sub", { clearProps: "all" });
+  // // Kill previous animations + reset inline styles
+  // gsap.killTweensOf(".title-main, .title-sub");
+  // gsap.set(".title-main, .title-sub", { clearProps: "all" });
 
   // Animate h1
   gsap.fromTo(
