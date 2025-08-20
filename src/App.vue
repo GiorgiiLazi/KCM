@@ -82,7 +82,7 @@ const routeBackgrounds = {
   "/remont-kvartir-i-komnat": "/images/dynamic/interiour-1.webp",
   "/stroitelstvo-domov-i-kottedzhey": "/images/dynamic/main.webp",
   "/kontakty": "/images/dynamic/interiour-2.webp",
-  "/rekvizity": "/images/dynamic/planning.webp",
+  "/rekvizity": "/images/dynamic/contract.webp",
   "/proekty": "/images/dynamic/plans.webp",
   "/kcm": "/images/dynamic/ksm.webp",
   "/galereya": "/images/dynamic/otdelka.webp",

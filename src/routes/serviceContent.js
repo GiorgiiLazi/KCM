@@ -29,7 +29,9 @@ export const servicesContent = {
     ],
     images: [
       "/images/krovelnye-1.webp",
-      "/images/krovelnye-2.webp"
+      "/images/krovelnye-2.webp",
+      "/images/hydro-3.webp",
+      "/images/hydro-4.webp"
     ],
     cta: {
       title: "Закажите кровельные работы",
