@@ -105,7 +105,7 @@ const galleryImages = reactive({
     { src: '/images/hydro-1.webp', alt: 'Фото Гидроизоляционные работы 1' },
     { src: '/images/hydro-2.webp', alt: 'Фото Гидроизоляционные работы2' },
     { src: '/images/hydro-3.webp', alt: 'Фото Гидроизоляционные работы 3' },
-    { src: '/images/hydro-4.webp', alt: 'Фото Гидроизоляционные работы 4' },
+    { src: '/images/hydro-4.webp', alt: 'Фото Гидроизоляционные работы 4' }, 
   ],
   
   "Укладка керамогранита": [
