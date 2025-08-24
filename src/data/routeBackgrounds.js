@@ -1,0 +1,17 @@
+export const routeBackgrounds = {
+  "/": "/images/dynamic/stroyka.webp",
+  "/uslugi/landshaftnyy-dizayn": "/images/dynamic/park.webp",
+  "/uslugi/otdelochnye-raboty": "/images/dynamic/otdelka.webp",
+  "/uslugi/fasadnye-raboty": "/images/dynamic/facade.webp",
+  "/uslugi/blagoustroystvo-territorii": "/images/dynamic/benches.webp",
+  "/uslugi/krovelnye-raboty": "/images/dynamic/house.webp",
+  "/uslugi/kladochnye-raboty": "/images/dynamic/kladka.webp",
+  "/uslugi/gidroizolyatsiya": "/images/dynamic/hydro.webp",
+  "/remont-kvartir-i-komnat": "/images/dynamic/interiour-1.webp",
+  "/stroitelstvo-domov-i-kottedzhey": "/images/dynamic/main.webp",
+  "/kontakty": "/images/dynamic/interiour-2.webp",
+  "/rekvizity": "/images/dynamic/contract.webp",
+  "/proekty": "/images/dynamic/plans.webp",
+  "/kcm": "/images/dynamic/ksm.webp",
+  "/galereya": "/images/dynamic/otdelka.webp",
+};

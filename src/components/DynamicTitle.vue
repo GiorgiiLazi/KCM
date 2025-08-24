@@ -18,7 +18,7 @@
 <script setup>
 import { reactive, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
-import { dynamicTitles } from "@/routes/dynamicTitles";
+import { dynamicTitles } from "@/data/dynamicTitles";
 import Title from "./UI/Title.vue";
 
 const titles = reactive(dynamicTitles);

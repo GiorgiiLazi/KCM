@@ -72,7 +72,7 @@ import { useRoute } from "vue-router";
 import notFound from "./notFound.vue";
 import AnimatedButton from "@/components/UI/AnimatedButton.vue";
 import VueEasyLightbox from "vue-easy-lightbox";
-import { servicesContent } from "../routes/serviceContent";
+import { servicesContent } from "../data/serviceContent";
 
 
 const route = useRoute();

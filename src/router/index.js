@@ -1,6 +1,6 @@
 // src/router/index.js
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
-import { servicesList } from '../routes/servicesList.js'
+import { servicesList } from '../data/servicesList.js'
 
 const isClient = typeof window !== 'undefined' 
 

@@ -103,7 +103,7 @@
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from "vue";
-import { servicesList } from "@/routes/servicesList";
+import { servicesList } from "@/data/servicesList";
 import { scrollToTop } from "@/composables/scrollToTop";
 
 const services = reactive(servicesList);

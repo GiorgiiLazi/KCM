@@ -1,0 +1,130 @@
+export const galleryImages = {
+  "Стройка коттеджа под ключ": [
+    { src: '/images/gallery/stroyka-kott-1.webp', alt: 'Фото Стройка коттеджа под ключ 1' },
+    { src: '/images/gallery/stroyka-kott-2.webp', alt: 'Фото Стройка коттеджа под ключ 2' },
+    { src: '/images/gallery/stroyka-kott-3.webp', alt: 'Фото Стройка коттеджа под ключ 3' },
+    { src: '/images/gallery/stroyka-kott-4.webp', alt: 'Фото Стройка коттеджа под ключ 4' },
+    { src: '/images/gallery/stroyka-kott-5.webp', alt: 'Фото Стройка коттеджа под ключ 5' },
+    { src: '/images/gallery/stroyka-kott-6.webp', alt: 'Фото Стройка коттеджа под ключ 6' },
+    { src: '/images/gallery/stroyka-kott-7.webp', alt: 'Фото Стройка коттеджа под ключ 7' },
+    { src: '/images/gallery/stroyka-kott-8.webp', alt: 'Фото ССтройка коттеджа под ключ 8' },
+    { src: '/images/gallery/stroyka-kott-9.webp', alt: 'Фото Стройка коттеджа под ключ 9' },
+    { src: '/images/gallery/stroyka-kott-10.webp', alt: 'Фото Стройка коттеджа под ключ 10' },
+    { src: '/images/gallery/stroyka-kott-11.webp', alt: 'Фото Стройка коттеджа под ключ 11' },
+    { src: '/images/gallery/stroyka-kott-12.webp', alt: 'Фото Стройка коттеджа под ключ 12' },
+    { src: '/images/gallery/stroyka-kott-13.webp', alt: 'Фото Стройка коттеджа под ключ 13' },
+    { src: '/images/gallery/stroyka-kott-14.webp', alt: 'Фото Стройка коттеджа под ключ 14' },
+    { src: '/images/gallery/stroyka-kott-15.webp', alt: 'Фото Стройка коттеджа под ключ 15' },
+    { src: '/images/gallery/stroyka-kott-16.webp', alt: 'Фото Стройка коттеджа под ключ 16' },
+    { src: '/images/gallery/stroyka-kott-17.webp', alt: 'Фото Стройка коттеджа под ключ 17' },
+    { src: '/images/gallery/stroyka-kott-18.webp', alt: 'Фото Стройка коттеджа под ключ 18' },
+    { src: '/images/gallery/stroyka-kott-19.webp', alt: 'Фото Стройка коттеджа под ключ 19' },
+  
+  ],
+  "Отделка Коттеджа": [
+    { src: '/images/gallery/otdelka-kott-1.webp', alt: 'Фото Отделка Коттеджа 1' },
+    { src: '/images/gallery/otdelka-kott-2.webp', alt: 'Фото Отделка Коттеджа 2' },
+    { src: '/images/gallery/otdelka-kott-3.webp', alt: 'Фото Отделка Коттеджа 3' },
+    { src: '/images/gallery/otdelka-kott-4.webp', alt: 'Фото Отделка Коттеджа 4' },
+    { src: '/images/gallery/otdelka-kott-5.webp', alt: 'Фото Отделка Коттеджа 5' },
+    { src: '/images/gallery/otdelka-kott-6.webp', alt: 'Фото Отделка Коттеджа 6' },
+    { src: '/images/gallery/otdelka-kott-7.webp', alt: 'Фото Отделка Коттеджа 7' },
+    { src: '/images/gallery/otdelka-kott-8.webp', alt: 'Фото Отделка Коттеджа 8' },
+    { src: '/images/gallery/otdelka-kott-9.webp', alt: 'Фото Отделка Коттеджа 9' },
+    { src: '/images/gallery/otdelka-kott-10.webp', alt: 'Фото Отделка Коттеджа 10' },
+  ],
+  "Фундамент Коттеджа": [
+    { src: '/images/gallery/fundament-kottedz-1.webp', alt: 'Фото Фундамент Коттеджа 1' },
+    { src: '/images/gallery/fundament-kottedz-2.webp', alt: 'Фото Фундамент Коттеджа 2' },
+    { src: '/images/gallery/fundament-kottedz-3.webp', alt: 'Фото Фундамент Коттеджа 3' },
+    { src: '/images/gallery/fundament-kottedz-4.webp', alt: 'Фото Фундамент Коттеджа 4' },
+  ],
+  "Стройка многоэтажного дома": [
+    { src: '/images/gallery/stroyka-1.webp', alt: 'Фото Стройка многоэтажного дома 1' },
+    { src: '/images/gallery/stroyka-2.webp', alt: 'Фото Стройка многоэтажного дома 2' },
+    { src: '/images/gallery/stroyka-3.webp', alt: 'Фото Стройка многоэтажного дома 3' },
+    { src: '/images/gallery/stroyka-4.webp', alt: 'Фото Стройка многоэтажного дома 4' },
+    { src: '/images/gallery/stroyka-5.webp', alt: 'Фото Стройка многоэтажного дома 5' },
+    { src: '/images/gallery/stroyka-6.webp', alt: 'Фото Стройка многоэтажного дома 6' },
+  ],
+  "Ремонт квартиры под ключ": [
+    { src: '/images/gallery/remont-1.webp', alt: 'Фото Ремонт квартиры под ключ 1' },
+    { src: '/images/gallery/remont-2.webp', alt: 'Фото Ремонт квартиры под ключ 2' },
+    { src: '/images/gallery/remont-3.webp', alt: 'Фото Ремонт квартиры под ключ 3' },
+  ],
+  "Отделка детского сада": [
+    { src: '/images/gallery/otdelka-1.webp', alt: 'Фото Отделка детский сад 1' },
+    { src: '/images/gallery/otdelka-2.webp', alt: 'Фото Отделка детский сад 2' },
+    { src: '/images/gallery/otdelka-3.webp', alt: 'Фото Отделка детский сад 3' },
+    { src: '/images/gallery/otdelka-4.webp', alt: 'Фото Отделка детский сад 4' },
+  ],
+  "Устройство укладки плитки": [
+    { src: '/images/gallery/plitka-1.webp', alt: 'Фото Кладка плитки 1' },
+    { src: '/images/gallery/plitka-2.webp', alt: 'Фото Кладка плитки 2' },
+    { src: '/images/gallery/plitka-3.webp', alt: 'Фото Кладка плитки 3' },
+  ],
+  "Фасадные работы": [
+    { src: '/images/gallery/facade-1.webp', alt: 'Фото Фасадные работы 1' },
+    { src: '/images/gallery/facade-2.webp', alt: 'Фото Фасадные работы 2' },
+    { src: '/images/gallery/facade-3.webp', alt: 'Фото Фасадные работы 3' },
+  ],
+  "Гидроизоляционные работы": [
+    { src: '/images/hydro-1.webp', alt: 'Фото Гидроизоляционные работы 1' },
+    { src: '/images/hydro-2.webp', alt: 'Фото Гидроизоляционные работы2' },
+    { src: '/images/hydro-3.webp', alt: 'Фото Гидроизоляционные работы 3' },
+    { src: '/images/hydro-4.webp', alt: 'Фото Гидроизоляционные работы 4' }, 
+  ],
+  
+  "Укладка керамогранита": [
+    { src: '/images/gallery/ukladka-1.webp', alt: 'Фото Укладка керамогранита 1' },
+    { src: '/images/gallery/ukladka-2.webp', alt: 'Фото Укладка керамогранита 2' },
+  ],
+  "Ремонт офиса": [
+    { src: '/images/gallery/office-1.webp', alt: 'Фото Ремонт офиса1' },
+    { src: '/images/gallery/office-2.webp', alt: 'Фото Ремонт офиса 2' },
+    { src: '/images/gallery/office-3.webp', alt: 'Фото Ремонт офиса 3' },
+    { src: '/images/gallery/office-4.webp', alt: 'Фото Ремонт офиса 4' },
+  ],
+  "Укрепление Фундамента": [
+    { src: '/images/gallery/fundament-1.webp', alt: 'Фото Укрепление Фундамента 1' },
+    { src: '/images/gallery/fundament-2.webp', alt: 'Фото Укрепление Фундамента 2' },
+    { src: '/images/gallery/fundament-3.webp', alt: 'Фото Укрепление Фундамента 3' },
+    { src: '/images/gallery/fundament-4.webp', alt: 'Фото Укрепление Фундамента 4' },
+  ],
+  "Стяжка, Топпинг и разметки паркинга": [
+    { src: '/images/gallery/parking-1.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 1' },
+    { src: '/images/gallery/parking-2.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 2' },
+    { src: '/images/gallery/parking-3.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 3' },
+    { src: '/images/gallery/parking-4.webp', alt: 'Фото Стяжка, топпинг и разметки паркинга 4' },
+  ],
+  "Фасадные работы паркинга": [
+    { src: '/images/gallery/parking-fac-1.webp', alt: 'Фото Фасадные работы паркинга 1' },
+    { src: '/images/gallery/parking-fac-2.webp', alt: 'Фото Фасадные работы паркинга 2' },
+    { src: '/images/gallery/parking-fac-3.webp', alt: 'Фото Фасадные работы паркинга 3' },
+    { src: '/images/gallery/parking-fac-4.webp', alt: 'Фото Фасадные работы паркинга 4' },
+  ],
+  "Столбы для освещения": [
+    { src: '/images/gallery/stolby-1.webp', alt: 'Фото Столбы для осевещения 1' },
+    { src: '/images/gallery/stolby-2.webp', alt: 'Фото Столбы для осевещения 2' },
+  ],
+"Кладка кирпича":
+  [
+    { src: '/images/gallery/kirpich-1.webp', alt: 'Фото Кладка кирпича 1' },
+    { src: '/images/gallery/kirpich-2.webp', alt: 'Фото Кладка кирпича 2' },
+    { src: '/images/gallery/kirpich-3.webp', alt: 'Фото Кладка кирпича 3' },
+    { src: '/images/gallery/kirpich-4.webp', alt: 'Фото Кладка кирпича 4' },
+  ],
+  "Кладка блоков СКЦ":
+  [
+    { src: '/images/gallery/kladka-1.webp', alt: 'Фото Кладка блоков 1' },
+    { src: '/images/gallery/kladka-2.webp', alt: 'Фото Кладка блоков 2' },
+    { src: '/images/gallery/kladka-3.webp', alt: 'Фото Кладка блоков 3' },
+    { src: '/images/gallery/kladka-4.webp', alt: 'Фото Кладка блоков 4' },
+  ],
+  "Навесы, пандусы": [
+    { src: '/images/gallery/navesy-1.webp', alt: 'Фото Навес 1' },
+    { src: '/images/gallery/navesy-2.webp', alt: 'Фото Навес 2' },
+    { src: '/images/gallery/navesy-3.webp', alt: 'Фото Навес 3' },
+    { src: '/images/gallery/navesy-4.webp', alt: 'Фото Навес 4' },
+  ]
+}

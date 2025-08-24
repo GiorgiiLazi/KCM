@@ -67,4 +67,46 @@
     <loc>https://ksm-spb.ru/uslugi/landshaftnyy-dizayn</loc>
     <priority>0.7</priority>
   </url>
+
+  <!-- Projects -->
+  <url>
+    <loc>https://ksm-spb.ru/proekty/murrieta</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/izabel</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/afina</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/lusia</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/selesta</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/galateya</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/rozaliya</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/sabrina</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/kordova</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksm-spb.ru/proekty/kasandra</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>

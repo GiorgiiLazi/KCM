@@ -37,7 +37,7 @@
         <h2 class="fade-in">Наши услуги</h2>
         <div class="services-grid">
           <div
-            v-for="(img, idx) in images"
+            v-for="(img, idx) in refImages"
             :key="idx"
             class="service-item fade-in"
             :class="`delay-${idx + 1}`"
@@ -57,7 +57,7 @@
       <!-- Lightbox -->
       <vue-easy-lightbox
         :visible="show"
-        :imgs="images.map(i => i.src)"
+        :imgs="refImages.map(i => i.src)"
         :index="index"
         @hide="show = false"
       />
@@ -99,11 +99,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, reactive, onMounted, onUnmounted } from "vue";
 import VueEasyLightbox from "vue-easy-lightbox";
 import AnimatedButton from "@/components/UI/AnimatedButton.vue";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { homeImages } from "@/data/homeImages";
+import { testimonials } from "@/data/testimonials";
 
 // Lightbox state
 const show = ref(false);
@@ -130,52 +132,13 @@ const countObjects = async () =>{
     },50)
   }
 
-const images = [
-  {
-    src: "/images/project-1.webp",
-    alt: "Проектирование и дизайн",
-    title: "Проектирование и дизайн коттеджей",
-    description:
-      "Разработка индивидуальных проектов, которые учитывают все ваши пожелания и особенности участка.",
-  },
-  {
-    src: "/images/project-6.webp",
-    alt: "Строительство под ключ",
-    title: "Строительство коттеджей «под ключ»",
-    description:
-      "Полный цикл работ — от фундамента до отделки. Строим из кирпича, монолита и газобетона.",
-  },
-  {
-    src: "/images/repair-2.webp",
-    alt: "Реконструкция и ремонт",
-    title: "Реконструкция и ремонт",
-    description:
-      "Обновление, расширение и капитальный ремонт существующих строений с соблюдением всех норм.",
-  },
-];
+const refImages = reactive(homeImages)
 
 // testimonials
 const reviewsContainer = ref(null);
 const currentIndex = ref(0);
 
-const reviews = [
-  {
-    text: "Мы долго искали компанию, которая сможет не просто построить дом, а учесть все особенности нашего участка с перепадами высот. Команда всё продумала и предложила надёжное решение. Сейчас живём в доме и радуемся.",
-    author: "Алексей Петров, Приморский район, СПБ",
-  },
-  {
-    text: "Столкнулись с проблемой сырости в старом доме. Ребята сделали грамотную реконструкцию и укрепили фундамент. Теперь дом стал тёплым и сухим, как новый.",
-    author: "Марина Коваленко, Гатчина",
-  },
-  {
-    text: "Хотели построить коттедж, но боялись скрытых расходов. Компания предоставила прозрачную смету, всё соответствовало договору. Работой остались очень довольны.",
-    author: "Игорь Смирнов, Ломоносов",
-  },
-  {
-    text: "После неудачного опыта с другой бригадой думали, что стройку лучше отложить. Здесь же всё организовали чётко и по срокам. Дом получился именно таким, как мы мечтали.",
-    author: "Наталья Соколова, Всеволожск",
-  },
-]
+const reviews = reactive(testimonials)
 
 const openLightbox = (i) => {
   index.value = i;

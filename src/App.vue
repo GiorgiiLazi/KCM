@@ -48,13 +48,14 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
+import { ref, reactive, computed, onMounted, onBeforeUnmount, watch } from "vue";
 import { useRoute } from "vue-router";
 import NavRouter from "./components/NavRouter.vue";
 import NavContacts from "./components/NavContacts.vue";
 import DynamicTitle from "./components/DynamicTitle.vue";
 import Footer from "./components/Footer.vue";
-import { dynamicTitles } from "./routes/dynamicTitles";
+import { dynamicTitles } from "./data/dynamicTitles";
+import { routeBackgrounds } from "./data/routeBackgrounds.js"
 
 const route = useRoute();
 
@@ -70,28 +71,12 @@ const currentSubtitle = computed(
 );
 
 // Backgrounds
-const routeBackgrounds = {
-  "/": "/images/dynamic/stroyka.webp",
-  "/uslugi/landshaftnyy-dizayn": "/images/dynamic/park.webp",
-  "/uslugi/otdelochnye-raboty": "/images/dynamic/otdelka.webp",
-  "/uslugi/fasadnye-raboty": "/images/dynamic/facade.webp",
-  "/uslugi/blagoustroystvo-territorii": "/images/dynamic/benches.webp",
-  "/uslugi/krovelnye-raboty": "/images/dynamic/house.webp",
-  "/uslugi/kladochnye-raboty": "/images/dynamic/kladka.webp",
-  "/uslugi/gidroizolyatsiya": "/images/dynamic/hydro.webp",
-  "/remont-kvartir-i-komnat": "/images/dynamic/interiour-1.webp",
-  "/stroitelstvo-domov-i-kottedzhey": "/images/dynamic/main.webp",
-  "/kontakty": "/images/dynamic/interiour-2.webp",
-  "/rekvizity": "/images/dynamic/contract.webp",
-  "/proekty": "/images/dynamic/plans.webp",
-  "/kcm": "/images/dynamic/ksm.webp",
-  "/galereya": "/images/dynamic/otdelka.webp",
-};
+const refRouteBackgrounds = reactive(routeBackgrounds);
 
 // Correct handling for dynamic routes and 404
 const currentBg = computed(() => {
   // Exact match first
-  if (routeBackgrounds[route.path]) return routeBackgrounds[route.path];
+  if (refRouteBackgrounds[route.path]) return refRouteBackgrounds[route.path];
 
   // Check if route matches /proekty/:id dynamically
   if (route.matched.some(record => record.path === '/proekty/:id')) {

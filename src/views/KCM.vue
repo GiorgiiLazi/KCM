@@ -20,7 +20,7 @@
           <h1 class="subtitle delay-3">Строительная компания «КСМ»</h1>
           <h2 class="subtitle delay-4">Мы выполняем:</h2>
 
-          <ul v-for="service in services "class="about-services" :key="service.id">
+          <ul v-for="service in refServicesKcm "class="about-services" :key="service.id">
             <li>
               <span class="material-symbols-outlined">check</span>
               <p>{{ service.name }}</p>
@@ -51,7 +51,7 @@
       <h2 class="team-title">Наша команда</h2>
       <ul class="team-list">
         <li
-          v-for="(employee, index) in employees"
+          v-for="(employee, index) in refEmployees"
           :key="index"
           class="team-member third-color"
           itemscope
@@ -69,72 +69,11 @@
 
 <script setup>
 import { reactive } from 'vue';
+import { servicesKcm } from '@/data/servicesKsm';
+import { employees } from '@/data/employees';
 
-const services = reactive([
-  {
-    name: "Монолитные и каркасные дома;",
-    id: 1,
-  },
-  {
-    name: "Дома из газобетона;",
-    id: 2,
-  },
-  {
-    name: "Ремонт квартир и помещений;",
-    id: 3,
-  },
-  {
-    name: "Отделочные работы любой сложности;",
-    id: 4,
-  },
-  {
-    name: "Фасадные и кровельные работы;",
-    id: 5,
-  },
-  {
-    name: "Окраска, шпаклевка и штукатурка ручная и машинным способом;",
-    id: 6,
-  },
-  {
-    name: "Кладочные и гидроизоляционные работы;",
-    id: 7,
-  },
-  {
-    name: "Благоустройство территории и ландшафтный дизайн;",
-    id: 8,
-  },
-]);
-
-const employees = reactive([
-  {
-    name: "Лазишвили Мамука Нодарович",
-    position: "Генеральный директор",
-  },
-  {
-    name: "Баширов Алияддин Яхья оглы",
-    position: "Директор по строительству, Почетный Президент",
-  },
-  {
-    name: "Стрижинец Виталий Евгеньевич",
-    position: "Инженер, руководитель проекта",
-  },
-  {
-    name: "Хандий Алексей Игоревич",
-    position: "Финансовый директор",
-  },
-  {
-    name: "Перепелкин Владислав Олегович",
-    position: "Инженер ПТО",
-  },
-  {
-    name: "Бабышева Светлана Михайловна",
-    position: "Бухгалтер",
-  },
-  {
-    name: "Лазишвили Георгий Мамукавич",
-    position: "Программист",
-  },
-]);
+const refServicesKcm = reactive(servicesKcm);
+const refEmployees = reactive(employees);
 </script>
 
 <style scoped>
