@@ -11,7 +11,7 @@
           class="gallery-item"
           @click="openLightbox(projectName, index)"
         >
-          <img :src="image.src" :alt="image.alt" class="gallery-img" :loading="lazy" />
+          <img :src="image.src" :alt="image.alt" class="gallery-img" loading="lazy" />
         </div>
       </div>
     </div>
