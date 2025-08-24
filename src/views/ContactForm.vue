@@ -68,6 +68,7 @@
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2004.1813380317915!2d30.441339577122033!3d59.84612857486869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46962f7c61b33b87%3A0x56ad9df1cf549f4b!2z0JPQsNGA0LDQttC90YvQuSDQv9GALdC0LCAxLCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywg0KDQvtGB0YHQuNGPLCAxOTIyODk!5e0!3m2!1sru!2sge!4v1755454018796!5m2!1sru!2sge"
         style="border: 0"
+        title="Офис КСМ"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"

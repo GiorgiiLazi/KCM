@@ -1,0 +1,6 @@
+# Разрешаем всем поисковым системам индексировать сайт
+User-agent: *
+Disallow:
+
+# Sitemap (если есть)
+Sitemap: https://ksm-spb.ru/sitemap.xml
