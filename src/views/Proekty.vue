@@ -51,25 +51,23 @@ import { useRouter } from 'vue-router'
 import { scrollToTop } from "@/composables/scrollToTop";
 import { projects } from '@/data/projects.js'
 
-// ✅ Главный массив (нетронутый)
 const sourceProjects = projects
 const projectsRef = ref([...sourceProjects])
 const selected = ref('All')
 
 const options = reactive([
   { text:'Одноэтажные', value: 1 },
-  { text:'Двухэтажные', value: 2 },
+  { text:'Два и выше', value: 2 },
   { text:'Все проекты', value: 'All' }
 ])
 
-// ✅ фильтрация всегда от sourceProjects
 const applyFilter = () => {
   if (selected.value === 'All') {
     projectsRef.value = [...sourceProjects]
+  } else if (Number(selected.value) === 1) {
+    projectsRef.value = sourceProjects.filter(p => p.floors === 1)
   } else {
-    projectsRef.value = sourceProjects.filter(
-      p => p.floors === Number(selected.value)
-    )
+    projectsRef.value = sourceProjects.filter(p => p.floors >= 2)
   }
 }
 
@@ -86,6 +84,7 @@ const goToProject = (id) => {
 .projects-page { 
   font-family: Arial, sans-serif; 
   color: #333; 
+  line-height: 1.6;
 }
 
 .container { 
@@ -94,90 +93,118 @@ const goToProject = (id) => {
   padding: 60px 20px; 
 }
 
+.hero.first-color { 
+  background: #005689;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
 .hero h1 { 
   font-family: "Bebas Neue", sans-serif; 
   font-size: 60px; 
-  color: #fff; 
-  text-align: center; 
+  margin: 0; 
 }
 
 .hero p { 
-  text-align: center; 
   margin-top: 20px; 
-  color: #fff; 
+  font-size: 18px; 
+  max-width: 700px; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
-.first-color { 
-  background: #005689; 
-  color: #fff; 
-}
-
-.second-color { 
+.filter.second-color { 
   background: #f0f0f0; 
-  color: #333; 
+  padding: 40px 20px;
 }
 
 .filter-container { 
   display: flex; 
   justify-content: center; 
   gap: 20px; 
-  margin-bottom: 40px; 
+  flex-wrap: wrap;
 }
 
 .filter-container select { 
-  padding: 10px 20px; 
+  padding: 12px 25px; 
   font-size: 16px; 
   border: 2px solid #005689; 
-  background: none; 
+  border-radius: 8px;
+  background: #fff;
+  color: #005689;
   cursor: pointer; 
-  transition: 0.3s; 
+  transition: all 0.3s ease; 
 }
 
-.filter-container select:hover { 
+.filter-container select:hover, 
+.filter-container select:focus { 
   background: #005689; 
   color: #fff; 
+  outline: none;
+}
+
+.projects-grid.first-color { 
+  background: #fff; 
+  padding: 60px 20px;
 }
 
 .grid { 
   display: grid; 
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); 
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); 
   gap: 30px; 
 }
 
 .project-card { 
-  background: #ffff; 
-  border-radius: 12px; 
+  background: #fff; 
+  border-radius: 20px; 
   overflow: hidden; 
   cursor: pointer; 
-  transition: transform 0.3s; 
-  text-align: center; 
-  color: black;
-  text-align: left;
-  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex; 
+  flex-direction: column; 
+}
+
+.project-card:hover { 
+  transform: translateY(-10px); 
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 .project-card img { 
   width: 100%; 
   height: 200px; 
   object-fit: cover; 
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+.project-card-content {
+  padding: 0px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-card h3 { 
+  padding: 0px 15px;
   font-family: "Bebas Neue", sans-serif; 
-  font-size: 24px; 
-  margin: 10px 0; 
+  font-size: 26px; 
+  margin-bottom: 10px; 
+  color: #005689;
 }
 
 .project-card p { 
+  padding: 0px 15px;
   margin: 5px 0; 
   font-size: 16px; 
+  color: #333;
 }
 
-.project-card:hover { 
-  transform: translateY(-10px); 
-}
-
-/* fade-in только для Hero */
 .fade-in { 
   opacity: 0; 
   transform: translateY(30px); 
@@ -191,9 +218,19 @@ const goToProject = (id) => {
   }
 }
 
-@media (max-width: 768px) { 
-  .hero h1 { font-size: 40px; } 
-  .grid { gap: 20px; } 
-  .project-card img { height: 180px; } 
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 50px; }
+  .project-card img { height: 180px; }
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 40px; }
+  .grid { gap: 20px; }
+  .project-card img { height: 160px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 32px; }
+  .project-card h3 { font-size: 20px; }
 }
 </style>

@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <router-link @click="onNavigate" to="/proekty">Проекты</router-link>
+        <router-link @click="onNavigate" to="/proekty">Каталог</router-link>
         <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
         <router-link @click="onNavigate" to="/galereya">Галерея</router-link>
         <router-link @click="onNavigate" to="/kontakty">Контакты</router-link>
@@ -91,7 +91,7 @@
             </ul>
           </div>
 
-          <router-link @click="onNavigate" to="/proekty">Проекты</router-link>
+          <router-link @click="onNavigate" to="/proekty">Каталог</router-link>
           <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
           <router-link @click="onNavigate" to="/galereya">Галерея</router-link>
           <router-link @click="onNavigate" to="/kontakty">Контакты</router-link>
