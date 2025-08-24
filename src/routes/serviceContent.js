@@ -88,10 +88,10 @@ export const servicesContent = {
       "Реставрация и ремонт фасадов"
     ],
     images: [
-      "/images/fasad-1.webp",
-      "/images/fasad-2.webp",
-      "/images/fasad-3.webp",
-      "/images/fasad-4.webp"
+      "/images/gallery/facade-1.webp",
+      "/images/gallery/facade-2.webp",
+      "/images/gallery/parking-fac-1.webp",
+      "/images/gallery/parking-fac-2.webp"
     ],
     cta: {
       title: "Закажите фасадные работы",
