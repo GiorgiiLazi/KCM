@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { reactive, onMounted, watch } from "vue";
+import { reactive, onMounted, watch, nextTick } from "vue";
 import { useRoute } from "vue-router";
 import { dynamicTitles } from "@/data/dynamicTitles";
 import Title from "./UI/Title.vue";
@@ -26,7 +26,6 @@ const route = useRoute();
 
 let gsap = null;
 
-// Only import GSAP on client
 async function ensureGsap() {
   if (!gsap && typeof window !== "undefined") {
     gsap = (await import("gsap")).default;
@@ -37,23 +36,27 @@ async function animateTitle() {
   await ensureGsap();
   if (!gsap) return;
 
-  // // Kill previous animations + reset inline styles
-  // gsap.killTweensOf(".title-main, .title-sub");
-  // gsap.set(".title-main, .title-sub", { clearProps: "all" });
+  // Wait for DOM to update
+  await nextTick();
 
-  // Animate h1
-  gsap.fromTo(
-    ".title-main",
-    { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
-  );
+  const mainEl = document.querySelector(".title-main");
+  const subEl = document.querySelector(".title-sub");
 
-  // Animate h2 slightly after h1
-  gsap.fromTo(
-    ".title-sub",
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.2 }
-  );
+  if (mainEl) {
+    gsap.fromTo(
+      mainEl,
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+    );
+  }
+
+  if (subEl) {
+    gsap.fromTo(
+      subEl,
+      { y: 30, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.6, ease: "power3.out", delay: 0.2 }
+    );
+  }
 }
 
 onMounted(() => {

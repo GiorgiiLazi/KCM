@@ -72,7 +72,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { projects } from '@/data/projects.js'
 import VueEasyLightbox from 'vue-easy-lightbox'
@@ -91,6 +91,19 @@ const project = computed(() => {
     plans: []
   }
 })
+
+// dynamically changing metatags for routes
+watch(project, (newProject) => {
+  if (newProject.metatags) {
+    document.title = newProject.metatags.title
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', newProject.metatags.description)
+    document
+      .querySelector('meta[name="keywords"]')
+      ?.setAttribute('content', newProject.metatags.keywords)
+  }
+}, { immediate: true })
 
 // Lightbox states
 const visibleImages = ref(false)
