@@ -106,10 +106,14 @@ h2 {
 }
 .about-content h3{
   margin-bottom: 100px;
+  
 }
 .about-content h3 p{
   padding-left: 30px;
   font-size: 30px;
+  font-family: "Fira Sans", serif;
+  font-weight: 800;
+  font-style: normal;
 }
 h3 strong{
   font-size: 4.3em;

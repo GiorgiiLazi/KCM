@@ -128,19 +128,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:wght@300;400;500;700&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&display=swap");
-
-html,
-body,
-#app {
-  overflow-x: hidden;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  color: white;
-  background: #d5eeff;
-  font-family: "Fira Sans", sans-serif;
-}
 
 /* Header background */
 .header-background {
