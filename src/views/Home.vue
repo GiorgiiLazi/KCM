@@ -219,7 +219,6 @@ const nextReview = () => {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 /* Base Styles */
 .construction-page {

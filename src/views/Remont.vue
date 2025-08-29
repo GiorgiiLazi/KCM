@@ -82,7 +82,6 @@ const openLightbox = (i) => {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .repair-page {
   font-family: "Bebas Neue", sans-serif;
