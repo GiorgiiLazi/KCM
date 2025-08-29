@@ -360,11 +360,12 @@ onUnmounted(() => {
   text-decoration: none;
   padding: 12px;
   border-radius: 10px;
-  background-color: #ff6128;
+  background-color: rgba(255, 97, 40, 0.7);
   color: white;
   font-size: 18px;
   font-family: "Bebas Neue", sans-serif;
 }
+
 
 /* Dropdown */
 .mobile-dropdown {
@@ -380,7 +381,7 @@ onUnmounted(() => {
   border-width: 0px;
   border-radius: 10px;
   opacity: 1;
-  background-color: #ff6128;
+  background-color: rgba(255, 97, 40, 0.7);
   color: white;
   font-size: 18px;
   cursor: pointer;
