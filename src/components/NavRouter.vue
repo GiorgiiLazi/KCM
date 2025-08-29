@@ -137,9 +137,11 @@ const toggleMobileDropdown = () => {
 
 const onNavigate = () => {
   scrollToTop();
+  toggleMenu()
   showMenu.value = false;
   showMobileDropdown.value = false;
   lockBody(false);
+  
 };
 
 const onKeydown = (e) => {
