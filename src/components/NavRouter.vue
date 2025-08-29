@@ -251,7 +251,7 @@ onUnmounted(() => {
 
 /* Burger */
 .burger {
-  padding: 5px 10px;
+  padding: 3px 7px;
   background-color: rgba(0, 86, 137, 0.5);
   border-radius: 8px;
   display: none;
@@ -262,15 +262,13 @@ onUnmounted(() => {
   font-size: 28px;
   color: #ff6128;
   cursor: pointer;
+  transition: transform 0.7s ease;
 }
 .burger.open {
   transform: rotate(90deg);
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.7s ease ;
 }
-.burger.close{
-  transform: rotate(-90deg);
-  transition: transform 0.7s ease-in-out;
-}
+
 
 @media (max-width: 768px) {
   .nav-2{
