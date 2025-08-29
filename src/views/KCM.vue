@@ -16,20 +16,28 @@
     <div class="about-inner">
       <!-- Левая часть — описание -->
       <div class="about-content third-color">
-        <article class="about-description fade-in" itemprop="description">
-          <h1 class="subtitle delay-3">Строительная компания «КСМ»</h1>
-          <h2 class="subtitle delay-4">Мы выполняем:</h2>
-
-          <ul v-for="service in refServicesKcm "class="about-services" :key="service.id">
+        <h3 class="fade-in delay-2"> 
+          <strong>«</strong>
+          <br>
+          <p>Качество, прозрачность и индивидуальный подход — вот что ценят наши
+          клиенты. 
+          <br>
+          Мы строим дома, которые служат десятилетиями.</p>
+          <br>
+          <strong class="right-mark">»</strong>
+        </h3>
+        <article class="about-description" itemprop="description">
+          <h1 class="subtitle fade-in delay-3">Строительная компания «СК КСМ»</h1>
+          
+          <h2 class="subtitle fade-in delay-4">Мы выполняем:</h2>
+          
+          <ul  v-for="service in refServicesKcm "class="about-services fade-in delay-5" :key="service.id">
             <li>
               <span class="material-symbols-outlined">check</span>
               <p>{{ service.name }}</p>
             </li>
           </ul>
-
-          Мы работаем в Санкт-Петербурге и Ленинградской области, соблюдаем
-          сроки и гарантируем качество на всех этапах — от проектирования до
-          сдачи объекта.
+          
         </article>
       </div>
 
@@ -42,7 +50,7 @@
             loading="lazy"
           />
         </div>
-        <label class="img-caption">Генеральный директор «КСМ» – Михаил</label>
+        <label class="img-caption">Генеральный директор «СК КСМ» – Михаил</label>
       </div>
     </div>
   </section>
@@ -96,6 +104,21 @@ h2 {
   font-size: 32px;
   text-align: center;
 }
+.about-content h3{
+  margin-bottom: 100px;
+}
+.about-content h3 p{
+  padding-left: 30px;
+  font-size: 30px;
+}
+h3 strong{
+  font-size: 4.3em;
+  color: #ff895d;
+}
+.right-mark{
+  position: absolute;
+  right: 0;
+}
 .subtitle {
   text-align: start;
 }
@@ -121,6 +144,7 @@ h2 {
   flex: 1;
   min-width: 0;
   animation: fadeInUp 0.8s ease forwards;
+  position: relative;
 }
 .first-color {
   background: #005689;
@@ -365,6 +389,9 @@ h2 {
 
 .fade-in.delay-4 {
   animation-delay: 1.2s;
+}
+.fade-in.delay-5 {
+  animation-delay: 1.4s;
 }
 
 @keyframes fadeInUp {
