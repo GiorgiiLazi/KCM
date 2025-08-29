@@ -226,7 +226,7 @@ onUnmounted(()=>{
   .mobile-logo {
     position:fixed;
     top: 0px;
-    right: 0px;
+    left: 0px;
     z-index: 9999;
     display: flex;
     align-items: center;

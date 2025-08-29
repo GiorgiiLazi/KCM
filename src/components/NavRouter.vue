@@ -53,7 +53,7 @@
 
   <!-- Mobile overlay -->
   <teleport to="body">
-    <transition enter-active-class="fadeRight" leave-active-class="fadeLeft">
+    <transition enter-active-class="fadeDown" leave-active-class="fadeUp">
       <div
         v-if="showMenu"
         ref="mobileMenu"
@@ -66,10 +66,10 @@
         </div>
 
         <nav class="mobile-links">
-          <router-link @click="onNavigate" to="/">Главная</router-link>
-          <router-link @click="onNavigate" to="/kcm">О нас</router-link>
-          <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
-          <router-link @click="onNavigate" to="/remont-kvartir-i-komnat">Ремонт</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/">Главная</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/kcm">О нас</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/remont-kvartir-i-komnat">Ремонт</router-link>
 
           <div class="mobile-dropdown">
             <button class="mobile-dropdown-trigger" @click="toggleMobileDropdown">
@@ -91,10 +91,10 @@
             </ul>
           </div>
 
-          <router-link @click="onNavigate" to="/proekty">Каталог</router-link>
-          <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
-          <router-link @click="onNavigate" to="/galereya">Галерея</router-link>
-          <router-link @click="onNavigate" to="/kontakty">Контакты</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/proekty">Каталог</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/galereya">Галерея</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/kontakty">Контакты</router-link>
         </nav>
       </div>
     </transition>
@@ -125,12 +125,14 @@ const lockBody = (lock) => {
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;
+  burgerBtn.value.classList.toggle('open')
   lockBody(showMenu.value);
   showMobileDropdown.value = false;
 };
 
 const toggleMobileDropdown = () => {
   showMobileDropdown.value = !showMobileDropdown.value;
+  burgerBtn.value.classList.toggle('open')
 };
 
 const onNavigate = () => {
@@ -177,6 +179,7 @@ onUnmounted(() => {
 }
 
 .router-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -246,19 +249,36 @@ onUnmounted(() => {
 
 /* Burger */
 .burger {
+  padding: 5px 10px;
+  background-color: rgba(0, 86, 137, 0.5);
+  border-radius: 8px;
   display: none;
-  background: none;
+  position: absolute;
+  top: 30px;
+  right: 30px;
   border: none;
   font-size: 28px;
-  color: white;
+  color: #FF895D;
   cursor: pointer;
 }
-.burger span.open {
+.burger.open {
   transform: rotate(90deg);
-  transition: transform 0.2s;
+  transition: transform 0.7s ease-in-out;
 }
 
 @media (max-width: 768px) {
+  .nav-2{
+    padding: 0px;
+    margin: 0px;
+  }
+  .nav-2.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 86, 137, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 0px;;
+}
   .burger {
     display: block;
   }
@@ -274,40 +294,41 @@ onUnmounted(() => {
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 86, 137, 0.98), rgba(0, 86, 137, 0.98));
+  background-color: rgba(0, 86, 137, 0.8);
   z-index: 200000;
   display: flex;
   flex-direction: column;
   padding: 18px;
   padding-top: calc(env(safe-area-inset-top) + 18px);
   overflow-y: auto;
+  color: #FF895D;
 }
 
-.fadeRight {
-  animation: fadeRight 0.3s ease-in-out forwards;
+.fadeDown {
+  animation: fadeDown 0.3s ease-in-out forwards;
 }
-.fadeLeft {
-  animation: fadeLeft 0.3s ease-in-out forwards;
+.fadeUp {
+  animation: fadeUp 0.3s ease-in-out forwards;
 }
 
-@keyframes fadeRight {
+@keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
-@keyframes fadeLeft {
+@keyframes fadeUp {
   from {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
   }
 }
 
@@ -331,12 +352,14 @@ onUnmounted(() => {
   margin-top: 8px;
   padding-bottom: 40px;
 }
-.mobile-links a {
-  color: white;
+.mobile-links-main{
+  border: 1px solid #FF895D;
+
   text-decoration: none;
   padding: 12px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: #FF895D;
+  color: white;
   font-size: 18px;
   font-family: "Bebas Neue", sans-serif;
 }
@@ -352,7 +375,8 @@ onUnmounted(() => {
   align-items: center;
   padding: 12px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.02);
+  opacity: 1;
+  background-color: #FF895D;
   color: white;
   font-size: 18px;
   cursor: pointer;
@@ -362,11 +386,14 @@ onUnmounted(() => {
   flex-direction: column;
   gap: 8px;
   margin-top: 8px;
+  list-style: none;
+  background-color: none;
 }
 .mobile-dropdown-list a {
-  padding: 10px;
+  padding: 0px 15px;;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.03);
+  opacity: 1;
+  background-color: none;
   color: white;
   text-decoration: none;
 }
