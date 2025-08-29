@@ -258,11 +258,15 @@ onUnmounted(() => {
   right: 30px;
   border: none;
   font-size: 28px;
-  color: #FF895D;
+  color: #ff6128;
   cursor: pointer;
 }
 .burger.open {
   transform: rotate(90deg);
+  transition: transform 0.7s ease-in-out;
+}
+.burger.close{
+  transform: rotate(-90deg);
   transition: transform 0.7s ease-in-out;
 }
 
@@ -353,12 +357,10 @@ onUnmounted(() => {
   padding-bottom: 40px;
 }
 .mobile-links-main{
-  border: 1px solid #FF895D;
-
   text-decoration: none;
   padding: 12px;
   border-radius: 10px;
-  background-color: #FF895D;
+  background-color: #ff6128;
   color: white;
   font-size: 18px;
   font-family: "Bebas Neue", sans-serif;
@@ -374,9 +376,11 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   padding: 12px;
+  border: none;
+  border-width: 0px;
   border-radius: 10px;
   opacity: 1;
-  background-color: #FF895D;
+  background-color: #ff6128;
   color: white;
   font-size: 18px;
   cursor: pointer;
