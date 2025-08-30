@@ -25,31 +25,31 @@
 
         <!-- Desktop dropdown -->
         <div class="dropdown desktop-only">
-          <div class="dropdown-trigger" tabindex="0">
-            <span class="menu-label">Услуги</span>
-            <span class="arrow material-symbols-outlined">arrow_drop_down</span>
-          </div>
-          <div class="dropdownContent">
-            <ul class="dropdownList">
-              <li
-                v-for="service in services"
-                :key="service.id"
-                class="dropdownItem"
-              >
-                <router-link
-                  @click="onNavigate"
-                  class="dropdownRouter"
-                  :to="{
-                    name: `usluga-${service.slug}`,
-                    params: { opisanieUslug: service.slug },
-                  }"
-                >
-                  {{ service.name }}
-                </router-link>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <div class="dropdown-trigger" tabindex="0">
+    <span class="menu-label">Услуги</span>
+    <img src="/icons/arrow.svg" alt="arrow" class="arrow" style="width:24px; height:24px;">
+  </div>
+  <div class="dropdownContent">
+    <ul class="dropdownList">
+      <li
+        v-for="service in services"
+        :key="service.id"
+        class="dropdownItem"
+      >
+        <router-link
+          @click="onNavigate"
+          class="dropdownRouter"
+          :to="{
+            name: `usluga-${service.slug}`,
+            params: { opisanieUslug: service.slug },
+          }"
+        >
+          {{ service.name }}
+        </router-link>
+      </li>
+    </ul>
+  </div>
+</div>
 
         <router-link @click="onNavigate" to="/proekty">Каталог</router-link>
         <router-link @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
@@ -105,17 +105,7 @@
               @click="toggleMobileDropdown"
             >
               Услуги
-              <img
-                src="/icons/arrow.svg"
-                alt="Dropdown Arrow"
-                style="
-                  width: 24px;
-                  height: 24px;
-                  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg)
-                    brightness(100%) contrast(100%);
-                  margin-left: 4px;
-                "
-              />
+              <img src="/icons/arrow.svg" alt="arrow" class="arrow" style="width:24px; height:24px;">
             </button>
             <ul v-if="showMobileDropdown" class="mobile-dropdown-list">
               <li v-for="service in services" :key="service.id">
