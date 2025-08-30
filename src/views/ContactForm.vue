@@ -2,33 +2,65 @@
   <main class="container">
     <section class="contact-links fade-in delay-1">
       <div class="location fade-in delay-2">
-        <span class="icons material-symbols-outlined">location_on</span>
+        <img
+          src="/icons/location.svg"
+          alt="Наш офис"
+          style="
+            width: 28px;
+            height: 28px;
+            filter: invert(51%) sepia(74%) saturate(620%) hue-rotate(5deg)
+              brightness(97%) contrast(101%);
+            margin-right: 8px;
+          "
+        />
         <div class="location-text">
           <h1 class="text text-title">Наш офис</h1>
-          <h3>г.Санкт-Петербург</h3>
-          <h3>Гаражный проезд д. 1 офис 309/208</h3>
+          <p>г.Санкт-Петербург</p>
+          <p>Гаражный проезд д. 1 офис 309/208</p>
         </div>
       </div>
+
       <div class="location fade-in delay-3">
-        <span class="icons material-symbols-outlined">apartment</span>
+        <img
+          src="/icons/office.svg"
+          alt="Часы работы"
+          style="
+            width: 28px;
+            height: 28px;
+            filter: invert(51%) sepia(74%) saturate(620%) hue-rotate(5deg)
+              brightness(97%) contrast(101%);
+            margin-right: 8px;
+          "
+        />
         <div class="location-text">
           <h1 class="text text-title">Часы Работы</h1>
-          <h3>Пн-Пт: 09:00 - 18:00</h3>
-          <h3>Cб-Вск: 10:00 - 17:00</h3>
+          <p>Пн-Пт: 09:00 - 18:00</p>
+          <p>Cб-Вск: 10:00 - 17:00</p>
         </div>
       </div>
+
       <div class="location fade-in delay-4">
-        <span class="icons material-symbols-outlined">phone_in_talk</span>
+        <img
+          src="/icons/phone.svg"
+          alt="Номера"
+          style="
+            width: 28px;
+            height: 28px;
+            filter: invert(51%) sepia(74%) saturate(620%) hue-rotate(5deg)
+              brightness(97%) contrast(101%);
+            margin-right: 8px;
+          "
+        />
         <div class="location-text">
           <h1 class="text text-title">Номера</h1>
           <a href="tel:+79516550237">
-            <h3>+7 (951) 655-02-37</h3>
+            <p>+7 (951) 655-02-37</p>
           </a>
           <a href="tel:+79219239997">
-            <h3>+7 (921) 923-99-97</h3>
+            <p>+7 (921) 923-99-97</p>
           </a>
           <a href="tel:+79219969997">
-            <h3>+7 (921) 996-99-97</h3>
+            <p>+7 (921) 996-99-97</p>
           </a>
         </div>
       </div>
@@ -119,7 +151,6 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
   padding: 30px 20px;
-  font-family: Oswald, serif;
 
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -196,29 +227,23 @@ button:hover {
   font-size: 6rem;
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.2);
 }
-.text-title {
+/* .text-title {
   text-transform: none;
-  font-weight: bold;
   font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 2rem;
-}
+
+} */
 .text-title a h3 {
   text-decoration: none;
+}
+.location-text p {
+  color: black;
 }
 .location {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.location-text h3 {
-  color: black;
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 200;
-  font-style: italic;
-  text-decoration: none;
-}
+
 .location-text a {
   text-decoration: none;
   color: inherit;
@@ -239,8 +264,6 @@ button:hover {
   margin: 0; /* no extra margin */
   padding: 20px;
   border-radius: 0; /* optional if you don’t want rounded corners */
-
-  
 }
 
 .map-wrapper {
@@ -252,7 +275,7 @@ button:hover {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-} 
+}
 
 .map-wrapper iframe {
   width: 100%;

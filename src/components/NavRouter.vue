@@ -16,8 +16,12 @@
       <div class="links-wrapper">
         <router-link @click="onNavigate" to="/">Главная</router-link>
         <router-link @click="onNavigate" to="/kcm">О нас</router-link>
-        <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
-        <router-link @click="onNavigate" to="/remont-kvartir-i-komnat">Ремонт</router-link>
+        <router-link @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey"
+          >Строительство</router-link
+        >
+        <router-link @click="onNavigate" to="/remont-kvartir-i-komnat"
+          >Ремонт</router-link
+        >
 
         <!-- Desktop dropdown -->
         <div class="dropdown desktop-only">
@@ -27,7 +31,11 @@
           </div>
           <div class="dropdownContent">
             <ul class="dropdownList">
-              <li v-for="service in services" :key="service.id" class="dropdownItem">
+              <li
+                v-for="service in services"
+                :key="service.id"
+                class="dropdownItem"
+              >
                 <router-link
                   @click="onNavigate"
                   class="dropdownRouter"
@@ -62,19 +70,52 @@
         aria-modal="true"
       >
         <div class="mobile-header">
-          <button class="mobile-close" @click="toggleMenu" aria-label="Закрыть меню">✕</button>
+          <button
+            class="mobile-close"
+            @click="toggleMenu"
+            aria-label="Закрыть меню"
+          >
+            ✕
+          </button>
         </div>
 
         <nav class="mobile-links">
-          <router-link class="mobile-links-main" @click="onNavigate" to="/">Главная</router-link>
-          <router-link class="mobile-links-main" @click="onNavigate" to="/kcm">О нас</router-link>
-          <router-link class="mobile-links-main" @click="onNavigate" to="/stroitelstvo-domov-i-kottedzhey">Строительство</router-link>
-          <router-link class="mobile-links-main" @click="onNavigate" to="/remont-kvartir-i-komnat">Ремонт</router-link>
+          <router-link class="mobile-links-main" @click="onNavigate" to="/"
+            >Главная</router-link
+          >
+          <router-link class="mobile-links-main" @click="onNavigate" to="/kcm"
+            >О нас</router-link
+          >
+          <router-link
+            class="mobile-links-main"
+            @click="onNavigate"
+            to="/stroitelstvo-domov-i-kottedzhey"
+            >Строительство</router-link
+          >
+          <router-link
+            class="mobile-links-main"
+            @click="onNavigate"
+            to="/remont-kvartir-i-komnat"
+            >Ремонт</router-link
+          >
 
           <div class="mobile-dropdown">
-            <button class="mobile-dropdown-trigger" @click="toggleMobileDropdown">
+            <button
+              class="mobile-dropdown-trigger"
+              @click="toggleMobileDropdown"
+            >
               Услуги
-              <span class="arrow material-symbols-outlined">arrow_drop_down</span>
+              <img
+                src="/icons/arrow.svg"
+                alt="Dropdown Arrow"
+                style="
+                  width: 24px;
+                  height: 24px;
+                  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg)
+                    brightness(100%) contrast(100%);
+                  margin-left: 4px;
+                "
+              />
             </button>
             <ul v-if="showMobileDropdown" class="mobile-dropdown-list">
               <li v-for="service in services" :key="service.id">
@@ -91,10 +132,30 @@
             </ul>
           </div>
 
-          <router-link class="mobile-links-main" @click="onNavigate" to="/proekty">Каталог</router-link>
-          <router-link class="mobile-links-main" @click="onNavigate" to="/rekvizity">Реквизиты</router-link>
-          <router-link class="mobile-links-main" @click="onNavigate" to="/galereya">Галерея</router-link>
-          <router-link class="mobile-links-main" @click="onNavigate" to="/kontakty">Контакты</router-link>
+          <router-link
+            class="mobile-links-main"
+            @click="onNavigate"
+            to="/proekty"
+            >Каталог</router-link
+          >
+          <router-link
+            class="mobile-links-main"
+            @click="onNavigate"
+            to="/rekvizity"
+            >Реквизиты</router-link
+          >
+          <router-link
+            class="mobile-links-main"
+            @click="onNavigate"
+            to="/galereya"
+            >Галерея</router-link
+          >
+          <router-link
+            class="mobile-links-main"
+            @click="onNavigate"
+            to="/kontakty"
+            >Контакты</router-link
+          >
         </nav>
       </div>
     </transition>
@@ -125,23 +186,22 @@ const lockBody = (lock) => {
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;
-  burgerBtn.value.classList.toggle('open')
+  burgerBtn.value.classList.toggle("open");
   lockBody(showMenu.value);
   showMobileDropdown.value = false;
 };
 
 const toggleMobileDropdown = () => {
   showMobileDropdown.value = !showMobileDropdown.value;
-  burgerBtn.value.classList.toggle('open')
+  burgerBtn.value.classList.toggle("open");
 };
 
 const onNavigate = () => {
   scrollToTop();
-  toggleMenu()
+  toggleMenu();
   showMenu.value = false;
   showMobileDropdown.value = false;
   lockBody(false);
-  
 };
 
 const onKeydown = (e) => {
@@ -266,23 +326,22 @@ onUnmounted(() => {
 }
 .burger.open {
   transform: rotate(90deg);
-  transition: transform 0.7s ease ;
+  transition: transform 0.7s ease;
 }
 
-
 @media (max-width: 768px) {
-  .nav-2{
+  .nav-2 {
     padding: 0px;
     margin: 0px;
   }
   .nav-2.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 86, 137, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  padding: 0px;;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 86, 137, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+  }
   .burger {
     display: block;
   }
@@ -305,7 +364,7 @@ onUnmounted(() => {
   padding: 18px;
   padding-top: calc(env(safe-area-inset-top) + 18px);
   overflow-y: auto;
-  color: #FF895D;
+  color: #ff895d;
 }
 
 .fadeDown {
@@ -356,7 +415,7 @@ onUnmounted(() => {
   margin-top: 8px;
   padding-bottom: 40px;
 }
-.mobile-links-main{
+.mobile-links-main {
   text-decoration: none;
   padding: 12px;
   border-radius: 10px;
@@ -365,7 +424,6 @@ onUnmounted(() => {
   font-size: 18px;
   font-family: "Bebas Neue", sans-serif;
 }
-
 
 /* Dropdown */
 .mobile-dropdown {
@@ -395,7 +453,7 @@ onUnmounted(() => {
   background-color: none;
 }
 .mobile-dropdown-list a {
-  padding: 0px 15px;;
+  padding: 0px 15px;
   border-radius: 8px;
   opacity: 1;
   background-color: none;

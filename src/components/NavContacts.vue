@@ -6,40 +6,46 @@
     </div>
 
     <!-- Десктопные контакты -->
-    <div :class="['contacts-container', 'desktop-contacts']">
-      <div class="contact-item">
-        <a href="https://wa.me/+79219239997">
-          <i class="fa-brands fa-whatsapp" style="font-size:72px;color:lightgreen"></i>
-        </a>
-        <label>WhatsApp</label>
-        <p><a href="https://wa.me/+79219239997">+7 (921) 923-99-97</a></p>
-        <p><a href="https://wa.me/+79219969997">+7 (921) 996-99-97</a></p>
-      </div>
-      <div class="contact-item">
-        <a href="https://t.me/spb_ksm" target="_blank">
-          <i class="fa-brands fa-telegram" style="font-size:72px;color: #088efc;"></i>
-        </a>
-        <label>Telegram</label>
-        <p><a href="https://t.me/spb_ksm" target="_blank">@spb_ksm</a></p>
-      </div>
-      <div class="contact-item">
-        <a href="mailto:info.ck.kcm@gmail.com">
-          <i class="fa-solid fa-envelope" style="font-size:72px;color:red"></i>
-        </a>
-        <label>Email</label>
-        <p><a href="mailto:info.ck.kcm@gmail.com">info.ck.ksm@gmail.com</a></p>
-        <p><a href="mailto:173797m@gmail.com">173797m@gmail.com</a></p>
-      </div>
-      <div class="contact-item">
-        <a href="tel:+79219239997">
-          <i class="fa-solid fa-phone" style="font-size:72px;color: blue"></i>
-        </a>
-        <label>Телефон</label>
-        <p><a href="tel:+79219239997">+7 (921) 923-99-97</a></p>
-        <p><a href="tel:+79219969997">+7 (921) 996-99-97</a></p>
-      </div>
-    </div>
+   <div :class="['contacts-container', 'desktop-contacts']">
+  <div class="contact-item">
+    <a href="https://wa.me/+79219239997">
+      <img src="/icons/whatsapp.svg" alt="WhatsApp" 
+           style="width:72px; height:72px; filter: invert(37%) sepia(97%) saturate(543%) hue-rotate(90deg) brightness(95%) contrast(92%);">
+    </a>
+    <label>WhatsApp</label>
+    <p><a href="https://wa.me/+79219239997">+7 (921) 923-99-97</a></p>
+    <p><a href="https://wa.me/+79219969997">+7 (921) 996-99-97</a></p>
+  </div>
 
+  <div class="contact-item">
+    <a href="https://t.me/spb_ksm" target="_blank">
+      <img src="/icons/telegram.svg" alt="Telegram" 
+           style="width:72px; height:72px; filter: invert(36%) sepia(60%) saturate(2200%) hue-rotate(185deg) brightness(95%) contrast(98%);">
+    </a>
+    <label>Telegram</label>
+    <p><a href="https://t.me/spb_ksm" target="_blank">@spb_ksm</a></p>
+  </div>
+
+  <div class="contact-item">
+    <a href="mailto:info.ck.kcm@gmail.com">
+      <img src="/icons/email.svg" alt="Email" 
+           style="width:72px; height:72px; filter: invert(14%) sepia(95%) saturate(6000%) hue-rotate(360deg) brightness(90%) contrast(110%);">
+    </a>
+    <label>Email</label>
+    <p><a href="mailto:info.ck.kcm@gmail.com">info.ck.ksm@gmail.com</a></p>
+    <p><a href="mailto:173797m@gmail.com">173797m@gmail.com</a></p>
+  </div>
+
+  <div class="contact-item">
+    <a href="tel:+79219239997">
+      <img src="/icons/phone.svg" alt="Телефон" 
+           style="width:72px; height:72px; filter: invert(36%) sepia(60%) saturate(2200%) hue-rotate(185deg) brightness(95%) contrast(98%);">
+    </a>
+    <label>Телефон</label>
+    <p><a href="tel:+79219239997">+7 (921) 923-99-97</a></p>
+    <p><a href="tel:+79219969997">+7 (921) 996-99-97</a></p>
+  </div>
+</div>
     <!-- Мобильная иконка компании -->
     <div class="mobile-logo">
       <img src="/images/main-icon-2.webp" alt="КСМ логотип">
@@ -48,19 +54,24 @@
 
   <!-- Мобильные контакты внизу -->
   <div :class="['mobile-contacts', {isTransparent: isTransparent}]">
-    <a href="https://wa.me/+79219239997" class="mobile-icon">
-      <span class="sr-only">WhatsApp: +79219239997 </span>
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-    <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
-      <span class="sr-only">info.ck.kcm@gmail.com</span>
-      <i class="fa-solid fa-envelope"></i>
-    </a>
-    <a href="tel:+79219239997" class="mobile-icon">
-      <span class="sr-only">Telephone: +79219239997 </span>
-      <i class="fa-solid fa-phone"></i>
-    </a>
-  </div>
+  <a href="https://wa.me/+79219239997" class="mobile-icon">
+    <span class="sr-only">WhatsApp: +79219239997 </span>
+    <img src="/icons/whatsapp.svg" alt="WhatsApp" 
+         style="width:28px; height:28px; filter: invert(46%) sepia(82%) saturate(522%) hue-rotate(79deg) brightness(98%) contrast(101%);">
+  </a>
+
+  <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
+    <span class="sr-only">info.ck.kcm@gmail.com</span>
+    <img src="/icons/email.svg" alt="Email" 
+         style="width:28px; height:28px; filter: invert(14%) sepia(95%) saturate(6000%) hue-rotate(360deg) brightness(90%) contrast(110%);">
+  </a>
+
+  <a href="tel:+79219239997" class="mobile-icon">
+    <span class="sr-only">Telephone: +79219239997 </span>
+    <img src="/icons/phone.svg" alt="Телефон" 
+         style="width:28px; height:28px; filter: invert(36%) sepia(60%) saturate(2200%) hue-rotate(185deg) brightness(95%) contrast(98%);">
+  </a>
+</div>
 </template>
 
 <script setup>
@@ -71,20 +82,17 @@ const isTransparent = ref(false)
 const handleScroll = () =>{
   const scrollPosition = window.scrollY + window.innerHeight
   const pageHeight = document.documentElement.scrollHeight
-
-
-  // Make transparent when at (or very near) the bottom
   isTransparent.value = scrollPosition >= pageHeight - 10
-
 }
+
 onMounted(()=>{
   window.addEventListener('scroll', handleScroll)
 })
 onUnmounted(()=>{
   window.removeEventListener('scroll', handleScroll)
 })
-
 </script>
+
 
 <style scoped>
 .nav-1 {
@@ -195,7 +203,7 @@ onUnmounted(()=>{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #005689;
+    background-color: rgba(0, 86, 137, 0.5);
     padding: 10px 0;
     z-index: 1000;
     overflow-x: auto;
@@ -208,6 +216,10 @@ onUnmounted(()=>{
     color: white;
     text-decoration: none;
     padding: 0 10px;
+    opacity: 1;
+  }
+  .mobile-icon img{
+    opacity: 1;
   }
   .sr-only {
   position: absolute;
@@ -222,6 +234,9 @@ onUnmounted(()=>{
 }
   .mobile-icon i {
     font-size: 28px;
+  }
+  .mobile-icon img{
+    opacity: 1;
   }
   .mobile-logo {
     position:fixed;

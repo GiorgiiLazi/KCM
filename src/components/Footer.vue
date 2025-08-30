@@ -2,10 +2,12 @@
   <footer class="contacts-info">
     <div class="footer-container">
       <ul class="about-contacts">
+
         <!-- Адрес -->
         <li>
           <div class="contact-wrapper">
-            <span class="icons material-symbols-outlined">location_on</span>
+            <img src="/icons/location.svg" alt="Адрес" 
+                 style="width:24px; height:24px; filter: brightness(0) saturate(100%) invert(100%); margin-right:4px;">
             <strong>Адрес:&nbsp;</strong>
           </div>
           <div class="contact-values">
@@ -18,7 +20,8 @@
         <!-- Часы работы -->
         <li>
           <div class="contact-wrapper">
-            <span class="icons material-symbols-outlined">clock_loader_20</span>
+            <img src="/icons/clock.svg" alt="Часы работы" 
+                 style="width:24px; height:24px; filter: brightness(0) saturate(100%) invert(100%); margin-right:4px;">
             <strong>Часы Работы:&nbsp;</strong>
           </div>
           <div class="contact-values">
@@ -30,7 +33,8 @@
         <!-- Телефоны -->
         <li>
           <div class="contact-wrapper">
-            <span class="icons material-symbols-outlined">call</span>
+            <img src="/icons/phone.svg" alt="Телефон" 
+                 style="width:24px; height:24px; filter: brightness(0) saturate(100%) invert(100%); margin-right:4px;">
             <strong>Телефон (Михаил):&nbsp;</strong>
           </div>
           <div class="contact-values">
@@ -43,7 +47,8 @@
         <!-- Email -->
         <li>
           <div class="contact-wrapper">
-            <span class="icons material-symbols-outlined">mail</span>
+            <img src="/icons/email.svg" alt="Email" 
+                 style="width:24px; height:24px; filter: brightness(0) saturate(100%) invert(100%); margin-right:4px;">
             <strong>Email:&nbsp;</strong>
           </div>
           <div class="contact-values">
@@ -55,7 +60,8 @@
         <!-- WhatsApp -->
         <li>
           <div class="contact-wrapper">
-            <span class="icons"><i class="fa-brands fa-whatsapp"></i></span>
+            <img src="/icons/whatsapp.svg" alt="WhatsApp" 
+                 style="width:24px; height:24px; filter: brightness(0) saturate(100%) invert(100%); margin-right:4px;">
             <strong>WhatsApp:&nbsp;</strong>
           </div>
           <div class="contact-values">
@@ -71,7 +77,8 @@
         <!-- Telegram -->
         <li>
           <div class="contact-wrapper">
-            <span class="icons"><i class="fa-brands fa-telegram"></i></span>
+            <img src="/icons/telegram.svg" alt="Telegram" 
+                 style="width:24px; height:24px; filter: brightness(0) saturate(100%) invert(100%); margin-right:4px;">
             <strong>Telegram:&nbsp;</strong>
           </div>
           <div class="contact-values">
@@ -80,6 +87,7 @@
             </a>
           </div>
         </li>
+
       </ul>
 
       <!-- Logo -->
