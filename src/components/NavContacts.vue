@@ -18,14 +18,14 @@
     <p><a href="https://wa.me/+79219969997">+7 (921) 996-99-97</a></p>
   </div>
 
-  <div class="contact-item">
-    <a href="https://t.me/spb_ksm" target="_blank">
-      <img src="/icons/telegram.svg" alt="Telegram" 
-           style="width:72px; height:72px; filter: invert(36%) sepia(60%) saturate(2200%) hue-rotate(185deg) brightness(95%) contrast(98%);">
-    </a>
-    <label>Telegram</label>
-    <p><a href="https://t.me/spb_ksm" target="_blank">@spb_ksm</a></p>
-  </div>
+ <div class="contact-item">
+  <a href="https://t.me/spb_ksm" target="_blank">
+    <img src="/icons/telegram.svg" alt="Telegram" 
+         style="width:72px; height:72px; filter: invert(53%) sepia(97%) saturate(2055%) hue-rotate(176deg) brightness(102%) contrast(96%);">
+  </a>
+  <label>Telegram</label>
+  <p><a href="https://t.me/spb_ksm" target="_blank">@spb_ksm</a></p>
+</div>
 
   <div class="contact-item">
     <a href="mailto:info.ck.kcm@gmail.com">
@@ -40,7 +40,7 @@
   <div class="contact-item">
     <a href="tel:+79219239997">
       <img src="/icons/phone.svg" alt="Телефон" 
-           style="width:72px; height:72px; filter: invert(36%) sepia(60%) saturate(2200%) hue-rotate(185deg) brightness(95%) contrast(98%);">
+           style="width:72px; height:72px; filter: invert(53%) sepia(97%) saturate(2055%) hue-rotate(176deg) brightness(102%) contrast(96%);">
     </a>
     <label>Телефон</label>
     <p><a href="tel:+79219239997">+7 (921) 923-99-97</a></p>
