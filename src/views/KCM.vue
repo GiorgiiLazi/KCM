@@ -45,10 +45,10 @@
                 src="/icons/check.svg"
                 alt="check"
                 style="
-                  width: 20px;
-                  height: 20px;
-                  filter: invert(38%) sepia(86%) saturate(595%)
-                    hue-rotate(88deg) brightness(94%) contrast(90%);
+                  width: 30px;
+                  height: 30px;
+                  filter: invert(19%) sepia(56%) saturate(501%)
+                    hue-rotate(95deg) brightness(75%) contrast(95%);
                 "
               />
               <p>{{ service.name }}</p>

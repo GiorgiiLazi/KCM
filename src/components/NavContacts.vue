@@ -10,8 +10,8 @@
   <div class="contact-item">
     <a href="https://wa.me/+79219239997">
       <img src="/icons/whatsapp.svg" alt="WhatsApp" 
-           style="width:72px; height:72px; filter: invert(38%) sepia(86%) saturate(595%)
-                    hue-rotate(88deg) brightness(94%) contrast(90%);">
+           style="width:72px; height:72px; filter: invert(51%) sepia(82%) saturate(616%) 
+                      hue-rotate(87deg) brightness(107%) contrast(102%)">
     </a>
     <label>WhatsApp</label>
     <p><a href="https://wa.me/+79219239997">+7 (921) 923-99-97</a></p>
@@ -55,12 +55,13 @@
 
   <!-- Мобильные контакты внизу -->
   <div :class="['mobile-contacts', {isTransparent: isTransparent}]">
-  <a href="https://wa.me/+79219239997" class="mobile-icon">
-    <span class="sr-only">WhatsApp: +79219239997 </span>
-    <img src="/icons/whatsapp.svg" alt="WhatsApp" 
-         style="width:28px; height:28px; filter: invert(38%) sepia(86%) saturate(595%)
-                    hue-rotate(88deg) brightness(94%) contrast(90%)">
-  </a>
+<a href="https://wa.me/+79219239997" class="mobile-icon">
+  <span class="sr-only">WhatsApp: +79219239997</span>
+  <img src="/icons/whatsapp.svg" alt="WhatsApp"
+       style="width:28px; height:28px; 
+              filter: invert(51%) sepia(82%) saturate(616%) 
+                      hue-rotate(87deg) brightness(107%) contrast(102%)">
+</a>
 
   <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
     <span class="sr-only">info.ck.kcm@gmail.com</span>
@@ -205,7 +206,7 @@ onUnmounted(()=>{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 86, 137, 0.5);
+    background-color: #005689;
     padding: 10px 0;
     z-index: 1000;
     overflow-x: auto;
