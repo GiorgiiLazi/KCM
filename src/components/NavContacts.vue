@@ -10,7 +10,8 @@
   <div class="contact-item">
     <a href="https://wa.me/+79219239997">
       <img src="/icons/whatsapp.svg" alt="WhatsApp" 
-           style="width:72px; height:72px; filter: invert(37%) sepia(97%) saturate(543%) hue-rotate(90deg) brightness(95%) contrast(92%);">
+           style="width:72px; height:72px; filter: invert(38%) sepia(86%) saturate(595%)
+                    hue-rotate(88deg) brightness(94%) contrast(90%);">
     </a>
     <label>WhatsApp</label>
     <p><a href="https://wa.me/+79219239997">+7 (921) 923-99-97</a></p>
@@ -57,7 +58,8 @@
   <a href="https://wa.me/+79219239997" class="mobile-icon">
     <span class="sr-only">WhatsApp: +79219239997 </span>
     <img src="/icons/whatsapp.svg" alt="WhatsApp" 
-         style="width:28px; height:28px; filter: invert(46%) sepia(82%) saturate(522%) hue-rotate(79deg) brightness(98%) contrast(101%);">
+         style="width:28px; height:28px; filter: invert(38%) sepia(86%) saturate(595%)
+                    hue-rotate(88deg) brightness(94%) contrast(90%)">
   </a>
 
   <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">

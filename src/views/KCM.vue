@@ -16,28 +16,44 @@
     <div class="about-inner">
       <!-- Левая часть — описание -->
       <div class="about-content third-color">
-        <h3 class="fade-in delay-2"> 
+        <h3 class="fade-in delay-2">
           <strong>«</strong>
-          <br>
-          <p>Качество, прозрачность и индивидуальный подход — вот что ценят наши
-          клиенты. 
-          <br>
-          Мы строим дома, которые служат десятилетиями.</p>
-          <br>
+          <br />
+          <p>
+            Качество, прозрачность и индивидуальный подход — вот что ценят наши
+            клиенты.
+            <br />
+            Мы строим дома, которые служат десятилетиями.
+          </p>
+          <br />
           <strong class="right-mark">»</strong>
         </h3>
         <article class="about-description" itemprop="description">
-          <h1 class="subtitle fade-in delay-3">Строительная компания «СК КСМ»</h1>
-          
+          <h1 class="subtitle fade-in delay-3">
+            Строительная компания «СК КСМ»
+          </h1>
+
           <h2 class="subtitle fade-in delay-4">Мы выполняем:</h2>
-          
-          <ul  v-for="service in refServicesKcm "class="about-services fade-in delay-5" :key="service.id">
+
+          <ul
+            v-for="service in refServicesKcm"
+            class="about-services fade-in delay-5"
+            :key="service.id"
+          >
             <li>
-              <span class="material-symbols-outlined">check</span>
+              <img
+                src="/icons/check.svg"
+                alt="check"
+                style="
+                  width: 20px;
+                  height: 20px;
+                  filter: invert(38%) sepia(86%) saturate(595%)
+                    hue-rotate(88deg) brightness(94%) contrast(90%);
+                "
+              />
               <p>{{ service.name }}</p>
             </li>
           </ul>
-          
         </article>
       </div>
 
@@ -50,7 +66,9 @@
             loading="lazy"
           />
         </div>
-        <label class="img-caption">Генеральный директор «СК КСМ» – Михаил</label>
+        <label class="img-caption"
+          >Генеральный директор «СК КСМ» – Михаил</label
+        >
       </div>
     </div>
   </section>
@@ -76,9 +94,9 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-import { servicesKcm } from '@/data/servicesKsm';
-import { employees } from '@/data/employees';
+import { reactive } from "vue";
+import { servicesKcm } from "@/data/servicesKsm";
+import { employees } from "@/data/employees";
 
 const refServicesKcm = reactive(servicesKcm);
 const refEmployees = reactive(employees);
@@ -104,22 +122,21 @@ h2 {
   font-size: 32px;
   text-align: center;
 }
-.about-content h3{
+.about-content h3 {
   margin-bottom: 100px;
-  
 }
-.about-content h3 p{
+.about-content h3 p {
   padding-left: 30px;
   font-size: 30px;
   font-family: "Fira Sans", serif;
   font-weight: 800;
   font-style: normal;
 }
-h3 strong{
+h3 strong {
   font-size: 4.3em;
   color: #ff895d;
 }
-.right-mark{
+.right-mark {
   position: absolute;
   right: 0;
 }
@@ -204,10 +221,7 @@ h3 strong{
   font-weight: bold;
 }
 
-.about-services li span {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: green;
+.about-services li img {
   margin-right: 8px;
 }
 
@@ -309,7 +323,7 @@ h3 strong{
   .about-title {
     font-size: 1.6em;
   }
-  .subtitle{
+  .subtitle {
     text-align: center;
   }
   .about-subtitle {
