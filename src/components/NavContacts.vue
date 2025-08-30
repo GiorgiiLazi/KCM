@@ -48,9 +48,10 @@
   </div>
 </div>
     <!-- Мобильная иконка компании -->
-    <div class="mobile-logo">
-      <img src="/images/main-icon-2.webp" alt="КСМ логотип">
-    </div>
+     <router-link class="mobile-logo" @click="onNavigate" to="/">
+        <img src="/images/main-icon-2.webp" alt="КСМ логотип">
+     </router-link>
+    
   </nav>
 
   <!-- Мобильные контакты внизу -->
@@ -59,20 +60,19 @@
   <span class="sr-only">WhatsApp: +79219239997</span>
   <img src="/icons/whatsapp.svg" alt="WhatsApp"
        style="width:28px; height:28px; 
-              filter: invert(51%) sepia(82%) saturate(616%) 
-                      hue-rotate(87deg) brightness(107%) contrast(102%)">
+              filter: brightness(0) saturate(100%) invert(100%);">
 </a>
 
   <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
     <span class="sr-only">info.ck.kcm@gmail.com</span>
     <img src="/icons/email.svg" alt="Email" 
-         style="width:28px; height:28px; filter: invert(14%) sepia(95%) saturate(6000%) hue-rotate(360deg) brightness(90%) contrast(110%);">
+         style="width:28px; height:28px; filter: brightness(0) saturate(100%) invert(100%);">
   </a>
 
   <a href="tel:+79219239997" class="mobile-icon">
     <span class="sr-only">Telephone: +79219239997 </span>
     <img src="/icons/phone.svg" alt="Телефон" 
-         style="width:28px; height:28px; filter: invert(36%) sepia(60%) saturate(2200%) hue-rotate(185deg) brightness(95%) contrast(98%);">
+         style="width:28px; height:28px; filter: brightness(0) saturate(100%) invert(100%);">
   </a>
 </div>
 </template>
