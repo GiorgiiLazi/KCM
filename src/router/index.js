@@ -119,8 +119,8 @@ const baseRoutes = [
     },
      props: true
   },
-  { 
-    path: '/:pathMatch(.*)*',
+  {
+    path: '/404',
     name: 'NotFound',
     component: NotFound,
     meta: {
@@ -128,6 +128,10 @@ const baseRoutes = [
       description: 'Ошибка 404. Страница не найдена.',
       keywords: '404, страница не найдена, КСМ'
     }
+  },
+  { 
+    path: '/:pathMatch(.*)*',
+    redirect: '/404'
   }
 ]
 
