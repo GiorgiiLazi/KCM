@@ -152,5 +152,16 @@ export const galleryImages = {
     { src: '/images/gallery/navesy-2.webp', alt: 'Фото Навес 2' },
     { src: '/images/gallery/navesy-3.webp', alt: 'Фото Навес 3' },
     { src: '/images/gallery/navesy-4.webp', alt: 'Фото Навес 4' },
+  ],
+  "Установка малых архитектурных форм, детская площадка": [
+    { src: '/images/blagoustroystvo-1.webp', alt: 'Детская площадка 1' },
+    { src: '/images/blagoustroystvo-2.webp', alt: 'Детская площадка 2' },
+    { src: '/images/blagoustroystvo-3.webp', alt: 'Детская площадка 3' },
+    { src: '/images/blagoustroystvo-4.webp', alt: 'Детская площадка 4' },
+    { src: '/images/gallery/ploshadka-1.webp', alt: 'Детская площадка 5' },
+    { src: '/images/gallery/ploshadka-2.webp', alt: 'Детская площадка 6' },
+    { src: '/images/gallery/ploshadka-3.webp', alt: 'Детская площадка 7' },
+    { src: '/images/gallery/ploshadka-4.webp', alt: 'Детская площадка 8' },
+    
   ]
 }
