@@ -28,12 +28,12 @@
 </div>
 
   <div class="contact-item">
-    <a href="mailto:info.ck.kcm@gmail.com">
+    <a href="mailto:info.ck.ksm@gmail.com">
       <img src="/icons/email.svg" alt="Email" 
            style="width:72px; height:72px; filter: invert(14%) sepia(95%) saturate(6000%) hue-rotate(360deg) brightness(90%) contrast(110%);">
     </a>
     <label>Email</label>
-    <p><a href="mailto:info.ck.kcm@gmail.com">info.ck.ksm@gmail.com</a></p>
+    <p><a href="mailto:info.ck.ksm@gmail.com">info.ck.ksm@gmail.com</a></p>
     <p><a href="mailto:173797m@gmail.com">173797m@gmail.com</a></p>
   </div>
 
@@ -63,8 +63,8 @@
               filter: brightness(0) saturate(100%) invert(100%);">
 </a>
 
-  <a href="mailto:info.ck.kcm@gmail.com" class="mobile-icon">
-    <span class="sr-only">info.ck.kcm@gmail.com</span>
+  <a href="mailto:info.ck.ksm@gmail.com" class="mobile-icon">
+    <span class="sr-only">info.ck.ksm@gmail.com</span>
     <img src="/icons/email.svg" alt="Email" 
          style="width:28px; height:28px; filter: brightness(0) saturate(100%) invert(100%);">
   </a>
